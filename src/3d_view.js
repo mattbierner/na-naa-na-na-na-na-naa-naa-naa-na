@@ -91,24 +91,6 @@ export default class Viewer {
 
 
     draw(color, data) {
-        if (false) {
-            const posL = { x: 0, y: 0, z: 0 };
-
-            var material = new THREE.LineBasicMaterial({
-                color: color
-            });
-            
-            geometry.vertices.push(new THREE.Vector3(posL.x, posL.y, posL.z));
-            for (const {x, y} of data) {
-                if (x === 0 && y === 0)
-                    continue;
-
-                posL.x += x * SCALE;
-                posL.y += y * SCALE;
-                geometry.vertices.push(new THREE.Vector3(posL.x, posL.y, posL.z));
-            }
-        }
-        
         const buffergeometry = new THREE.BufferGeometry();
 
         const position = new THREE.Float32Attribute(data.length * 3, 3);
@@ -126,12 +108,11 @@ export default class Viewer {
             const horizontal = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 1), x * SCALE);
             const vertical = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 1), y * SCALE);
             quaternion.multiply(horizontal).multiply(vertical);
-            var vector = new THREE.Vector3(r, 0, 0);
+            var vector = new THREE.Vector3(r * i / data.length, 0, 0);
             vector.applyQuaternion(quaternion);
             quaternion.normalize()
             vector.toArray(position.array, i * 3);
             progress.array[i] = i / data.length;
-            console.log(i / data.length);
             ++i;
         }
         var line = new THREE.Line(buffergeometry, shaderMaterial);
