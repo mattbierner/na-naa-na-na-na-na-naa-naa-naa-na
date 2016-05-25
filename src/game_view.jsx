@@ -1,5 +1,6 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import THREE from 'three';
 
 import Viewer from './3d_view';
 
@@ -22,7 +23,11 @@ export default class GameView extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        this._3dview.draw(0x0000ff, newProps.data || []);
+        if (newProps.game && this.props.game !== newProps.game) {
+            this._3dview.draw(newProps.game.events, 'left_x', 'left_y',
+                new THREE.Vector4(0, 0, 0, 1),
+                new THREE.Vector4(0.9, 0.9, 0.9, 1));
+        }
     }
 
     render() {

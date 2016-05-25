@@ -89,8 +89,10 @@ export default class Viewer {
         this._renderer.setSize(width, height);
     }
 
-
-    draw(color, data) {
+    /**
+     * 
+     */
+    draw(data, xKey, yKey, startColor, endColor) {
         const buffergeometry = new THREE.BufferGeometry();
 
         const position = new THREE.Float32Attribute(data.length * 3, 3);
@@ -101,22 +103,36 @@ export default class Viewer {
         
         const r = 20;
         
-        var quaternion = new THREE.Quaternion(0, 0, 0, 1);
-        
+        let quaternion = new THREE.Quaternion(0, 0, 0, 1);
         let i = 0;
-        for (const {x, y} of data) {
+        for (const e of data) {
+            const x = e[xKey];
+            const y = e[yKey];
             const horizontal = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 1), x * SCALE);
             const vertical = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 1), y * SCALE);
             quaternion.multiply(horizontal).multiply(vertical);
-            var vector = new THREE.Vector3(r * i / data.length, 0, 0);
+            var vector = new THREE.Vector3(r * e.progress, 0, 0);
             vector.applyQuaternion(quaternion);
             quaternion.normalize()
             vector.toArray(position.array, i * 3);
-            progress.array[i] = i / data.length;
+            progress.array[i] = e.progress;
+            
             ++i;
         }
-        var line = new THREE.Line(buffergeometry, shaderMaterial);
+        
+        const material = shaderMaterial.clone();
+        material.uniforms.startColor.value = startColor;
+        material.uniforms.endColor.value = endColor;
+        
+        const line = new THREE.Line(buffergeometry, material);
         this._scene.add(line);
+    }
+    
+    /**
+     * Clear all current elements from the scene.
+     */
+    clear() {
+        // TODO
     }
 
     /**

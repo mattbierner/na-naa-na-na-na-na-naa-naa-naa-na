@@ -10,19 +10,14 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: null
+            game: null
         };
     }
 
     componentWillMount() {
         getData('examples/katamari/sumo.json')
-            .then(data => {
-                this.setState({
-                    data: data.events.map(x => ({
-                        x: x.left_x,
-                        y: x.left_y
-                    }))
-                });
+            .then(game => {
+                this.setState({ game });
             })
             .catch(e => console.error(e));
 
@@ -31,7 +26,7 @@ class Main extends React.Component {
     render() {
         return (
             <div className="main container">
-                <GameView data={this.state.data}/>
+                <GameView game={this.state.game}/>
             </div>);
     }
 };

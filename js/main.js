@@ -74,7 +74,7 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this, props));
 
 	        _this.state = {
-	            data: null
+	            game: null
 	        };
 	        return _this;
 	    }
@@ -84,15 +84,8 @@
 	        value: function componentWillMount() {
 	            var _this2 = this;
 
-	            (0, _data.getData)('examples/katamari/sumo.json').then(function (data) {
-	                _this2.setState({
-	                    data: data.events.map(function (x) {
-	                        return {
-	                            x: x.left_x,
-	                            y: x.left_y
-	                        };
-	                    })
-	                });
+	            (0, _data.getData)('examples/katamari/sumo.json').then(function (game) {
+	                _this2.setState({ game: game });
 	            }).catch(function (e) {
 	                return console.error(e);
 	            });
@@ -103,7 +96,7 @@
 	            return React.createElement(
 	                'div',
 	                { className: 'main container' },
-	                React.createElement(_game_view2.default, { data: this.state.data })
+	                React.createElement(_game_view2.default, { game: this.state.game })
 	            );
 	        }
 	    }]);
@@ -266,9 +259,14 @@
 	            this._camera.updateProjectionMatrix();
 	            this._renderer.setSize(width, height);
 	        }
+
+	        /**
+	         * 
+	         */
+
 	    }, {
 	        key: 'draw',
-	        value: function draw(color, data) {
+	        value: function draw(data, xKey, yKey, startColor, endColor) {
 	            var buffergeometry = new _three2.default.BufferGeometry();
 
 	            var position = new _three2.default.Float32Attribute(data.length * 3, 3);
@@ -280,7 +278,6 @@
 	            var r = 20;
 
 	            var quaternion = new _three2.default.Quaternion(0, 0, 0, 1);
-
 	            var i = 0;
 	            var _iteratorNormalCompletion = true;
 	            var _didIteratorError = false;
@@ -288,18 +285,19 @@
 
 	            try {
 	                for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var _step$value = _step.value;
-	                    var x = _step$value.x;
-	                    var y = _step$value.y;
+	                    var e = _step.value;
 
+	                    var x = e[xKey];
+	                    var y = e[yKey];
 	                    var horizontal = new _three2.default.Quaternion().setFromAxisAngle(new _three2.default.Vector3(1, 0, 1), x * SCALE);
 	                    var vertical = new _three2.default.Quaternion().setFromAxisAngle(new _three2.default.Vector3(0, 1, 1), y * SCALE);
 	                    quaternion.multiply(horizontal).multiply(vertical);
-	                    var vector = new _three2.default.Vector3(r * i / data.length, 0, 0);
+	                    var vector = new _three2.default.Vector3(r * e.progress, 0, 0);
 	                    vector.applyQuaternion(quaternion);
 	                    quaternion.normalize();
 	                    vector.toArray(position.array, i * 3);
-	                    progress.array[i] = i / data.length;
+	                    progress.array[i] = e.progress;
+
 	                    ++i;
 	                }
 	            } catch (err) {
@@ -317,9 +315,23 @@
 	                }
 	            }
 
-	            var line = new _three2.default.Line(buffergeometry, shaderMaterial);
+	            var material = shaderMaterial.clone();
+	            material.uniforms.startColor.value = startColor;
+	            material.uniforms.endColor.value = endColor;
+
+	            var line = new _three2.default.Line(buffergeometry, material);
 	            this._scene.add(line);
 	        }
+
+	        /**
+	         * Clear all current elements from the scene.
+	         */
+
+	    }, {
+	        key: 'clear',
+	        value: function clear() {}
+	        // TODO
+
 
 	        /**
 	         * Main update function.
@@ -25125,6 +25137,18 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	var _react = __webpack_require__(111);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(143);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _three = __webpack_require__(2);
+
+	var _three2 = _interopRequireDefault(_three);
+
 	var _d_view = __webpack_require__(1);
 
 	var _d_view2 = _interopRequireDefault(_d_view);
@@ -25136,9 +25160,6 @@
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(111);
-	var ReactDOM = __webpack_require__(143);
 
 	/**
 	 * 
@@ -25161,28 +25182,30 @@
 	        value: function componentDidMount() {
 	            if (this._3dview) return;
 
-	            var element = ReactDOM.findDOMNode(this);
+	            var element = _reactDom2.default.findDOMNode(this);
 	            var canvas = element.getElementsByClassName('glCanvas')[0];
 	            this._3dview = new _d_view2.default(canvas, element);
 	        }
 	    }, {
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(newProps) {
-	            this._3dview.draw(0x0000ff, newProps.data || []);
+	            if (newProps.game && this.props.game !== newProps.game) {
+	                this._3dview.draw(newProps.game.events, 'left_x', 'left_y', new _three2.default.Vector4(0, 0, 0, 1), new _three2.default.Vector4(0.9, 0.9, 0.9, 1));
+	            }
 	        }
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return React.createElement(
+	            return _react2.default.createElement(
 	                'div',
 	                { className: 'game-view' },
-	                React.createElement('canvas', { className: 'glCanvas' })
+	                _react2.default.createElement('canvas', { className: 'glCanvas' })
 	            );
 	        }
 	    }]);
 
 	    return GameView;
-	}(React.Component);
+	}(_react2.default.Component);
 
 	exports.default = GameView;
 
