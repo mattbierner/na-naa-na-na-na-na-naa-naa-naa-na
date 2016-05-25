@@ -23,7 +23,9 @@ export default class Viewer {
 
         this._raycaster = new THREE.Raycaster();
         this._clock = new THREE.Clock();
-
+        
+        this._toUpdate = [];
+        
         this._scene = new THREE.Scene();
 
         this.initRenderer(canvas);
@@ -35,6 +37,7 @@ export default class Viewer {
 
         this.animate = () => this.animateImpl();
         this.animateImpl();
+        
     }
 
     /**
@@ -124,6 +127,11 @@ export default class Viewer {
         material.uniforms.startColor.value = startColor;
         material.uniforms.endColor.value = endColor;
         
+        this._toUpdate.push(e => {
+            material.uniforms.time.value += 0.0001;
+            material.uniforms.needsUpdate = true;
+        });
+        
         const line = new THREE.Line(buffergeometry, material);
         this._scene.add(line);
     }
@@ -133,6 +141,7 @@ export default class Viewer {
      */
     clear() {
         // TODO
+        this._toUpdate = [];
     }
 
     /**
@@ -140,6 +149,9 @@ export default class Viewer {
      */
     update(delta) {
         this._controls.update();
+        
+        for (const x of this._toUpdate)
+            x(delta);
     }
 
     animateImpl() {

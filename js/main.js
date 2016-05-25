@@ -165,6 +165,8 @@
 	        this._raycaster = new _three2.default.Raycaster();
 	        this._clock = new _three2.default.Clock();
 
+	        this._toUpdate = [];
+
 	        this._scene = new _three2.default.Scene();
 
 	        this.initRenderer(canvas);
@@ -319,6 +321,11 @@
 	            material.uniforms.startColor.value = startColor;
 	            material.uniforms.endColor.value = endColor;
 
+	            this._toUpdate.push(function (e) {
+	                material.uniforms.time.value += 0.0001;
+	                material.uniforms.needsUpdate = true;
+	            });
+
 	            var line = new _three2.default.Line(buffergeometry, material);
 	            this._scene.add(line);
 	        }
@@ -329,9 +336,10 @@
 
 	    }, {
 	        key: 'clear',
-	        value: function clear() {}
-	        // TODO
-
+	        value: function clear() {
+	            // TODO
+	            this._toUpdate = [];
+	        }
 
 	        /**
 	         * Main update function.
@@ -341,6 +349,31 @@
 	        key: 'update',
 	        value: function update(delta) {
 	            this._controls.update();
+
+	            var _iteratorNormalCompletion2 = true;
+	            var _didIteratorError2 = false;
+	            var _iteratorError2 = undefined;
+
+	            try {
+	                for (var _iterator2 = this._toUpdate[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                    var x = _step2.value;
+
+	                    x(delta);
+	                }
+	            } catch (err) {
+	                _didIteratorError2 = true;
+	                _iteratorError2 = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                        _iterator2.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError2) {
+	                        throw _iteratorError2;
+	                    }
+	                }
+	            }
 	        }
 	    }, {
 	        key: 'animateImpl',
@@ -4995,8 +5028,9 @@
 	        endColor: { type: "v4", value: new _three2.default.Vector4(0.9, 0.9, 0.9, 1) },
 	        time: { value: 0.0 }
 	    },
-	    vertexShader: "\n        uniform vec4 startColor;\n        uniform vec4 endColor;\n    \n        attribute float progress;\n\n        varying vec4 vColor;\n\n        void main() {\n            vColor = mix(startColor, endColor, progress);\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\n        }\n    ",
-	    fragmentShader: "\n        varying vec4 vColor;\n        \n        void main() {\n            gl_FragColor = vColor;\n        }\n    "
+	    vertexShader: "\n        uniform vec4 startColor;\n        uniform vec4 endColor;\n        uniform float time;\n        \n        attribute float progress;\n\n        varying vec4 vColor;\n\n        void main() {\n            float opacity = float(progress < time);\n            \n            vColor = mix(startColor, endColor, progress) * vec4(1, 1, 1, opacity);\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\n        }\n    ",
+	    fragmentShader: "\n        varying vec4 vColor;\n        \n        void main() {\n            gl_FragColor = vColor;\n        }\n    ",
+	    transparent: true
 	};
 
 /***/ },

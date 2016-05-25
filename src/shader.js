@@ -9,13 +9,16 @@ export default {
     vertexShader: `
         uniform vec4 startColor;
         uniform vec4 endColor;
-    
+        uniform float time;
+        
         attribute float progress;
 
         varying vec4 vColor;
 
         void main() {
-            vColor = mix(startColor, endColor, progress);
+            float opacity = float(progress < time);
+            
+            vColor = mix(startColor, endColor, progress) * vec4(1, 1, 1, opacity);
             gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
         }
     `,
@@ -26,4 +29,5 @@ export default {
             gl_FragColor = vColor;
         }
     `,
+    transparent: true
 };
