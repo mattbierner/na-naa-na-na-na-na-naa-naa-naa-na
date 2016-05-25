@@ -30,7 +30,7 @@ class Main extends React.Component {
 
     render() {
         return (
-            <div className="container">
+            <div className="main container">
                 <GameView data={this.state.data}/>
             </div>);
     }

@@ -102,7 +102,7 @@
 	        value: function render() {
 	            return React.createElement(
 	                'div',
-	                { className: 'container' },
+	                { className: 'main container' },
 	                React.createElement(_game_view2.default, { data: this.state.data })
 	            );
 	        }
