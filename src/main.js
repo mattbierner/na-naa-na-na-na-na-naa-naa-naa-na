@@ -4,7 +4,6 @@ const ReactDOM = require('react-dom');
 import GameView from './game_view';
 
 import {getData} from './data';
-import * as analog from './analog';
 
 
 class Main extends React.Component {
@@ -16,13 +15,13 @@ class Main extends React.Component {
     }
 
     componentWillMount() {
-        getData('examples/katamari/sumo.data')
+        getData('examples/katamari/sumo.json')
             .then(data => {
                 this.setState({
-                    data: analog.normalize(data.map(x => ({
+                    data: data.events.map(x => ({
                         x: x.left_x,
                         y: x.left_y
-                    })))
+                    }))
                 });
             })
             .catch(e => console.error(e));
