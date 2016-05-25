@@ -4980,7 +4980,7 @@
 	exports.default = {
 	    uniforms: {
 	        startColor: { type: "v4", value: new _three2.default.Vector4(0, 0, 0, 1) },
-	        endColor: { type: "v4", value: new _three2.default.Vector4(1, 1, 1, 1) },
+	        endColor: { type: "v4", value: new _three2.default.Vector4(0.9, 0.9, 0.9, 1) },
 	        time: { value: 0.0 }
 	    },
 	    vertexShader: "\n        uniform vec4 startColor;\n        uniform vec4 endColor;\n    \n        attribute float progress;\n\n        varying vec4 vColor;\n\n        void main() {\n            vColor = mix(startColor, endColor, progress);\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\n        }\n    ",
