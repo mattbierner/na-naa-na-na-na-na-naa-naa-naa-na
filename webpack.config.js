@@ -6,7 +6,7 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     entry: {
-        main: './src/main.jsx'
+        main: './src/main.js'
     },
     output: {
         path: path.join(__dirname, "js"),

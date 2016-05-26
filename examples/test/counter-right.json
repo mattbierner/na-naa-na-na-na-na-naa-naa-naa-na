@@ -1,0 +1,4605 @@
+{
+  "duration": 9907,
+  "events": [
+    {
+      "time": 0,
+      "right_x": 0.9886363636363636,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0
+    },
+    {
+      "time": 216,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.021802765721207228
+    },
+    {
+      "time": 364,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.03674169778944181
+    },
+    {
+      "time": 380,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.038356717472494195
+    },
+    {
+      "time": 396,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.03997173715554658
+    },
+    {
+      "time": 420,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.042394266680125164
+    },
+    {
+      "time": 432,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.043605531442414455
+    },
+    {
+      "time": 450,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.04542242858584839
+    },
+    {
+      "time": 467,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.04713838699909155
+    },
+    {
+      "time": 483,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.04875340668214394
+    },
+    {
+      "time": 499,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.050368426365196325
+    },
+    {
+      "time": 517,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.05218532350863026
+    },
+    {
+      "time": 531,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.0535984657313011
+    },
+    {
+      "time": 548,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.05531442414454426
+    },
+    {
+      "time": 564,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.05692944382759665
+    },
+    {
+      "time": 585,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.05904915716160291
+    },
+    {
+      "time": 597,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.0602604219238922
+    },
+    {
+      "time": 613,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.06187544160694458
+    },
+    {
+      "time": 630,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.06359140002018775
+    },
+    {
+      "time": 646,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.06520641970324013
+    },
+    {
+      "time": 667,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.0673261330372464
+    },
+    {
+      "time": 684,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.06904209145048955
+    },
+    {
+      "time": 698,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.0704552336731604
+    },
+    {
+      "time": 720,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.07267588573735742
+    },
+    {
+      "time": 734,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.07408902796002827
+    },
+    {
+      "time": 749,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.07560310891288988
+    },
+    {
+      "time": 765,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.07721812859594226
+    },
+    {
+      "time": 781,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.07883314827899465
+    },
+    {
+      "time": 801,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.08085192288281014
+    },
+    {
+      "time": 814,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.0821641263752902
+    },
+    {
+      "time": 836,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.08438477843948723
+    },
+    {
+      "time": 855,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.08630261431311194
+    },
+    {
+      "time": 863,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.08711012415463813
+    },
+    {
+      "time": 883,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.08912889875845362
+    },
+    {
+      "time": 900,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.09084485717169678
+    },
+    {
+      "time": 915,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.09235893812455839
+    },
+    {
+      "time": 932,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.09407489653780156
+    },
+    {
+      "time": 949,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.09579085495104471
+    },
+    {
+      "time": 966,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.09750681336428788
+    },
+    {
+      "time": 982,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.09912183304734026
+    },
+    {
+      "time": 999,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.10083779146058343
+    },
+    {
+      "time": 1015,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.10245281114363582
+    },
+    {
+      "time": 1031,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1040678308266882
+    },
+    {
+      "time": 1048,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.10578378923993136
+    },
+    {
+      "time": 1065,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.10749974765317452
+    },
+    {
+      "time": 1080,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.10901382860603613
+    },
+    {
+      "time": 1097,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1107297870192793
+    },
+    {
+      "time": 1117,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.11274856162309478
+    },
+    {
+      "time": 1134,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.11446452003633795
+    },
+    {
+      "time": 1150,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.11607953971939033
+    },
+    {
+      "time": 1166,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.11769455940244272
+    },
+    {
+      "time": 1184,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.11951145654587665
+    },
+    {
+      "time": 1199,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.12102553749873826
+    },
+    {
+      "time": 1216,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.12274149591198143
+    },
+    {
+      "time": 1232,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.12435651559503381
+    },
+    {
+      "time": 1248,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1259715352780862
+    },
+    {
+      "time": 1271,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.128293126072474
+    },
+    {
+      "time": 1281,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.12930251337438176
+    },
+    {
+      "time": 1297,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.13091753305743414
+    },
+    {
+      "time": 1320,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.13323912385182193
+    },
+    {
+      "time": 1330,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.13424851115372968
+    },
+    {
+      "time": 1350,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.13626728575754518
+    },
+    {
+      "time": 1366,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.13788230544059757
+    },
+    {
+      "time": 1383,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.13959826385384072
+    },
+    {
+      "time": 1403,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1416170384576562
+    },
+    {
+      "time": 1416,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.14292924195013626
+    },
+    {
+      "time": 1433,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.14464520036337944
+    },
+    {
+      "time": 1453,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1466639749671949
+    },
+    {
+      "time": 1465,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.14787523972948421
+    },
+    {
+      "time": 1482,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.14959119814272737
+    },
+    {
+      "time": 1498,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.15120621782577975
+    },
+    {
+      "time": 1515,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1529221762390229
+    },
+    {
+      "time": 1531,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1545371959220753
+    },
+    {
+      "time": 1547,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.15615221560512768
+    },
+    {
+      "time": 1568,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.15827192893913394
+    },
+    {
+      "time": 1584,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.15988694862218633
+    },
+    {
+      "time": 1600,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.16150196830523872
+    },
+    {
+      "time": 1622,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.16372262036943575
+    },
+    {
+      "time": 1634,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.16493388513172505
+    },
+    {
+      "time": 1651,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1666498435449682
+    },
+    {
+      "time": 1669,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.16846674068840214
+    },
+    {
+      "time": 1682,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1697789441808822
+    },
+    {
+      "time": 1699,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.17149490259412536
+    },
+    {
+      "time": 1717,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1733117997375593
+    },
+    {
+      "time": 1734,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.17502775815080246
+    },
+    {
+      "time": 1748,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1764409003734733
+    },
+    {
+      "time": 1766,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.17825779751690723
+    },
+    {
+      "time": 1790,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.18068032704148582
+    },
+    {
+      "time": 1800,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.18168971434339357
+    },
+    {
+      "time": 1824,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.18411224386797215
+    },
+    {
+      "time": 1835,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.18522256990007066
+    },
+    {
+      "time": 1849,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1866357121227415
+    },
+    {
+      "time": 1867,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.18845260926617544
+    },
+    {
+      "time": 1883,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.19006762894922782
+    },
+    {
+      "time": 1901,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.19188452609266177
+    },
+    {
+      "time": 1916,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.19339860704552336
+    },
+    {
+      "time": 1932,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.19501362672857575
+    },
+    {
+      "time": 1955,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.19733521752296357
+    },
+    {
+      "time": 1965,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1983446048248713
+    },
+    {
+      "time": 1982,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.20006056323811447
+    },
+    {
+      "time": 2003,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.20218027657212073
+    },
+    {
+      "time": 2014,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.20329060260421924
+    },
+    {
+      "time": 2034,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.20530937720803472
+    },
+    {
+      "time": 2057,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.20763096800242253
+    },
+    {
+      "time": 2066,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2085394165741395
+    },
+    {
+      "time": 2084,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.21035631371757343
+    },
+    {
+      "time": 2100,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.21197133340062582
+    },
+    {
+      "time": 2119,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.21388916927425053
+    },
+    {
+      "time": 2133,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.21530231149692136
+    },
+    {
+      "time": 2149,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.21691733117997375
+    },
+    {
+      "time": 2167,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2187342283234077
+    },
+    {
+      "time": 2183,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.22034924800646008
+    },
+    {
+      "time": 2200,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.22206520641970323
+    },
+    {
+      "time": 2228,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.22489149086504492
+    },
+    {
+      "time": 2232,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.225295245785808
+    },
+    {
+      "time": 2251,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.22721308165943271
+    },
+    {
+      "time": 2267,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2288281013424851
+    },
+    {
+      "time": 2293,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.23145250832744524
+    },
+    {
+      "time": 2302,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2323609568991622
+    },
+    {
+      "time": 2317,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.23387503785202382
+    },
+    {
+      "time": 2334,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.23559099626526697
+    },
+    {
+      "time": 2353,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.23750883213889168
+    },
+    {
+      "time": 2370,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.23922479055213486
+    },
+    {
+      "time": 2383,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.24053699404461493
+    },
+    {
+      "time": 2401,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.24235389118804884
+    },
+    {
+      "time": 2416,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.24386797214091047
+    },
+    {
+      "time": 2432,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.24548299182396285
+    },
+    {
+      "time": 2448,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.24709801150701524
+    },
+    {
+      "time": 2469,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2492177248410215
+    },
+    {
+      "time": 2484,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2507318057938831
+    },
+    {
+      "time": 2501,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2524477642071263
+    },
+    {
+      "time": 2523,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2546684162713233
+    },
+    {
+      "time": 2536,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2559806197638034
+    },
+    {
+      "time": 2551,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.25749470071666497
+    },
+    {
+      "time": 2567,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.25910972039971736
+    },
+    {
+      "time": 2588,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.26122943373372365
+    },
+    {
+      "time": 2602,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.26264257595639445
+    },
+    {
+      "time": 2616,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2640557181790653
+    },
+    {
+      "time": 2636,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2660744927828808
+    },
+    {
+      "time": 2649,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2673866962753609
+    },
+    {
+      "time": 2666,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.269102654688604
+    },
+    {
+      "time": 2690,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2715251842131826
+    },
+    {
+      "time": 2701,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2726355102452811
+    },
+    {
+      "time": 2719,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.27445240738871507
+    },
+    {
+      "time": 2734,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.27596648834157667
+    },
+    {
+      "time": 2751,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.27768244675481984
+    },
+    {
+      "time": 2769,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.27949934389825376
+    },
+    {
+      "time": 2784,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.28101342485111536
+    },
+    {
+      "time": 2802,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2828303219945493
+    },
+    {
+      "time": 2820,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.28464721913798324
+    },
+    {
+      "time": 2833,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2859594226304633
+    },
+    {
+      "time": 2850,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2876753810437065
+    },
+    {
+      "time": 2866,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2892904007267589
+    },
+    {
+      "time": 2883,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.291006359140002
+    },
+    {
+      "time": 2899,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2926213788230544
+    },
+    {
+      "time": 2915,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2942363985061068
+    },
+    {
+      "time": 2936,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.29635611184011307
+    },
+    {
+      "time": 2951,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.29787019279297466
+    },
+    {
+      "time": 2968,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.29958615120621784
+    },
+    {
+      "time": 2985,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.30130210961946097
+    },
+    {
+      "time": 3002,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.30301806803270415
+    },
+    {
+      "time": 3022,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.30503684263651965
+    },
+    {
+      "time": 3034,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3062481073988089
+    },
+    {
+      "time": 3051,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3079640658120521
+    },
+    {
+      "time": 3067,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3095790854951045
+    },
+    {
+      "time": 3083,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3111941051781569
+    },
+    {
+      "time": 3101,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3130110023215908
+    },
+    {
+      "time": 3116,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3145250832744524
+    },
+    {
+      "time": 3133,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.31624104168769557
+    },
+    {
+      "time": 3157,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3186635712122742
+    },
+    {
+      "time": 3173,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3202785908953265
+    },
+    {
+      "time": 3187,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.32169173311799737
+    },
+    {
+      "time": 3202,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.32320581407085897
+    },
+    {
+      "time": 3219,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.32492177248410214
+    },
+    {
+      "time": 3236,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3266377308973453
+    },
+    {
+      "time": 3251,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3281518118502069
+    },
+    {
+      "time": 3271,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.022727272727272728,
+      "left_y": 0,
+      "progress": 0.3301705864540224
+    },
+    {
+      "time": 3287,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.2159090909090909,
+      "left_y": 0,
+      "progress": 0.3317856061370748
+    },
+    {
+      "time": 3300,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.4659090909090909,
+      "left_y": 0,
+      "progress": 0.3330978096295549
+    },
+    {
+      "time": 3325,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.7386363636363636,
+      "left_y": 0,
+      "progress": 0.3356212778843242
+    },
+    {
+      "time": 3336,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3367316039164227
+    },
+    {
+      "time": 3350,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.33814474613909357
+    },
+    {
+      "time": 3366,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.33975976582214595
+    },
+    {
+      "time": 3386,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.34177854042596145
+    },
+    {
+      "time": 3406,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.34379731502977695
+    },
+    {
+      "time": 3418,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.34500857979206623
+    },
+    {
+      "time": 3435,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.34672453820530935
+    },
+    {
+      "time": 3456,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.34884425153931564
+    },
+    {
+      "time": 3472,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.35045927122236803
+    },
+    {
+      "time": 3485,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3517714747148481
+    },
+    {
+      "time": 3501,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3533864943979005
+    },
+    {
+      "time": 3518,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3551024528111436
+    },
+    {
+      "time": 3538,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3571212274149591
+    },
+    {
+      "time": 3550,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3583324921772484
+    },
+    {
+      "time": 3567,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.36004845059049156
+    },
+    {
+      "time": 3589,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3622691026546886
+    },
+    {
+      "time": 3602,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.36358130614716866
+    },
+    {
+      "time": 3620,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.36539820329060263
+    },
+    {
+      "time": 3635,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3669122842434642
+    },
+    {
+      "time": 3653,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.36872918138689814
+    },
+    {
+      "time": 3669,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.37034420106995053
+    },
+    {
+      "time": 3687,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3721610982133845
+    },
+    {
+      "time": 3704,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3738770566266276
+    },
+    {
+      "time": 3718,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3752901988492985
+    },
+    {
+      "time": 3744,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3779146058342586
+    },
+    {
+      "time": 3752,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3787221156757848
+    },
+    {
+      "time": 3767,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.38023619662864644
+    },
+    {
+      "time": 3784,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.38195215504188956
+    },
+    {
+      "time": 3800,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.38356717472494195
+    },
+    {
+      "time": 3817,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.38528313313818513
+    },
+    {
+      "time": 3833,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3868981528212375
+    },
+    {
+      "time": 3853,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.388916927425053
+    },
+    {
+      "time": 3870,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.39063288583829614
+    },
+    {
+      "time": 3885,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3921469667911578
+    },
+    {
+      "time": 3901,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3937619864742102
+    },
+    {
+      "time": 3919,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3955788836176441
+    },
+    {
+      "time": 3938,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.3974967194912688
+    },
+    {
+      "time": 3952,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.39890986171393966
+    },
+    {
+      "time": 3968,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.40052488139699205
+    },
+    {
+      "time": 3985,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.4022408398102352
+    },
+    {
+      "time": 4004,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.4041586756838599
+    },
+    {
+      "time": 4017,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.40547087917633995
+    },
+    {
+      "time": 4034,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.40718683758958313
+    },
+    {
+      "time": 4050,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.4088018572726355
+    },
+    {
+      "time": 4069,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.4107196931462602
+    },
+    {
+      "time": 4086,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.4124356515595034
+    },
+    {
+      "time": 4102,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.4140506712425558
+    },
+    {
+      "time": 4120,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.4158675683859897
+    },
+    {
+      "time": 4136,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.4174825880690421
+    },
+    {
+      "time": 4151,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.4189966690219037
+    },
+    {
+      "time": 4169,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.42081356616533766
+    },
+    {
+      "time": 4187,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.4226304633087716
+    },
+    {
+      "time": 4202,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.42414454426163317
+    },
+    {
+      "time": 4218,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.42575956394468556
+    },
+    {
+      "time": 4234,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.42737458362773795
+    },
+    {
+      "time": 4251,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.011363636363636364,
+      "progress": 0.4290905420409811
+    },
+    {
+      "time": 4268,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.03409090909090909,
+      "progress": 0.4308065004542243
+    },
+    {
+      "time": 4284,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.06818181818181818,
+      "progress": 0.4324215201372767
+    },
+    {
+      "time": 4308,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.09090909090909091,
+      "progress": 0.43484404966185525
+    },
+    {
+      "time": 4319,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.14772727272727273,
+      "progress": 0.4359543756939538
+    },
+    {
+      "time": 4337,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.18181818181818182,
+      "progress": 0.4377712728373877
+    },
+    {
+      "time": 4362,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.23863636363636365,
+      "progress": 0.44029474109215705
+    },
+    {
+      "time": 4370,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.25,
+      "progress": 0.44110225093368327
+    },
+    {
+      "time": 4386,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.3068181818181818,
+      "progress": 0.44271727061673566
+    },
+    {
+      "time": 4404,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.375,
+      "progress": 0.4445341677601696
+    },
+    {
+      "time": 4419,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.375,
+      "progress": 0.44604824871303117
+    },
+    {
+      "time": 4435,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.375,
+      "progress": 0.44766326839608356
+    },
+    {
+      "time": 4453,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.38636363636363635,
+      "progress": 0.44948016553951753
+    },
+    {
+      "time": 4470,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.38636363636363635,
+      "progress": 0.45119612395276065
+    },
+    {
+      "time": 4484,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.38636363636363635,
+      "progress": 0.4526092661754315
+    },
+    {
+      "time": 4502,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.38636363636363635,
+      "progress": 0.45442616331886543
+    },
+    {
+      "time": 4523,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.3977272727272727,
+      "progress": 0.4565458766528717
+    },
+    {
+      "time": 4536,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.42045454545454547,
+      "progress": 0.4578580801453518
+    },
+    {
+      "time": 4555,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.42045454545454547,
+      "progress": 0.4597759160189765
+    },
+    {
+      "time": 4575,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.42045454545454547,
+      "progress": 0.461794690622792
+    },
+    {
+      "time": 4598,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.4318181818181818,
+      "progress": 0.46411628141717975
+    },
+    {
+      "time": 4603,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.45454545454545453,
+      "progress": 0.46462097506813366
+    },
+    {
+      "time": 4620,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.4659090909090909,
+      "progress": 0.4663369334813768
+    },
+    {
+      "time": 4637,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.5113636363636364,
+      "progress": 0.46805289189461996
+    },
+    {
+      "time": 4653,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.5454545454545454,
+      "progress": 0.46966791157767235
+    },
+    {
+      "time": 4669,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.5681818181818182,
+      "progress": 0.47128293126072474
+    },
+    {
+      "time": 4690,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": -0.5795454545454546,
+      "progress": 0.473402644594731
+    },
+    {
+      "time": 4701,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9772727272727273,
+      "left_y": -0.5909090909090909,
+      "progress": 0.4745129706268295
+    },
+    {
+      "time": 4718,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9772727272727273,
+      "left_y": -0.6136363636363636,
+      "progress": 0.4762289290400727
+    },
+    {
+      "time": 4734,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9545454545454546,
+      "left_y": -0.6363636363636364,
+      "progress": 0.4778439487231251
+    },
+    {
+      "time": 4750,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9204545454545454,
+      "left_y": -0.6590909090909091,
+      "progress": 0.47945896840617747
+    },
+    {
+      "time": 4770,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.8863636363636364,
+      "left_y": -0.7272727272727273,
+      "progress": 0.4814777430099929
+    },
+    {
+      "time": 4786,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.8636363636363636,
+      "left_y": -0.7613636363636364,
+      "progress": 0.4830927626930453
+    },
+    {
+      "time": 4806,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.8409090909090909,
+      "left_y": -0.7727272727272727,
+      "progress": 0.4851115372968608
+    },
+    {
+      "time": 4823,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.7954545454545454,
+      "left_y": -0.7727272727272727,
+      "progress": 0.486827495710104
+    },
+    {
+      "time": 4836,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.7840909090909091,
+      "left_y": -0.7954545454545454,
+      "progress": 0.48813969920258404
+    },
+    {
+      "time": 4863,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.7840909090909091,
+      "left_y": -0.8068181818181818,
+      "progress": 0.4908650449177349
+    },
+    {
+      "time": 4869,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.7386363636363636,
+      "left_y": -0.8522727272727273,
+      "progress": 0.49147067729887955
+    },
+    {
+      "time": 4886,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.7045454545454546,
+      "left_y": -0.875,
+      "progress": 0.49318663571212273
+    },
+    {
+      "time": 4903,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.6818181818181818,
+      "left_y": -0.9090909090909091,
+      "progress": 0.4949025941253659
+    },
+    {
+      "time": 4919,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.6363636363636364,
+      "left_y": -0.9318181818181818,
+      "progress": 0.4965176138084183
+    },
+    {
+      "time": 4942,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.6136363636363636,
+      "left_y": -0.9545454545454546,
+      "progress": 0.4988392046028061
+    },
+    {
+      "time": 4951,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.5909090909090909,
+      "left_y": -0.9772727272727273,
+      "progress": 0.4997476531745231
+    },
+    {
+      "time": 4969,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.5795454545454546,
+      "left_y": -0.9886363636363636,
+      "progress": 0.501564550317957
+    },
+    {
+      "time": 4988,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.5681818181818182,
+      "left_y": -1,
+      "progress": 0.5034823861915817
+    },
+    {
+      "time": 5003,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.5113636363636364,
+      "left_y": -1,
+      "progress": 0.5049964671444434
+    },
+    {
+      "time": 5020,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.48863636363636365,
+      "left_y": -1,
+      "progress": 0.5067124255576865
+    },
+    {
+      "time": 5038,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.4431818181818182,
+      "left_y": -1,
+      "progress": 0.5085293227011204
+    },
+    {
+      "time": 5054,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.3977272727272727,
+      "left_y": -1,
+      "progress": 0.5101443423841728
+    },
+    {
+      "time": 5070,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.375,
+      "left_y": -1,
+      "progress": 0.5117593620672252
+    },
+    {
+      "time": 5088,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.36363636363636365,
+      "left_y": -1,
+      "progress": 0.5135762592106591
+    },
+    {
+      "time": 5105,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.36363636363636365,
+      "left_y": -1,
+      "progress": 0.5152922176239023
+    },
+    {
+      "time": 5119,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.36363636363636365,
+      "left_y": -1,
+      "progress": 0.5167053598465732
+    },
+    {
+      "time": 5138,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.36363636363636365,
+      "left_y": -1,
+      "progress": 0.5186231957201979
+    },
+    {
+      "time": 5152,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.3181818181818182,
+      "left_y": -1,
+      "progress": 0.5200363379428686
+    },
+    {
+      "time": 5168,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.2727272727272727,
+      "left_y": -1,
+      "progress": 0.5216513576259211
+    },
+    {
+      "time": 5188,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.2159090909090909,
+      "left_y": -1,
+      "progress": 0.5236701322297366
+    },
+    {
+      "time": 5201,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.14772727272727273,
+      "left_y": -1,
+      "progress": 0.5249823357222166
+    },
+    {
+      "time": 5220,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.045454545454545456,
+      "left_y": -1,
+      "progress": 0.5269001715958413
+    },
+    {
+      "time": 5241,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.022727272727272728,
+      "left_y": -1,
+      "progress": 0.5290198849298475
+    },
+    {
+      "time": 5258,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5307358433430908
+    },
+    {
+      "time": 5270,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.53194710810538
+    },
+    {
+      "time": 5287,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5336630665186232
+    },
+    {
+      "time": 5304,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5353790249318664
+    },
+    {
+      "time": 5323,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5372968608054911
+    },
+    {
+      "time": 5336,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5386090642979712
+    },
+    {
+      "time": 5353,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5403250227112143
+    },
+    {
+      "time": 5371,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5421419198546482
+    },
+    {
+      "time": 5385,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5435550620773191
+    },
+    {
+      "time": 5402,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5452710204905622
+    },
+    {
+      "time": 5418,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5468860401736146
+    },
+    {
+      "time": 5435,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5486019985868578
+    },
+    {
+      "time": 5456,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.550721711920864
+    },
+    {
+      "time": 5471,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5522357928737256
+    },
+    {
+      "time": 5488,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5539517512869688
+    },
+    {
+      "time": 5504,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5555667709700212
+    },
+    {
+      "time": 5522,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5573836681134551
+    },
+    {
+      "time": 5537,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5588977490663167
+    },
+    {
+      "time": 5553,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5605127687493692
+    },
+    {
+      "time": 5570,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5622287271626123
+    },
+    {
+      "time": 5595,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5647521954173816
+    },
+    {
+      "time": 5602,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.5654587665287171
+    },
+    {
+      "time": 5619,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.07954545454545454,
+      "left_y": -1,
+      "progress": 0.5671747249419602
+    },
+    {
+      "time": 5640,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.14772727272727273,
+      "left_y": -1,
+      "progress": 0.5692944382759665
+    },
+    {
+      "time": 5652,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.22727272727272727,
+      "left_y": -1,
+      "progress": 0.5705057030382558
+    },
+    {
+      "time": 5668,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.2727272727272727,
+      "left_y": -1,
+      "progress": 0.5721207227213082
+    },
+    {
+      "time": 5688,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.3522727272727273,
+      "left_y": -1,
+      "progress": 0.5741394973251237
+    },
+    {
+      "time": 5707,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.4090909090909091,
+      "left_y": -1,
+      "progress": 0.5760573331987484
+    },
+    {
+      "time": 5720,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.45454545454545453,
+      "left_y": -1,
+      "progress": 0.5773695366912284
+    },
+    {
+      "time": 5737,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.48863636363636365,
+      "left_y": -1,
+      "progress": 0.5790854951044716
+    },
+    {
+      "time": 5793,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.5340909090909091,
+      "left_y": -1,
+      "progress": 0.5847380639951549
+    },
+    {
+      "time": 5793,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.625,
+      "left_y": -1,
+      "progress": 0.5847380639951549
+    },
+    {
+      "time": 5794,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.7159090909090909,
+      "left_y": -1,
+      "progress": 0.5848390027253457
+    },
+    {
+      "time": 5803,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.7727272727272727,
+      "left_y": -1,
+      "progress": 0.5857474512970627
+    },
+    {
+      "time": 5820,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8181818181818182,
+      "left_y": -1,
+      "progress": 0.5874634097103059
+    },
+    {
+      "time": 5848,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8409090909090909,
+      "left_y": -0.9659090909090909,
+      "progress": 0.5902896941556475
+    },
+    {
+      "time": 5852,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8636363636363636,
+      "left_y": -0.9431818181818182,
+      "progress": 0.5906934490764106
+    },
+    {
+      "time": 5870,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8863636363636364,
+      "left_y": -0.9090909090909091,
+      "progress": 0.5925103462198446
+    },
+    {
+      "time": 5887,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.9318181818181818,
+      "left_y": -0.8295454545454546,
+      "progress": 0.5942263046330877
+    },
+    {
+      "time": 5905,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.7727272727272727,
+      "progress": 0.5960432017765217
+    },
+    {
+      "time": 5925,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.7727272727272727,
+      "progress": 0.5980619763803371
+    },
+    {
+      "time": 5937,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.6704545454545454,
+      "progress": 0.5992732411426265
+    },
+    {
+      "time": 5954,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.6022727272727273,
+      "progress": 0.6009891995558696
+    },
+    {
+      "time": 5971,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.6022727272727273,
+      "progress": 0.6027051579691127
+    },
+    {
+      "time": 5989,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.5909090909090909,
+      "progress": 0.6045220551125466
+    },
+    {
+      "time": 6004,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.5568181818181818,
+      "progress": 0.6060361360654083
+    },
+    {
+      "time": 6020,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.48863636363636365,
+      "progress": 0.6076511557484607
+    },
+    {
+      "time": 6037,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.4318181818181818,
+      "progress": 0.6093671141617039
+    },
+    {
+      "time": 6055,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.3977272727272727,
+      "progress": 0.6111840113051378
+    },
+    {
+      "time": 6069,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.38636363636363635,
+      "progress": 0.6125971535278086
+    },
+    {
+      "time": 6086,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.375,
+      "progress": 0.6143131119410518
+    },
+    {
+      "time": 6106,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.36363636363636365,
+      "progress": 0.6163318865448673
+    },
+    {
+      "time": 6119,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.36363636363636365,
+      "progress": 0.6176440900373473
+    },
+    {
+      "time": 6138,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.3181818181818182,
+      "progress": 0.619561925910972
+    },
+    {
+      "time": 6159,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.29545454545454547,
+      "progress": 0.6216816392449783
+    },
+    {
+      "time": 6174,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.2840909090909091,
+      "progress": 0.6231957201978399
+    },
+    {
+      "time": 6187,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.2727272727272727,
+      "progress": 0.6245079236903199
+    },
+    {
+      "time": 6205,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.26136363636363635,
+      "progress": 0.626324820833754
+    },
+    {
+      "time": 6231,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.22727272727272727,
+      "progress": 0.628949227818714
+    },
+    {
+      "time": 6237,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.19318181818181818,
+      "progress": 0.6295548601998587
+    },
+    {
+      "time": 6255,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.14772727272727273,
+      "progress": 0.6313717573432926
+    },
+    {
+      "time": 6277,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.09090909090909091,
+      "progress": 0.6335924094074896
+    },
+    {
+      "time": 6286,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.056818181818181816,
+      "progress": 0.6345008579792066
+    },
+    {
+      "time": 6303,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.03409090909090909,
+      "progress": 0.6362168163924498
+    },
+    {
+      "time": 6326,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6385384071868376
+    },
+    {
+      "time": 6336,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6395477944887453
+    },
+    {
+      "time": 6352,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6411628141717978
+    },
+    {
+      "time": 6371,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6430806500454225
+    },
+    {
+      "time": 6396,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6456041183001918
+    },
+    {
+      "time": 6404,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6464116281417179
+    },
+    {
+      "time": 6421,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6481275865549612
+    },
+    {
+      "time": 6438,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6498435449682043
+    },
+    {
+      "time": 6455,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6515595033814474
+    },
+    {
+      "time": 6475,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6535782779852629
+    },
+    {
+      "time": 6487,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6547895427475522
+    },
+    {
+      "time": 6504,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6565055011607954
+    },
+    {
+      "time": 6531,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6592308468759464
+    },
+    {
+      "time": 6539,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6600383567174725
+    },
+    {
+      "time": 6553,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6614514989401433
+    },
+    {
+      "time": 6569,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6630665186231958
+    },
+    {
+      "time": 6589,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6650852932270112
+    },
+    {
+      "time": 6605,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6667003129100636
+    },
+    {
+      "time": 6621,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6683153325931159
+    },
+    {
+      "time": 6642,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6704350459271222
+    },
+    {
+      "time": 6659,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6721510043403653
+    },
+    {
+      "time": 6671,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6733622691026547
+    },
+    {
+      "time": 6698,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6760876148178055
+    },
+    {
+      "time": 6704,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6766932471989502
+    },
+    {
+      "time": 6721,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6784092056121934
+    },
+    {
+      "time": 6738,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6801251640254365
+    },
+    {
+      "time": 6755,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6818411224386797
+    },
+    {
+      "time": 6770,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6833552033915413
+    },
+    {
+      "time": 6786,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6849702230745938
+    },
+    {
+      "time": 6810,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6873927525991723
+    },
+    {
+      "time": 6828,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6892096497426062
+    },
+    {
+      "time": 6838,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6902190370445139
+    },
+    {
+      "time": 6855,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6919349954577572
+    },
+    {
+      "time": 6872,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6936509538710003
+    },
+    {
+      "time": 6888,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.011363636363636364,
+      "progress": 0.6952659735540527
+    },
+    {
+      "time": 6905,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.06818181818181818,
+      "progress": 0.6969819319672959
+    },
+    {
+      "time": 6922,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.09090909090909091,
+      "progress": 0.698697890380539
+    },
+    {
+      "time": 6942,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.13636363636363635,
+      "progress": 0.7007166649843545
+    },
+    {
+      "time": 6956,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.19318181818181818,
+      "progress": 0.7021298072070253
+    },
+    {
+      "time": 6971,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.23863636363636365,
+      "progress": 0.703643888159887
+    },
+    {
+      "time": 6998,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.26136363636363635,
+      "progress": 0.7063692338750378
+    },
+    {
+      "time": 7007,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.2840909090909091,
+      "progress": 0.7072776824467548
+    },
+    {
+      "time": 7020,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.2840909090909091,
+      "progress": 0.7085898859392349
+    },
+    {
+      "time": 7039,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.29545454545454547,
+      "progress": 0.7105077218128596
+    },
+    {
+      "time": 7055,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.3068181818181818,
+      "progress": 0.7121227414959119
+    },
+    {
+      "time": 7073,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.32954545454545453,
+      "progress": 0.713939638639346
+    },
+    {
+      "time": 7089,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.375,
+      "progress": 0.7155546583223983
+    },
+    {
+      "time": 7106,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.4090909090909091,
+      "progress": 0.7172706167356415
+    },
+    {
+      "time": 7127,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.4431818181818182,
+      "progress": 0.7193903300696477
+    },
+    {
+      "time": 7138,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.48863636363636365,
+      "progress": 0.7205006561017463
+    },
+    {
+      "time": 7155,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0.5,
+      "progress": 0.7222166145149894
+    },
+    {
+      "time": 7171,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.9772727272727273,
+      "left_y": 0.5113636363636364,
+      "progress": 0.7238316341980418
+    },
+    {
+      "time": 7188,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.9545454545454546,
+      "left_y": 0.5227272727272727,
+      "progress": 0.725547592611285
+    },
+    {
+      "time": 7204,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.9431818181818182,
+      "left_y": 0.5340909090909091,
+      "progress": 0.7271626122943373
+    },
+    {
+      "time": 7220,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.9204545454545454,
+      "left_y": 0.5340909090909091,
+      "progress": 0.7287776319773898
+    },
+    {
+      "time": 7239,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8977272727272727,
+      "left_y": 0.5568181818181818,
+      "progress": 0.7306954678510145
+    },
+    {
+      "time": 7253,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8863636363636364,
+      "left_y": 0.5681818181818182,
+      "progress": 0.7321086100736852
+    },
+    {
+      "time": 7282,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8863636363636364,
+      "left_y": 0.5795454545454546,
+      "progress": 0.7350358332492177
+    },
+    {
+      "time": 7292,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.875,
+      "left_y": 0.5909090909090909,
+      "progress": 0.7360452205511254
+    },
+    {
+      "time": 7305,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8636363636363636,
+      "left_y": 0.625,
+      "progress": 0.7373574240436055
+    },
+    {
+      "time": 7323,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8522727272727273,
+      "left_y": 0.6477272727272727,
+      "progress": 0.7391743211870395
+    },
+    {
+      "time": 7339,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8409090909090909,
+      "left_y": 0.6477272727272727,
+      "progress": 0.7407893408700919
+    },
+    {
+      "time": 7356,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8409090909090909,
+      "left_y": 0.6477272727272727,
+      "progress": 0.742505299283335
+    },
+    {
+      "time": 7372,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8295454545454546,
+      "left_y": 0.6590909090909091,
+      "progress": 0.7441203189663874
+    },
+    {
+      "time": 7389,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8068181818181818,
+      "left_y": 0.6704545454545454,
+      "progress": 0.7458362773796305
+    },
+    {
+      "time": 7405,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.7840909090909091,
+      "left_y": 0.6931818181818182,
+      "progress": 0.747451297062683
+    },
+    {
+      "time": 7422,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.75,
+      "left_y": 0.7159090909090909,
+      "progress": 0.7491672554759261
+    },
+    {
+      "time": 7438,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.7272727272727273,
+      "left_y": 0.7159090909090909,
+      "progress": 0.7507822751589786
+    },
+    {
+      "time": 7454,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.7159090909090909,
+      "left_y": 0.7272727272727273,
+      "progress": 0.7523972948420309
+    },
+    {
+      "time": 7473,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.6704545454545454,
+      "left_y": 0.7386363636363636,
+      "progress": 0.7543151307156556
+    },
+    {
+      "time": 7490,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.6590909090909091,
+      "left_y": 0.7613636363636364,
+      "progress": 0.7560310891288987
+    },
+    {
+      "time": 7506,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.5681818181818182,
+      "left_y": 0.8295454545454546,
+      "progress": 0.7576461088119512
+    },
+    {
+      "time": 7523,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.5568181818181818,
+      "left_y": 0.875,
+      "progress": 0.7593620672251943
+    },
+    {
+      "time": 7540,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.5340909090909091,
+      "left_y": 0.8977272727272727,
+      "progress": 0.7610780256384375
+    },
+    {
+      "time": 7555,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.5227272727272727,
+      "left_y": 0.9090909090909091,
+      "progress": 0.7625921065912991
+    },
+    {
+      "time": 7573,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.5340909090909091,
+      "left_y": 0.9090909090909091,
+      "progress": 0.764409003734733
+    },
+    {
+      "time": 7591,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.5227272727272727,
+      "left_y": 0.9204545454545454,
+      "progress": 0.766225900878167
+    },
+    {
+      "time": 7605,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.5,
+      "left_y": 0.9204545454545454,
+      "progress": 0.7676390431008377
+    },
+    {
+      "time": 7622,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.4772727272727273,
+      "left_y": 0.9318181818181818,
+      "progress": 0.769355001514081
+    },
+    {
+      "time": 7641,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.45454545454545453,
+      "left_y": 0.9318181818181818,
+      "progress": 0.7712728373877057
+    },
+    {
+      "time": 7657,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.4431818181818182,
+      "left_y": 0.9545454545454546,
+      "progress": 0.772887857070758
+    },
+    {
+      "time": 7671,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.4318181818181818,
+      "left_y": 0.9659090909090909,
+      "progress": 0.7743009992934289
+    },
+    {
+      "time": 7687,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.42045454545454547,
+      "left_y": 0.9772727272727273,
+      "progress": 0.7759160189764813
+    },
+    {
+      "time": 7704,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.38636363636363635,
+      "left_y": 0.9772727272727273,
+      "progress": 0.7776319773897244
+    },
+    {
+      "time": 7723,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.36363636363636365,
+      "left_y": 0.9886363636363636,
+      "progress": 0.7795498132633492
+    },
+    {
+      "time": 7739,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.3409090909090909,
+      "left_y": 0.9886363636363636,
+      "progress": 0.7811648329464015
+    },
+    {
+      "time": 7761,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.3068181818181818,
+      "left_y": 0.9886363636363636,
+      "progress": 0.7833854850105986
+    },
+    {
+      "time": 7774,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.26136363636363635,
+      "left_y": 0.9886363636363636,
+      "progress": 0.7846976885030786
+    },
+    {
+      "time": 7789,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.22727272727272727,
+      "left_y": 0.9886363636363636,
+      "progress": 0.7862117694559403
+    },
+    {
+      "time": 7807,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.19318181818181818,
+      "left_y": 0.9886363636363636,
+      "progress": 0.7880286665993742
+    },
+    {
+      "time": 7823,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.14772727272727273,
+      "left_y": 0.9886363636363636,
+      "progress": 0.7896436862824265
+    },
+    {
+      "time": 7839,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.125,
+      "left_y": 0.9886363636363636,
+      "progress": 0.791258705965479
+    },
+    {
+      "time": 7857,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.10227272727272728,
+      "left_y": 0.9886363636363636,
+      "progress": 0.7930756031089129
+    },
+    {
+      "time": 7872,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.06818181818181818,
+      "left_y": 0.9886363636363636,
+      "progress": 0.7945896840617745
+    },
+    {
+      "time": 7889,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.045454545454545456,
+      "left_y": 0.9886363636363636,
+      "progress": 0.7963056424750177
+    },
+    {
+      "time": 7904,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.011363636363636364,
+      "left_y": 0.9886363636363636,
+      "progress": 0.7978197234278793
+    },
+    {
+      "time": 7921,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.7995356818411224
+    },
+    {
+      "time": 7940,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8014535177147472
+    },
+    {
+      "time": 7957,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8031694761279903
+    },
+    {
+      "time": 7973,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8047844958110427
+    },
+    {
+      "time": 7989,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.806399515494095
+    },
+    {
+      "time": 8007,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.808216412637529
+    },
+    {
+      "time": 8023,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8098314323205814
+    },
+    {
+      "time": 8040,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8115473907338245
+    },
+    {
+      "time": 8056,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.813162410416877
+    },
+    {
+      "time": 8072,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8147774300999293
+    },
+    {
+      "time": 8089,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8164933885131725
+    },
+    {
+      "time": 8106,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8182093469264157
+    },
+    {
+      "time": 8122,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.819824366609468
+    },
+    {
+      "time": 8140,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.821641263752902
+    },
+    {
+      "time": 8154,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8230544059755728
+    },
+    {
+      "time": 8179,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8255778742303422
+    },
+    {
+      "time": 8191,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8267891389926315
+    },
+    {
+      "time": 8206,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.828303219945493
+    },
+    {
+      "time": 8234,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8311295043908348
+    },
+    {
+      "time": 8253,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8330473402644595
+    },
+    {
+      "time": 8257,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8334510951852225
+    },
+    {
+      "time": 8273,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.835066114868275
+    },
+    {
+      "time": 8295,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.837286766932472
+    },
+    {
+      "time": 8306,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8383970929645705
+    },
+    {
+      "time": 8322,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.022727272727272728,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8400121126476229
+    },
+    {
+      "time": 8339,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.022727272727272728,
+      "left_y": 0.9886363636363636,
+      "progress": 0.841728071060866
+    },
+    {
+      "time": 8355,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.045454545454545456,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8433430907439184
+    },
+    {
+      "time": 8371,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.06818181818181818,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8449581104269708
+    },
+    {
+      "time": 8391,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.11363636363636363,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8469768850307863
+    },
+    {
+      "time": 8407,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.125,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8485919047138387
+    },
+    {
+      "time": 8425,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.14772727272727273,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8504088018572726
+    },
+    {
+      "time": 8443,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.14772727272727273,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8522256990007065
+    },
+    {
+      "time": 8459,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.1590909090909091,
+      "left_y": 0.9886363636363636,
+      "progress": 0.853840718683759
+    },
+    {
+      "time": 8473,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.17045454545454544,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8552538609064299
+    },
+    {
+      "time": 8499,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.2159090909090909,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8578782678913899
+    },
+    {
+      "time": 8507,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.22727272727272727,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8586857777329161
+    },
+    {
+      "time": 8523,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.22727272727272727,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8603007974159685
+    },
+    {
+      "time": 8539,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.25,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8619158170990209
+    },
+    {
+      "time": 8558,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.2840909090909091,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8638336529726456
+    },
+    {
+      "time": 8574,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.32954545454545453,
+      "left_y": 0.9886363636363636,
+      "progress": 0.865448672655698
+    },
+    {
+      "time": 8589,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.36363636363636365,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8669627536085596
+    },
+    {
+      "time": 8608,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.4431818181818182,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8688805894821843
+    },
+    {
+      "time": 8625,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.4659090909090909,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8705965478954275
+    },
+    {
+      "time": 8641,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.5113636363636364,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8722115675784798
+    },
+    {
+      "time": 8657,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.5568181818181818,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8738265872615323
+    },
+    {
+      "time": 8673,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.5795454545454546,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8754416069445846
+    },
+    {
+      "time": 8691,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.6136363636363636,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8772585040880185
+    },
+    {
+      "time": 8707,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.6590909090909091,
+      "left_y": 0.9886363636363636,
+      "progress": 0.878873523771071
+    },
+    {
+      "time": 8724,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.7159090909090909,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8805894821843141
+    },
+    {
+      "time": 8740,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.7727272727272727,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8822045018673665
+    },
+    {
+      "time": 8757,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.7840909090909091,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8839204602806097
+    },
+    {
+      "time": 8776,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.8068181818181818,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8858382961542344
+    },
+    {
+      "time": 8789,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.8522727272727273,
+      "left_y": 0.9886363636363636,
+      "progress": 0.8871504996467144
+    },
+    {
+      "time": 8806,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.875,
+      "left_y": 0.9318181818181818,
+      "progress": 0.8888664580599576
+    },
+    {
+      "time": 8822,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9204545454545454,
+      "left_y": 0.9204545454545454,
+      "progress": 0.89048147774301
+    },
+    {
+      "time": 8841,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9545454545454546,
+      "left_y": 0.9090909090909091,
+      "progress": 0.8923993136166347
+    },
+    {
+      "time": 8858,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9659090909090909,
+      "left_y": 0.8977272727272727,
+      "progress": 0.8941152720298778
+    },
+    {
+      "time": 8874,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9659090909090909,
+      "left_y": 0.8977272727272727,
+      "progress": 0.8957302917129303
+    },
+    {
+      "time": 8891,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9659090909090909,
+      "left_y": 0.8977272727272727,
+      "progress": 0.8974462501261734
+    },
+    {
+      "time": 8908,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9659090909090909,
+      "left_y": 0.8977272727272727,
+      "progress": 0.8991622085394165
+    },
+    {
+      "time": 8931,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.8295454545454546,
+      "progress": 0.9014837993338044
+    },
+    {
+      "time": 8941,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.7954545454545454,
+      "progress": 0.9024931866357121
+    },
+    {
+      "time": 8958,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.7613636363636364,
+      "progress": 0.9042091450489553
+    },
+    {
+      "time": 8974,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.7386363636363636,
+      "progress": 0.9058241647320077
+    },
+    {
+      "time": 8990,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.7272727272727273,
+      "progress": 0.9074391844150601
+    },
+    {
+      "time": 9007,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.7045454545454546,
+      "progress": 0.9091551428283032
+    },
+    {
+      "time": 9023,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.6590909090909091,
+      "progress": 0.9107701625113556
+    },
+    {
+      "time": 9039,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.6136363636363636,
+      "progress": 0.912385182194408
+    },
+    {
+      "time": 9055,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.5681818181818182,
+      "progress": 0.9140002018774603
+    },
+    {
+      "time": 9075,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.5340909090909091,
+      "progress": 0.9160189764812758
+    },
+    {
+      "time": 9091,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.5113636363636364,
+      "progress": 0.9176339961643283
+    },
+    {
+      "time": 9108,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.5,
+      "progress": 0.9193499545775714
+    },
+    {
+      "time": 9133,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.48863636363636365,
+      "progress": 0.9218734228323407
+    },
+    {
+      "time": 9142,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.4659090909090909,
+      "progress": 0.9227818714040578
+    },
+    {
+      "time": 9158,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.45454545454545453,
+      "progress": 0.9243968910871101
+    },
+    {
+      "time": 9175,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.45454545454545453,
+      "progress": 0.9261128495003533
+    },
+    {
+      "time": 9191,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.45454545454545453,
+      "progress": 0.9277278691834057
+    },
+    {
+      "time": 9207,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.45454545454545453,
+      "progress": 0.9293428888664581
+    },
+    {
+      "time": 9230,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.45454545454545453,
+      "progress": 0.9316644796608459
+    },
+    {
+      "time": 9240,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.4318181818181818,
+      "progress": 0.9326738669627536
+    },
+    {
+      "time": 9256,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.3068181818181818,
+      "progress": 0.934288886645806
+    },
+    {
+      "time": 9273,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.23863636363636365,
+      "progress": 0.9360048450590491
+    },
+    {
+      "time": 9289,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.2159090909090909,
+      "progress": 0.9376198647421016
+    },
+    {
+      "time": 9308,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.2159090909090909,
+      "progress": 0.9395377006157263
+    },
+    {
+      "time": 9325,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.2159090909090909,
+      "progress": 0.9412536590289694
+    },
+    {
+      "time": 9341,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.2159090909090909,
+      "progress": 0.9428686787120218
+    },
+    {
+      "time": 9361,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.2159090909090909,
+      "progress": 0.9448874533158372
+    },
+    {
+      "time": 9375,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0.07954545454545454,
+      "progress": 0.9463005955385081
+    },
+    {
+      "time": 9391,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9479156152215605
+    },
+    {
+      "time": 9408,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9496315736348037
+    },
+    {
+      "time": 9434,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9522559806197638
+    },
+    {
+      "time": 9441,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9529625517310992
+    },
+    {
+      "time": 9457,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9545775714141516
+    },
+    {
+      "time": 9473,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.956192591097204
+    },
+    {
+      "time": 9490,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9579085495104471
+    },
+    {
+      "time": 9506,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9595235691934996
+    },
+    {
+      "time": 9522,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9611385888765519
+    },
+    {
+      "time": 9542,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9631573634803674
+    },
+    {
+      "time": 9564,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9653780155445645
+    },
+    {
+      "time": 9575,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.966488341576663
+    },
+    {
+      "time": 9591,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9681033612597153
+    },
+    {
+      "time": 9608,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9698193196729585
+    },
+    {
+      "time": 9624,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9714343393560109
+    },
+    {
+      "time": 9641,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9731502977692541
+    },
+    {
+      "time": 9658,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9748662561824972
+    },
+    {
+      "time": 9677,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9767840920561219
+    },
+    {
+      "time": 9690,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.978096295548602
+    },
+    {
+      "time": 9707,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9798122539618451
+    },
+    {
+      "time": 9723,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9814272736448976
+    },
+    {
+      "time": 9743,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9834460482487131
+    },
+    {
+      "time": 9759,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9850610679317654
+    },
+    {
+      "time": 9775,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9866760876148178
+    },
+    {
+      "time": 9792,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.988392046028061
+    },
+    {
+      "time": 9809,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9901080044413041
+    },
+    {
+      "time": 9827,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9919249015847381
+    },
+    {
+      "time": 9842,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9934389825375997
+    },
+    {
+      "time": 9858,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9950540022206521
+    },
+    {
+      "time": 9875,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9967699606338952
+    },
+    {
+      "time": 9891,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 0.9983849803169477
+    },
+    {
+      "time": 9907,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0.9886363636363636,
+      "left_y": 0,
+      "progress": 1
+    }
+  ]
+}

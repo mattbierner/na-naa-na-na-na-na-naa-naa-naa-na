@@ -11,6 +11,9 @@ const SCALE = 1 / 20;
 
 const shaderMaterial = new THREE.ShaderMaterial(Shader);
 
+const surfaceArea = r =>
+    4 / 3 * Math.PI * r * r;
+
 /**
  * 3D view
  */
@@ -23,9 +26,9 @@ export default class Viewer {
 
         this._raycaster = new THREE.Raycaster();
         this._clock = new THREE.Clock();
-        
+
         this._toUpdate = [];
-        
+
         this._scene = new THREE.Scene();
 
         this.initRenderer(canvas);
@@ -37,7 +40,7 @@ export default class Viewer {
 
         this.animate = () => this.animateImpl();
         this.animateImpl();
-        
+
     }
 
     /**
@@ -59,8 +62,8 @@ export default class Viewer {
     initCamera() {
         const [viewWidth, viewHeight] = this._getViewportSize();
         const aspect = viewWidth / viewHeight;
-        this._camera = new THREE.PerspectiveCamera(75, aspect, 0.1, 800);
-        this._camera.position.z = 40;
+        this._camera = new THREE.PerspectiveCamera(75, aspect, 0.01, 800);
+        this._camera.position.z = Math.abs(aspect / Math.sin(this._camera.fov * ( Math.PI / 180 ) / 2));
     }
 
     /**
@@ -100,42 +103,50 @@ export default class Viewer {
 
         const position = new THREE.Float32Attribute(data.length * 3, 3);
         buffergeometry.addAttribute('position', position)
-        
+
         const progress = new THREE.Float32Attribute(data.length, 1);
         buffergeometry.addAttribute('progress', progress);
-        
-        const r = 20;
+
+        const rMin = 0.01;
+        const rMax = 1;
+        const rD = rMax - rMin;
+        const angle = 0;
         
         let quaternion = new THREE.Quaternion(0, 0, 0, 1);
         let i = 0;
         for (const e of data) {
             const x = e[xKey];
             const y = e[yKey];
-            const horizontal = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 1), x * SCALE);
-            const vertical = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 1), y * SCALE);
+            const r = rMax//rMin + rD * e.progress;
+            const scale = SCALE;// * (surfaceArea(rMax) / surfaceArea(r)) * .1;
+            
+            const horizontal = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), x * scale);
+            const vertical = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), y * scale);
             quaternion.multiply(horizontal).multiply(vertical);
-            var vector = new THREE.Vector3(r * e.progress, 0, 0);
+
+            const vector = new THREE.Vector3(0, 0, r);
             vector.applyQuaternion(quaternion);
-            quaternion.normalize()
+            quaternion.normalize();
+
             vector.toArray(position.array, i * 3);
             progress.array[i] = e.progress;
-            
+
             ++i;
         }
-        
+
         const material = shaderMaterial.clone();
         material.uniforms.startColor.value = startColor;
         material.uniforms.endColor.value = endColor;
-        
+
         this._toUpdate.push(e => {
-            material.uniforms.time.value += 0.0001;
+            material.uniforms.time.value += 0.001;
             material.uniforms.needsUpdate = true;
         });
-        
+
         const line = new THREE.Line(buffergeometry, material);
         this._scene.add(line);
     }
-    
+
     /**
      * Clear all current elements from the scene.
      */
@@ -149,7 +160,7 @@ export default class Viewer {
      */
     update(delta) {
         this._controls.update();
-        
+
         for (const x of this._toUpdate)
             x(delta);
     }

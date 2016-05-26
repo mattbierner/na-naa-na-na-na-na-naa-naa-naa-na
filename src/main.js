@@ -15,7 +15,7 @@ class Main extends React.Component {
     }
 
     componentWillMount() {
-        getData('examples/katamari/sumo.json')
+        getData('examples/test/counter-right.json')//'examples/katamari/sumo.json')
             .then(game => {
                 this.setState({ game });
             })

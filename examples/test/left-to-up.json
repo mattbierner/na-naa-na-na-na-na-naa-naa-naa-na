@@ -1,0 +1,1861 @@
+{
+  "duration": 3988,
+  "events": [
+    {
+      "time": 0,
+      "right_x": 0.9886363636363636,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0.9886363636363636,
+      "progress": 0
+    },
+    {
+      "time": 17,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.004262788365095286
+    },
+    {
+      "time": 33,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.008274824473420261
+    },
+    {
+      "time": 184,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.04613841524573721
+    },
+    {
+      "time": 201,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.050401203610832494
+    },
+    {
+      "time": 217,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.05441323971915747
+    },
+    {
+      "time": 235,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.05892678034102307
+    },
+    {
+      "time": 250,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.06268806419257773
+    },
+    {
+      "time": 267,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.06695085255767302
+    },
+    {
+      "time": 289,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.07246740220661986
+    },
+    {
+      "time": 299,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.07497492477432297
+    },
+    {
+      "time": 316,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.07923771313941826
+    },
+    {
+      "time": 335,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.08400200601805416
+    },
+    {
+      "time": 349,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.08751253761283852
+    },
+    {
+      "time": 369,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.09252758274824474
+    },
+    {
+      "time": 389,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.09754262788365095
+    },
+    {
+      "time": 406,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.10180541624874624
+    },
+    {
+      "time": 418,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.10481444332998997
+    },
+    {
+      "time": 434,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.10882647943831494
+    },
+    {
+      "time": 451,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.11308926780341023
+    },
+    {
+      "time": 467,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1171013039117352
+    },
+    {
+      "time": 484,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1213640922768305
+    },
+    {
+      "time": 500,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.12537612838515547
+    },
+    {
+      "time": 517,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.12963891675025074
+    },
+    {
+      "time": 533,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.13365095285857573
+    },
+    {
+      "time": 549,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1376629889669007
+    },
+    {
+      "time": 568,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1424272818455366
+    },
+    {
+      "time": 586,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.1469408224674022
+    },
+    {
+      "time": 601,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.15070210631895686
+    },
+    {
+      "time": 619,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.15521564694082246
+    },
+    {
+      "time": 635,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.15922768304914744
+    },
+    {
+      "time": 651,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.16323971915747243
+    },
+    {
+      "time": 671,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.16825476429287864
+    },
+    {
+      "time": 687,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.17226680040120362
+    },
+    {
+      "time": 701,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.17577733199598797
+    },
+    {
+      "time": 721,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.18079237713139418
+    },
+    {
+      "time": 737,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.18480441323971916
+    },
+    {
+      "time": 750,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.18806419257773319
+    },
+    {
+      "time": 771,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.19332998996990972
+    },
+    {
+      "time": 783,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.19633901705115345
+    },
+    {
+      "time": 799,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.20035105315947843
+    },
+    {
+      "time": 818,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.20511534603811435
+    },
+    {
+      "time": 837,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.20987963891675024
+    },
+    {
+      "time": 858,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.21514543630892677
+    },
+    {
+      "time": 869,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2179037111334002
+    },
+    {
+      "time": 885,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.22191574724172516
+    },
+    {
+      "time": 904,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.22668004012036108
+    },
+    {
+      "time": 918,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.23019057171514543
+    },
+    {
+      "time": 934,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2342026078234704
+    },
+    {
+      "time": 952,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.238716148445336
+    },
+    {
+      "time": 980,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.24573721163490472
+    },
+    {
+      "time": 987,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.24749247743229688
+    },
+    {
+      "time": 1000,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.25075225677031093
+    },
+    {
+      "time": 1020,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.25576730190571717
+    },
+    {
+      "time": 1039,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.26053159478435306
+    },
+    {
+      "time": 1052,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2637913741223671
+    },
+    {
+      "time": 1068,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2678034102306921
+    },
+    {
+      "time": 1086,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2723169508525577
+    },
+    {
+      "time": 1102,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.27632898696088265
+    },
+    {
+      "time": 1118,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2803410230692076
+    },
+    {
+      "time": 1135,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2846038114343029
+    },
+    {
+      "time": 1154,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2893681043129388
+    },
+    {
+      "time": 1168,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.2928786359077232
+    },
+    {
+      "time": 1184,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.29689067201604813
+    },
+    {
+      "time": 1201,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.30115346038114343
+    },
+    {
+      "time": 1219,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.30566700100300903
+    },
+    {
+      "time": 1235,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.309679037111334
+    },
+    {
+      "time": 1250,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.31344032096288865
+    },
+    {
+      "time": 1269,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3182046138415246
+    },
+    {
+      "time": 1286,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.32246740220661985
+    },
+    {
+      "time": 1306,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3274824473420261
+    },
+    {
+      "time": 1319,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3307422266800401
+    },
+    {
+      "time": 1336,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3350050150451354
+    },
+    {
+      "time": 1353,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3392678034102307
+    },
+    {
+      "time": 1372,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3440320962888666
+    },
+    {
+      "time": 1385,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.34729187562688063
+    },
+    {
+      "time": 1401,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.35130391173520564
+    },
+    {
+      "time": 1422,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3565697091273822
+    },
+    {
+      "time": 1436,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3600802407221665
+    },
+    {
+      "time": 1450,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.36359077231695086
+    },
+    {
+      "time": 1468,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.36810431293881646
+    },
+    {
+      "time": 1490,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3736208625877633
+    },
+    {
+      "time": 1503,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3768806419257773
+    },
+    {
+      "time": 1520,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3811434302908726
+    },
+    {
+      "time": 1547,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.387913741223671
+    },
+    {
+      "time": 1556,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3901705115346038
+    },
+    {
+      "time": 1569,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.3934302908726178
+    },
+    {
+      "time": 1585,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.39744232698094284
+    },
+    {
+      "time": 1607,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.40295887662988966
+    },
+    {
+      "time": 1619,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4059679037111334
+    },
+    {
+      "time": 1635,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.40997993981945835
+    },
+    {
+      "time": 1653,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.41449348044132395
+    },
+    {
+      "time": 1667,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4180040120361083
+    },
+    {
+      "time": 1684,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4222668004012036
+    },
+    {
+      "time": 1700,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4262788365095286
+    },
+    {
+      "time": 1721,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4315446339017051
+    },
+    {
+      "time": 1736,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4353059177532598
+    },
+    {
+      "time": 1753,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4395687061183551
+    },
+    {
+      "time": 1770,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.44383149448345033
+    },
+    {
+      "time": 1790,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.44884653961885657
+    },
+    {
+      "time": 1802,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4518555667001003
+    },
+    {
+      "time": 1819,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4561183550651956
+    },
+    {
+      "time": 1842,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4618856569709127
+    },
+    {
+      "time": 1856,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4653961885656971
+    },
+    {
+      "time": 1868,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4684052156469408
+    },
+    {
+      "time": 1884,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4724172517552658
+    },
+    {
+      "time": 1902,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4769307923771314
+    },
+    {
+      "time": 1919,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.4811935807422267
+    },
+    {
+      "time": 1934,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": 0,
+      "progress": 0.48495486459378134
+    },
+    {
+      "time": 1959,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.03409090909090909,
+      "left_y": 0,
+      "progress": 0.4912236710130391
+    },
+    {
+      "time": 1975,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.20454545454545456,
+      "left_y": 0,
+      "progress": 0.4952357071213641
+    },
+    {
+      "time": 1987,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.45454545454545453,
+      "left_y": 0,
+      "progress": 0.49824473420260784
+    },
+    {
+      "time": 2010,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.6704545454545454,
+      "left_y": 0,
+      "progress": 0.504012036108325
+    },
+    {
+      "time": 2022,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.875,
+      "left_y": 0,
+      "progress": 0.5070210631895687
+    },
+    {
+      "time": 2036,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5105315947843531
+    },
+    {
+      "time": 2052,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5145436308926781
+    },
+    {
+      "time": 2070,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5190571715145437
+    },
+    {
+      "time": 2089,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5238214643931796
+    },
+    {
+      "time": 2102,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5270812437311936
+    },
+    {
+      "time": 2118,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5310932798395186
+    },
+    {
+      "time": 2134,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5351053159478435
+    },
+    {
+      "time": 2151,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5393681043129388
+    },
+    {
+      "time": 2167,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5433801404212638
+    },
+    {
+      "time": 2189,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5488966900702106
+    },
+    {
+      "time": 2204,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5526579739217653
+    },
+    {
+      "time": 2220,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5566700100300903
+    },
+    {
+      "time": 2237,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5609327983951855
+    },
+    {
+      "time": 2255,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5654463390170511
+    },
+    {
+      "time": 2273,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5699598796389167
+    },
+    {
+      "time": 2286,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5732196589769308
+    },
+    {
+      "time": 2312,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5797392176529589
+    },
+    {
+      "time": 2319,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.581494483450351
+    },
+    {
+      "time": 2335,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.585506519558676
+    },
+    {
+      "time": 2351,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.589518555667001
+    },
+    {
+      "time": 2370,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.594282848545637
+    },
+    {
+      "time": 2384,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.5977933801404213
+    },
+    {
+      "time": 2401,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6020561685055166
+    },
+    {
+      "time": 2421,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6070712136409228
+    },
+    {
+      "time": 2439,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6115847542627884
+    },
+    {
+      "time": 2454,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6153460381143431
+    },
+    {
+      "time": 2470,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.619358074222668
+    },
+    {
+      "time": 2487,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": 0,
+      "progress": 0.6236208625877633
+    },
+    {
+      "time": 2505,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.03409090909090909,
+      "progress": 0.6281344032096289
+    },
+    {
+      "time": 2519,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.10227272727272728,
+      "progress": 0.6316449348044132
+    },
+    {
+      "time": 2536,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.11363636363636363,
+      "progress": 0.6359077231695085
+    },
+    {
+      "time": 2552,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.11363636363636363,
+      "progress": 0.6399197592778335
+    },
+    {
+      "time": 2572,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.17045454545454544,
+      "progress": 0.6449348044132397
+    },
+    {
+      "time": 2585,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.23863636363636365,
+      "progress": 0.6481945837512537
+    },
+    {
+      "time": 2601,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.38636363636363635,
+      "progress": 0.6522066198595787
+    },
+    {
+      "time": 2618,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.45454545454545453,
+      "progress": 0.656469408224674
+    },
+    {
+      "time": 2637,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.5,
+      "progress": 0.6612337011033099
+    },
+    {
+      "time": 2653,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.5113636363636364,
+      "progress": 0.6652457372116349
+    },
+    {
+      "time": 2671,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.5113636363636364,
+      "progress": 0.6697592778335005
+    },
+    {
+      "time": 2690,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.5113636363636364,
+      "progress": 0.6745235707121364
+    },
+    {
+      "time": 2705,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.5227272727272727,
+      "progress": 0.678284854563691
+    },
+    {
+      "time": 2720,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -1,
+      "left_y": -0.5909090909090909,
+      "progress": 0.6820461384152458
+    },
+    {
+      "time": 2736,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.9431818181818182,
+      "left_y": -0.7045454545454546,
+      "progress": 0.6860581745235708
+    },
+    {
+      "time": 2753,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8863636363636364,
+      "left_y": -0.7613636363636364,
+      "progress": 0.690320962888666
+    },
+    {
+      "time": 2770,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8863636363636364,
+      "left_y": -0.7613636363636364,
+      "progress": 0.6945837512537613
+    },
+    {
+      "time": 2786,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8863636363636364,
+      "left_y": -0.7613636363636364,
+      "progress": 0.6985957873620863
+    },
+    {
+      "time": 2802,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8863636363636364,
+      "left_y": -0.7613636363636364,
+      "progress": 0.7026078234704113
+    },
+    {
+      "time": 2823,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.8522727272727273,
+      "left_y": -0.7727272727272727,
+      "progress": 0.7078736208625878
+    },
+    {
+      "time": 2839,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.7727272727272727,
+      "left_y": -0.875,
+      "progress": 0.7118856569709128
+    },
+    {
+      "time": 2851,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.6704545454545454,
+      "left_y": -0.9318181818181818,
+      "progress": 0.7148946840521565
+    },
+    {
+      "time": 2881,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.5681818181818182,
+      "left_y": -0.9886363636363636,
+      "progress": 0.7224172517552658
+    },
+    {
+      "time": 2888,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.5454545454545454,
+      "left_y": -1,
+      "progress": 0.724172517552658
+    },
+    {
+      "time": 2904,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.5340909090909091,
+      "left_y": -1,
+      "progress": 0.728184553660983
+    },
+    {
+      "time": 2923,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.5113636363636364,
+      "left_y": -1,
+      "progress": 0.7329488465396189
+    },
+    {
+      "time": 2937,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.45454545454545453,
+      "left_y": -1,
+      "progress": 0.7364593781344032
+    },
+    {
+      "time": 2953,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.4431818181818182,
+      "left_y": -1,
+      "progress": 0.7404714142427282
+    },
+    {
+      "time": 2972,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.42045454545454547,
+      "left_y": -1,
+      "progress": 0.7452357071213641
+    },
+    {
+      "time": 2986,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.38636363636363635,
+      "left_y": -1,
+      "progress": 0.7487462387161484
+    },
+    {
+      "time": 3003,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.36363636363636365,
+      "left_y": -1,
+      "progress": 0.7530090270812437
+    },
+    {
+      "time": 3022,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.3409090909090909,
+      "left_y": -1,
+      "progress": 0.7577733199598796
+    },
+    {
+      "time": 3035,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.29545454545454547,
+      "left_y": -1,
+      "progress": 0.7610330992978936
+    },
+    {
+      "time": 3052,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.26136363636363635,
+      "left_y": -1,
+      "progress": 0.765295887662989
+    },
+    {
+      "time": 3070,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.23863636363636365,
+      "left_y": -1,
+      "progress": 0.7698094282848545
+    },
+    {
+      "time": 3085,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.20454545454545456,
+      "left_y": -1,
+      "progress": 0.7735707121364093
+    },
+    {
+      "time": 3104,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.17045454545454544,
+      "left_y": -1,
+      "progress": 0.7783350050150452
+    },
+    {
+      "time": 3122,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.13636363636363635,
+      "left_y": -1,
+      "progress": 0.7828485456369108
+    },
+    {
+      "time": 3138,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.09090909090909091,
+      "left_y": -1,
+      "progress": 0.7868605817452357
+    },
+    {
+      "time": 3158,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.045454545454545456,
+      "left_y": -1,
+      "progress": 0.791875626880642
+    },
+    {
+      "time": 3178,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": -0.011363636363636364,
+      "left_y": -1,
+      "progress": 0.7968906720160481
+    },
+    {
+      "time": 3189,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.7996489468405216
+    },
+    {
+      "time": 3203,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8031594784353059
+    },
+    {
+      "time": 3220,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8074222668004012
+    },
+    {
+      "time": 3236,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8114343029087262
+    },
+    {
+      "time": 3253,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8156970912738215
+    },
+    {
+      "time": 3272,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8204613841524574
+    },
+    {
+      "time": 3285,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8237211634904714
+    },
+    {
+      "time": 3302,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8279839518555667
+    },
+    {
+      "time": 3321,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8327482447342026
+    },
+    {
+      "time": 3338,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8370110330992979
+    },
+    {
+      "time": 3354,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8410230692076228
+    },
+    {
+      "time": 3371,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8452858575727181
+    },
+    {
+      "time": 3390,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.850050150451354
+    },
+    {
+      "time": 3404,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8535606820461384
+    },
+    {
+      "time": 3420,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8575727181544633
+    },
+    {
+      "time": 3437,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8618355065195586
+    },
+    {
+      "time": 3457,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8668505516549649
+    },
+    {
+      "time": 3470,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.870110330992979
+    },
+    {
+      "time": 3486,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8741223671013039
+    },
+    {
+      "time": 3502,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8781344032096289
+    },
+    {
+      "time": 3522,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8831494483450351
+    },
+    {
+      "time": 3535,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8864092276830492
+    },
+    {
+      "time": 3555,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8914242728184554
+    },
+    {
+      "time": 3572,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.8956870611835507
+    },
+    {
+      "time": 3590,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9002006018054163
+    },
+    {
+      "time": 3605,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9039618856569709
+    },
+    {
+      "time": 3621,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9079739217652959
+    },
+    {
+      "time": 3642,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9132397191574724
+    },
+    {
+      "time": 3656,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9167502507522568
+    },
+    {
+      "time": 3670,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9202607823470411
+    },
+    {
+      "time": 3687,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9245235707121364
+    },
+    {
+      "time": 3704,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9287863590772317
+    },
+    {
+      "time": 3723,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9335506519558676
+    },
+    {
+      "time": 3736,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9368104312938816
+    },
+    {
+      "time": 3752,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9408224674022067
+    },
+    {
+      "time": 3770,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9453360080240722
+    },
+    {
+      "time": 3788,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9498495486459378
+    },
+    {
+      "time": 3804,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9538615847542627
+    },
+    {
+      "time": 3822,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9583751253761283
+    },
+    {
+      "time": 3838,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9623871614844534
+    },
+    {
+      "time": 3855,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9666499498495487
+    },
+    {
+      "time": 3871,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9706619859578737
+    },
+    {
+      "time": 3887,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9746740220661986
+    },
+    {
+      "time": 3906,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9794383149448345
+    },
+    {
+      "time": 3920,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9829488465396189
+    },
+    {
+      "time": 3944,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9889669007021064
+    },
+    {
+      "time": 3953,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9912236710130391
+    },
+    {
+      "time": 3969,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 0.9952357071213641
+    },
+    {
+      "time": 3988,
+      "right_x": 0,
+      "right_y": 0,
+      "left_x": 0,
+      "left_y": -1,
+      "progress": 1
+    }
+  ]
+}
