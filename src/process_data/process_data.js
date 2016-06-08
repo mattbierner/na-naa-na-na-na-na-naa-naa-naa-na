@@ -3,7 +3,6 @@
  */
 "use strict";
 const moment = require('moment');
-const fs = require('fs');
 const analog = require('./analog');
 
 const MID = 128;
@@ -12,17 +11,8 @@ const DEAD_ZONE = 40;
 
 
 /**
- * Load some raw data form a file.
- */
-const loadData = path =>
-    new Promise((resolve, reject) => {
-        const content = fs.readFileSync(path, 'utf-8');
-        return resolve(content);
-    });
-
-/**
 */
-const processRow = row => {
+const extractRow = row => {
     const elements = row.split(',').map(x => x.trim());
     const time = moment(elements[0]);
     return {
@@ -32,6 +22,18 @@ const processRow = row => {
         left_x: +elements[5],
         left_y: +elements[6]
     };
+};
+
+const processRow = module.exports.processRow = data => {
+    const e = extractRow(data);
+    const left = analog.normalize(e.left_x, e.left_y);
+    e.left_x = left.x;
+    e.left_y = left.y;
+    
+    const right = analog.normalize(e.right_x, e.right_y);
+    e.right_x = right.x;
+    e.right_y = right.y;
+    return e;
 };
 
 /**
@@ -69,7 +71,7 @@ const trimEnds = data => {
 /**
  * Create match data structure from raw event data.
  */
-const createMatch = data => {
+module.exports.createMatch = data => {
     const start = data[0] && data[0].time;
     const duration = data.length < 2 ? 0 : data[data.length - 1].time.diff(start);
     
@@ -77,14 +79,6 @@ const createMatch = data => {
         const time = e.time.diff(start);
         e.time = time;
         e.progress = time / duration;
-        
-        const left = analog.normalize(e.left_x, e.left_y);
-        e.left_x = left.x;
-        e.left_y = left.y;
-        
-        const right = analog.normalize(e.right_x, e.right_y);
-        e.right_x = right.x;
-        e.right_y = right.y;
     }
 
     return {
@@ -92,12 +86,3 @@ const createMatch = data => {
         events: data
     };
 };
-
-/**
- * Load data from a text file
- */
-module.exports.getData = path =>
-    loadData(path)
-        .then(x => processData(x))
-        .then(trimEnds)
-        .then(createMatch);

@@ -1,8 +1,7 @@
-const React = require('react');
-const ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-import GameView from './game_view';
-
+import GameView from './stream_game_view';
 import {getData} from './data';
 
 
