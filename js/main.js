@@ -23666,9 +23666,9 @@
 	    value: true
 	});
 
-	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
-
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
 
 	var _three = __webpack_require__(169);
 
@@ -23682,15 +23682,20 @@
 
 	var _shader2 = _interopRequireDefault(_shader);
 
+	var _base_3d_view = __webpack_require__(175);
+
+	var _base_3d_view2 = _interopRequireDefault(_base_3d_view);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
 	var ResizeSensor = __webpack_require__(173);
 
-	var MID = 128;
-	var MAX = 255;
-	var DEAD_ZONE = 10;
 	var SCALE = 1 / 20;
 
 	var shaderMaterial = new _three2.default.ShaderMaterial(_shader2.default);
@@ -23703,122 +23708,21 @@
 	 * 3D view
 	 */
 
-	var Viewer = function () {
-	    function Viewer(canvas, container) {
-	        var _this = this;
+	var Viewer = function (_Base3dView) {
+	    _inherits(Viewer, _Base3dView);
 
+	    function Viewer(canvas, container) {
 	        _classCallCheck(this, Viewer);
 
-	        this.isMouseDown = false;
-	        this.container = container;
-
-	        this.mouse = null;
-
-	        this._raycaster = new _three2.default.Raycaster();
-	        this._clock = new _three2.default.Clock();
-
-	        this._toUpdate = [];
-
-	        this._scene = new _three2.default.Scene();
-
-	        this.initRenderer(canvas);
-	        this.initCamera();
-	        this.initControls(container);
-
-	        new ResizeSensor(container, this.onWindowResize.bind(this));
-	        this.onWindowResize();
-
-	        this.animate = function () {
-	            return _this.animateImpl();
-	        };
-	        this.animateImpl();
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Viewer).call(this, canvas, container));
 	    }
 
 	    /**
-	     * Setup the initial renderer.
+	     * 
 	     */
 
 
 	    _createClass(Viewer, [{
-	        key: 'initRenderer',
-	        value: function initRenderer(canvas) {
-	            this._renderer = new _three2.default.WebGLRenderer({
-	                canvas: canvas,
-	                alpha: true,
-	                antialias: true
-	            });
-	            this._renderer.setClearColor(0xffffff, 0);
-	            this._renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
-	        }
-
-	        /**
-	         * Setup the initial camera.
-	         */
-
-	    }, {
-	        key: 'initCamera',
-	        value: function initCamera() {
-	            var _getViewportSize2 = this._getViewportSize();
-
-	            var _getViewportSize3 = _slicedToArray(_getViewportSize2, 2);
-
-	            var viewWidth = _getViewportSize3[0];
-	            var viewHeight = _getViewportSize3[1];
-
-	            var aspect = viewWidth / viewHeight;
-	            this._camera = new _three2.default.PerspectiveCamera(75, aspect, 0.01, 800);
-	            this._camera.position.z = Math.abs(aspect / Math.sin(this._camera.fov * (Math.PI / 180) / 2));
-	        }
-
-	        /**
-	         * Setup the controls.
-	         */
-
-	    }, {
-	        key: 'initControls',
-	        value: function initControls(container) {
-	            this._controls = new _OrbitControls2.default(this._camera, container);
-	            this._controls.enableDamping = true;
-	            this._controls.dampingFactor = 0.25;
-	            this._controls.enableZoom = true;
-	        }
-
-	        /**
-	         * Get the size of the viewport.
-	         */
-
-	    }, {
-	        key: '_getViewportSize',
-	        value: function _getViewportSize() {
-	            var rect = this.container.getBoundingClientRect();
-	            return [rect.width, rect.height];
-	        }
-
-	        /**
-	         * Handle window resize events.
-	         */
-
-	    }, {
-	        key: 'onWindowResize',
-	        value: function onWindowResize() {
-	            var _getViewportSize4 = this._getViewportSize();
-
-	            var _getViewportSize5 = _slicedToArray(_getViewportSize4, 2);
-
-	            var width = _getViewportSize5[0];
-	            var height = _getViewportSize5[1];
-
-
-	            this._camera.aspect = width / height;
-	            this._camera.updateProjectionMatrix();
-	            this._renderer.setSize(width, height);
-	        }
-
-	        /**
-	         * 
-	         */
-
-	    }, {
 	        key: 'draw',
 	        value: function draw(data, xKey, yKey, startColor, endColor) {
 	            var buffergeometry = new _three2.default.BufferGeometry();
@@ -23882,7 +23786,7 @@
 	            material.uniforms.endColor.value = endColor;
 
 	            this._toUpdate.push(function (e) {
-	                material.uniforms.time.value += 0.001;
+	                material.uniforms.time.value += 0.01;
 	                material.uniforms.needsUpdate = true;
 	            });
 
@@ -23897,63 +23801,13 @@
 	    }, {
 	        key: 'clear',
 	        value: function clear() {
+	            _get(Object.getPrototypeOf(Viewer.prototype), 'clear', this).call(this);
 	            // TODO
-	            this._toUpdate = [];
-	        }
-
-	        /**
-	         * Main update function.
-	         */
-
-	    }, {
-	        key: 'update',
-	        value: function update(delta) {
-	            this._controls.update();
-
-	            var _iteratorNormalCompletion2 = true;
-	            var _didIteratorError2 = false;
-	            var _iteratorError2 = undefined;
-
-	            try {
-	                for (var _iterator2 = this._toUpdate[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                    var x = _step2.value;
-
-	                    x(delta);
-	                }
-	            } catch (err) {
-	                _didIteratorError2 = true;
-	                _iteratorError2 = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	                        _iterator2.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError2) {
-	                        throw _iteratorError2;
-	                    }
-	                }
-	            }
-	        }
-	    }, {
-	        key: 'animateImpl',
-	        value: function animateImpl() {
-	            var delta = this._clock.getDelta();
-
-	            this.update(delta);
-	            if (this._particleGroup) this._particleGroup.tick(delta);
-	            this.render(delta);
-	            requestAnimationFrame(this.animate);
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render(delta) {
-	            this._renderer.render(this._scene, this._camera);
 	        }
 	    }]);
 
 	    return Viewer;
-	}();
+	}(_base_3d_view2.default);
 
 	exports.default = Viewer;
 
@@ -25153,6 +25007,202 @@
 	        xmlhttp.send();
 	    });
 	};
+
+/***/ },
+/* 175 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _three = __webpack_require__(169);
+
+	var _three2 = _interopRequireDefault(_three);
+
+	var _OrbitControls = __webpack_require__(171);
+
+	var _OrbitControls2 = _interopRequireDefault(_OrbitControls);
+
+	var _shader = __webpack_require__(172);
+
+	var _shader2 = _interopRequireDefault(_shader);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	var ResizeSensor = __webpack_require__(173);
+
+	/**
+	 * 3D view
+	 */
+
+	var BaseViewer = function () {
+	    function BaseViewer(canvas, container) {
+	        var _this = this;
+
+	        _classCallCheck(this, BaseViewer);
+
+	        this.isMouseDown = false;
+	        this.container = container;
+
+	        this.mouse = null;
+	        this._toUpdate = [];
+
+	        this._raycaster = new _three2.default.Raycaster();
+	        this._clock = new _three2.default.Clock();
+
+	        this._scene = new _three2.default.Scene();
+
+	        this.initRenderer(canvas);
+	        this.initCamera();
+	        this.initControls(container);
+
+	        new ResizeSensor(container, this.onWindowResize.bind(this));
+	        this.onWindowResize();
+
+	        this.animate = function () {
+	            return _this.animateImpl();
+	        };
+	        this.animateImpl();
+	    }
+
+	    /**
+	     * Setup the initial renderer.
+	     */
+
+
+	    _createClass(BaseViewer, [{
+	        key: 'initRenderer',
+	        value: function initRenderer(canvas) {
+	            this._renderer = new _three2.default.WebGLRenderer({
+	                canvas: canvas,
+	                alpha: true,
+	                antialias: true
+	            });
+	            this._renderer.setClearColor(0xffffff, 0);
+	            this._renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
+	        }
+
+	        /**
+	         * Setup the initial camera.
+	         */
+
+	    }, {
+	        key: 'initCamera',
+	        value: function initCamera() {
+	            var _getViewportSize2 = this._getViewportSize();
+
+	            var _getViewportSize3 = _slicedToArray(_getViewportSize2, 2);
+
+	            var viewWidth = _getViewportSize3[0];
+	            var viewHeight = _getViewportSize3[1];
+
+	            var aspect = viewWidth / viewHeight;
+	            this._camera = new _three2.default.PerspectiveCamera(75, aspect, 0.01, 800);
+	            this._camera.position.z = Math.abs(aspect / Math.sin(this._camera.fov * (Math.PI / 180) / 2));
+	        }
+
+	        /**
+	         * Setup the controls.
+	         */
+
+	    }, {
+	        key: 'initControls',
+	        value: function initControls(container) {
+	            this._controls = new _OrbitControls2.default(this._camera, container);
+	            this._controls.enableDamping = true;
+	            this._controls.dampingFactor = 0.25;
+	            this._controls.enableZoom = true;
+	        }
+
+	        /**
+	         * Get the size of the viewport.
+	         */
+
+	    }, {
+	        key: '_getViewportSize',
+	        value: function _getViewportSize() {
+	            var rect = this.container.getBoundingClientRect();
+	            return [rect.width, rect.height];
+	        }
+
+	        /**
+	         * Handle window resize events.
+	         */
+
+	    }, {
+	        key: 'onWindowResize',
+	        value: function onWindowResize() {
+	            var _getViewportSize4 = this._getViewportSize();
+
+	            var _getViewportSize5 = _slicedToArray(_getViewportSize4, 2);
+
+	            var width = _getViewportSize5[0];
+	            var height = _getViewportSize5[1];
+
+
+	            this._camera.aspect = width / height;
+	            this._camera.updateProjectionMatrix();
+	            this._renderer.setSize(width, height);
+	        }
+	    }, {
+	        key: 'update',
+	        value: function update(delta) {
+	            this._controls.update();
+
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                for (var _iterator = this._toUpdate[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var x = _step.value;
+
+	                    x(delta);
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+	        }
+	    }, {
+	        key: 'animateImpl',
+	        value: function animateImpl() {
+	            var delta = this._clock.getDelta();
+
+	            this.update(delta);
+	            this.render(delta);
+	            requestAnimationFrame(this.animate);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render(delta) {
+	            this._renderer.render(this._scene, this._camera);
+	        }
+	    }]);
+
+	    return BaseViewer;
+	}();
+
+	exports.default = BaseViewer;
 
 /***/ }
 /******/ ]);

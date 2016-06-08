@@ -20,18 +20,24 @@ const loadData = path =>
         return resolve(content);
     });
 
+/**
+*/
+const processRow = row => {
+    const elements = row.split(',').map(x => x.trim());
+    const time = moment(elements[0]);
+    return {
+        time,
+        right_x: +elements[3],
+        right_y: +elements[4],
+        left_x: +elements[5],
+        left_y: +elements[6]
+    };
+};
+
+/**
+*/
 const processData = text =>
-    text.split('\n').filter(x => x.indexOf(',') > 0).map(row => {
-        const elements = row.split(',').map(x => x.trim());
-        const time = moment(elements[0]);
-        return {
-            time,
-            right_x: +elements[3],
-            right_y: +elements[4],
-            left_x: +elements[5],
-            left_y: +elements[6]
-        };
-    });
+    text.split('\n').filter(x => x.indexOf(',') > 0).map(processRow);
 
 /**
  * Check if single analog input is in the dead zone.
@@ -90,18 +96,8 @@ const createMatch = data => {
 /**
  * Load data from a text file
  */
-const getData = path =>
+module.exports.getData = path =>
     loadData(path)
         .then(x => processData(x))
         .then(trimEnds)
         .then(createMatch);
-
-
-const in_file = process.argv[2];
-const out_file = process.argv[3];
-
-getData(in_file)
-    .then(data => {
-        fs.writeFileSync(out_file, JSON.stringify(data, null, 2), '')
-    })
-    .catch(e => console.error(e));
