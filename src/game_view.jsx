@@ -24,11 +24,7 @@ export default class GameView extends React.Component {
 
     componentWillReceiveProps(newProps) {
         if (newProps.game && this.props.game !== newProps.game) {
-            this._3dview.draw(newProps.game.events, 'left_x', 'left_y',
-                new THREE.Vector4(0, 0, 0, 1),
-                new THREE.Vector4(0.9, 0.9, 0.9, 1));
-            
-            this._3dview.draw(newProps.game.events, 'right_x', 'right_y',
+            this._3dview.draw(newProps.game.events, 'left_x', 'left_y', 'right_x', 'right_y',
                 new THREE.Vector4(1, 0, 1, 1),
                 new THREE.Vector4(0, 1, 1, 1));
         }

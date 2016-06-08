@@ -56,52 +56,46 @@ export default class Viewer extends Base3dView {
     }
 
     /**
-     * 
+     * Add a single point to the drawn line
      */
     draw(data, leftXKey, leftYKey, rightXKey, rightYKey) {
         const leftX = data[leftXKey];
         const leftY = data[leftYKey];
-        const leftAngle = Math.atan2(leftY, leftX);
 
         const rightX = data[rightXKey];
         const rightY = data[rightYKey];
-        const rightAngle = Math.atan2(rightY, rightX);
 
-        //
-        let translate = true;
+        // Update positon based on controls
         if (isDead(leftX, leftY) && !isDead(rightX, rightY)) {
             // right stick only rotation
             this._rotate(rightY * 1);
-            translate = false;
         } else if (!isDead(leftX, leftY) && isDead(rightX, rightY)) {
             // left stick only rotation
             this._rotate(leftY * -1);
-            translate = false;
         } else if (leftY > 0 && rightY < 0) {
             // down left, up right rotation
-            this._rotate(leftY - rightY);
-            translate = false;
+            this._rotate(leftY - right);
         } else if (rightY > 0 && leftY < 0) {
             // down left, up right rotation
             this._rotate(rightY - leftY);
-            translate = false;
-        }
-
-        const direction = new THREE.Vector3(Math.sin(this._angle), Math.cos(this._angle), 0);
-        if (translate) {
+        } else {
+            // must be a translation
             this._translate(leftX + rightX, leftY + rightY);
         }
 
-        ///
+        // update geometry
         const vector = new THREE.Vector3(0, 0, RADIUS);
         vector.applyQuaternion(this._quaternion);
-        this._quaternion.normalize();
-
+        
         this._start.toArray(this._position.array, this._i * 3 * 2);
         vector.toArray(this._position.array, this._i * 3 * 2 + 3);
         this._start = vector;
+        
         this._progress.array[this._i * 2] = 1;
         this._progress.array[this._i * 2 + 1] = 1;
+
+        this._position.needsUpdate = true;
+        this._progress.needsUpdate = true;
 
         // update pointer
         this._pointer.position.copy(vector);
@@ -115,9 +109,6 @@ export default class Viewer extends Base3dView {
 
         ++this._i;
         this._i %= BUFFER_SIZE;
-
-        this._position.needsUpdate = true;
-        this._progress.needsUpdate = true;
     }
 
     _rotate(amount) {
@@ -130,6 +121,6 @@ export default class Viewer extends Base3dView {
 
         const horizontal = new THREE.Quaternion().setFromAxisAngle(direction, x * SCALE);
         const vertical = new THREE.Quaternion().setFromAxisAngle(perpendicular, y * SCALE);
-        this._quaternion.multiply(horizontal).multiply(vertical);
+        this._quaternion.multiply(horizontal).multiply(vertical).normalize();
     }
 }

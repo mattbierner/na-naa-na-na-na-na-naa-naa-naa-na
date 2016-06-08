@@ -6,12 +6,17 @@ const ResizeSensor = require('imports?this=>window!css-element-queries/src/Resiz
 
 import Base3dView from './base_3d_view';
 
-const SCALE = 1 / 20;
+const SCALE = 1 / 50;
+const ROTATION_SCALE = 0.03;
 
 const shaderMaterial = new THREE.ShaderMaterial(Shader);
 
 const surfaceArea = r =>
     4 / 3 * Math.PI * r * r;
+
+
+const isDead = (x, y) =>
+    x === 0 && y === 0;
 
 /**
  * 3D view
@@ -24,7 +29,7 @@ export default class Viewer extends Base3dView {
     /**
      * 
      */
-    draw(data, xKey, yKey, startColor, endColor) {
+    draw(data, leftXKey, leftYKey, rightXKey, rightYKey, startColor, endColor) {
         const buffergeometry = new THREE.BufferGeometry();
 
         const position = new THREE.Float32Attribute(data.length * 3, 3);
@@ -36,27 +41,53 @@ export default class Viewer extends Base3dView {
         const rMin = 0.01;
         const rMax = 1;
         const rD = rMax - rMin;
-        const angle = 0;
-        
+
+        let angle = 0;
         let quaternion = new THREE.Quaternion(0, 0, 0, 1);
         let i = 0;
         for (const e of data) {
-            const x = e[xKey];
-            const y = e[yKey];
-            const r = rMax//rMin + rD * e.progress;
-            const scale = SCALE;// * (surfaceArea(rMax) / surfaceArea(r)) * .1;
-            
-            const horizontal = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), x * scale);
-            const vertical = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), y * scale);
-            quaternion.multiply(horizontal).multiply(vertical);
+            const leftX = e[leftXKey];
+            const leftY = e[leftYKey];
+
+            const rightX = e[rightXKey];
+            const rightY = e[rightYKey];
+
+            const r = rMin + rD * e.progress;
+
+            // Update positon based on controls
+            if (isDead(leftX, leftY) && !isDead(rightX, rightY)) {
+                // right stick only rotation
+                angle += rightY * ROTATION_SCALE;
+            } else if (!isDead(leftX, leftY) && isDead(rightX, rightY)) {
+                // left stick only rotation
+                angle += -leftY * ROTATION_SCALE;
+            } else if (leftY > 0 && rightY < 0) {
+                // down left, up right rotation
+                angle += (leftY - rightY) * ROTATION_SCALE;
+            } else if (rightY > 0 && leftY < 0) {
+                // down left, up right rotation
+                angle += (rightY - leftY) * ROTATION_SCALE;
+            } else {
+                // must be a translation
+                const x = leftX + rightX;
+                const y = leftY + rightY;
+                if (x !== 0 && y !== 0) {
+                    const direction = new THREE.Vector3(Math.sin(angle), Math.cos(angle), 0);
+                    const perpendicular = new THREE.Vector3(-direction.y, direction.x, 0);
+
+                    const horizontal = new THREE.Quaternion().setFromAxisAngle(direction, x * SCALE);
+                    const vertical = new THREE.Quaternion().setFromAxisAngle(perpendicular, y * SCALE);
+                    quaternion = quaternion.multiply(horizontal).multiply(vertical);
+                }
+            }
 
             const vector = new THREE.Vector3(0, 0, r);
             vector.applyQuaternion(quaternion);
             quaternion.normalize();
+            console.log(vector.x, vector.y, vector.z);
 
             vector.toArray(position.array, i * 3);
             progress.array[i] = e.progress;
-
             ++i;
         }
 
@@ -65,7 +96,7 @@ export default class Viewer extends Base3dView {
         material.uniforms.endColor.value = endColor;
 
         this._toUpdate.push(e => {
-            material.uniforms.time.value += 0.01;
+            material.uniforms.time.value += 0.001;
             material.uniforms.needsUpdate = true;
         });
 

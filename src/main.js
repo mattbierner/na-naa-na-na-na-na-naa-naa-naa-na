@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import GameView from './stream_game_view';
+import GameView from './game_view';
 import {getData} from './data';
 
 
@@ -14,7 +14,7 @@ class Main extends React.Component {
     }
 
     componentWillMount() {
-        getData('examples/test/counter-right.json')//'examples/katamari/sumo.json')
+        getData('examples/katamari/sumo.json')
             .then(game => {
                 this.setState({ game });
             })
