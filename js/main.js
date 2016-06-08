@@ -20308,7 +20308,7 @@
 	            this._3dview = new _stream_3d_view2.default(canvas, element);
 	            this._socket = new WebSocket('ws://localhost:8000');
 	            this._socket.onmessage = function (e) {
-	                _this2._3dview.draw(_process_data2.default.processRow(e.data), 'left_x', 'left_y');
+	                _this2._3dview.draw(_process_data2.default.processRow(e.data), 'left_x', 'left_y', 'right_x', 'right_y');
 	            };
 	        }
 	    }, {
@@ -33971,8 +33971,6 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
-
 	var _three = __webpack_require__(169);
 
 	var _three2 = _interopRequireDefault(_three);
@@ -34001,8 +33999,14 @@
 
 	var SCALE = 1 / 50;
 	var BUFFER_SIZE = 300;
+	var RADIUS = 1;
+	var ROTATION_SCALE = 0.03;
 
 	var shaderMaterial = new _three2.default.ShaderMaterial(_stream_shader2.default);
+
+	var isDead = function isDead(x, y) {
+	    return x === 0 && y === 0;
+	};
 
 	/**
 	 * 3D view that accepts streaming data
@@ -34017,10 +34021,11 @@
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Viewer).call(this, canvas, container));
 
 	        _this._initGeometry();
-
+	        _this._initPointer();
 	        _this._quaternion = new _three2.default.Quaternion(0, 0, 0, 1);
 	        _this._i = 0;
-	        _this._start = new _three2.default.Vector3(0, 0, 0);
+	        _this._start = new _three2.default.Vector3(0, 0, RADIUS);
+	        _this._angle = 0;
 	        return _this;
 	    }
 
@@ -34042,6 +34047,14 @@
 	            var line = new _three2.default.LineSegments(this._buffergeometry, material);
 	            this._scene.add(line);
 	        }
+	    }, {
+	        key: '_initPointer',
+	        value: function _initPointer() {
+	            var geometry = new _three2.default.CylinderGeometry(0, 0.05, 0.05 * 2, 4);
+	            var material = new _three2.default.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
+	            this._pointer = new _three2.default.Mesh(geometry, material);
+	            this._scene.add(this._pointer);
+	        }
 
 	        /**
 	         * 
@@ -34049,17 +34062,42 @@
 
 	    }, {
 	        key: 'draw',
-	        value: function draw(data, xKey, yKey) {
-	            var x = data[xKey];
-	            var y = data[yKey];
-	            var r = 1;
-	            var scale = SCALE;
-	            console.log(x, y);
-	            var horizontal = new _three2.default.Quaternion().setFromAxisAngle(new _three2.default.Vector3(1, 0, 0), x * scale);
-	            var vertical = new _three2.default.Quaternion().setFromAxisAngle(new _three2.default.Vector3(0, 1, 0), y * scale);
-	            this._quaternion.multiply(horizontal).multiply(vertical);
+	        value: function draw(data, leftXKey, leftYKey, rightXKey, rightYKey) {
+	            var leftX = data[leftXKey];
+	            var leftY = data[leftYKey];
+	            var leftAngle = Math.atan2(leftY, leftX);
 
-	            var vector = new _three2.default.Vector3(0, 0, r);
+	            var rightX = data[rightXKey];
+	            var rightY = data[rightYKey];
+	            var rightAngle = Math.atan2(rightY, rightX);
+
+	            //
+	            var translate = true;
+	            if (isDead(leftX, leftY) && !isDead(rightX, rightY)) {
+	                // right stick only rotation
+	                this._rotate(rightY * 1);
+	                translate = false;
+	            } else if (!isDead(leftX, leftY) && isDead(rightX, rightY)) {
+	                // left stick only rotation
+	                this._rotate(leftY * -1);
+	                translate = false;
+	            } else if (leftY > 0 && rightY < 0) {
+	                // down left, up right rotation
+	                this._rotate(leftY - rightY);
+	                translate = false;
+	            } else if (rightY > 0 && leftY < 0) {
+	                // down left, up right rotation
+	                this._rotate(rightY - leftY);
+	                translate = false;
+	            }
+
+	            var direction = new _three2.default.Vector3(Math.sin(this._angle), Math.cos(this._angle), 0);
+	            if (translate) {
+	                this._translate(leftX + rightX, leftY + rightY);
+	            }
+
+	            ///
+	            var vector = new _three2.default.Vector3(0, 0, RADIUS);
 	            vector.applyQuaternion(this._quaternion);
 	            this._quaternion.normalize();
 
@@ -34069,22 +34107,34 @@
 	            this._progress.array[this._i * 2] = 1;
 	            this._progress.array[this._i * 2 + 1] = 1;
 
+	            // update pointer
+	            this._pointer.position.copy(vector);
+
+	            var temp = new _three2.default.Matrix4();
+	            temp.lookAt(direction, new _three2.default.Vector3(0, 0, 0), new _three2.default.Vector3(0, 0, 1));
+
+	            this._pointer.quaternion.copy(this._quaternion.clone().multiply(new _three2.default.Quaternion().setFromRotationMatrix(temp)).multiply(new _three2.default.Quaternion().setFromAxisAngle(new _three2.default.Vector3(1, 0, 0), -Math.PI / 2)));
+
 	            ++this._i;
 	            this._i %= BUFFER_SIZE;
 
 	            this._position.needsUpdate = true;
 	            this._progress.needsUpdate = true;
 	        }
-
-	        /**
-	         * Clear all current elements from the scene.
-	         */
-
 	    }, {
-	        key: 'clear',
-	        value: function clear() {
-	            _get(Object.getPrototypeOf(Viewer.prototype), 'clear', this).call(this);
-	            // TODO
+	        key: '_rotate',
+	        value: function _rotate(amount) {
+	            this._angle += amount * ROTATION_SCALE;
+	        }
+	    }, {
+	        key: '_translate',
+	        value: function _translate(x, y) {
+	            var direction = new _three2.default.Vector3(Math.sin(this._angle), Math.cos(this._angle), 0);
+	            var perpendicular = new _three2.default.Vector3(-direction.y, direction.x, 0);
+
+	            var horizontal = new _three2.default.Quaternion().setFromAxisAngle(direction, x * SCALE);
+	            var vertical = new _three2.default.Quaternion().setFromAxisAngle(perpendicular, y * SCALE);
+	            this._quaternion.multiply(horizontal).multiply(vertical);
 	        }
 	    }]);
 

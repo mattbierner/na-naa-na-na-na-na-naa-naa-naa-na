@@ -22,7 +22,7 @@ export default class GameView extends React.Component {
         this._3dview = new Viewer(canvas, element);
         this._socket = new WebSocket('ws://localhost:8000');
         this._socket.onmessage = (e) => {
-            this._3dview.draw(process_data.processRow(e.data), 'left_x', 'left_y');
+            this._3dview.draw(process_data.processRow(e.data), 'left_x', 'left_y', 'right_x', 'right_y');
         };
     }
 
