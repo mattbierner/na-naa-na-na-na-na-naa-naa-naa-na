@@ -1,0 +1,48 @@
+
+.page-header {
+    font-size: 18px;
+    margin: 0;
+    box-sizing: border-box;
+    border-bottom-width: 1px ;
+    
+    &:after {
+        content: "";
+        display: block;
+        background-image: linear-gradient(to right, #fc0000,#ff7f00,#fefd00,#02fd00,#0000fd,#8000fc,#fd00fe);
+        background-size: 200% 200%;
+        height: 2px;
+        margin-top: 2px;
+        width: 100%;
+        animation: rainbow 20s linear infinite;
+    }
+    .title {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        height: 80px;
+    }
+
+    .logo {
+        padding-right: 1em;
+        padding-left: 0.6em;
+        display: block;
+        background: $background-color;
+    }
+
+    .blurb {
+        display: block;
+        text-align: center;
+        
+
+    }
+
+    .description {
+        position: relative;
+    }
+}
+
+@keyframes rainbow { 
+    0% { background-position:0% 50%; }
+    50% { background-position:100% 50%; }
+    100% { background-position:0% 50%; }
+}

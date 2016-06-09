@@ -84,7 +84,6 @@ export default class Viewer extends Base3dView {
             const vector = new THREE.Vector3(0, 0, r);
             vector.applyQuaternion(quaternion);
             quaternion.normalize();
-            console.log(vector.x, vector.y, vector.z);
 
             vector.toArray(position.array, i * 3);
             progress.array[i] = e.progress;

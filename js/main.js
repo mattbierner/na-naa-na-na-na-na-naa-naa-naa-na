@@ -60,6 +60,10 @@
 
 	var _game_view2 = _interopRequireDefault(_game_view);
 
+	var _header = __webpack_require__(284);
+
+	var _header2 = _interopRequireDefault(_header);
+
 	var _data = __webpack_require__(281);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
@@ -101,6 +105,7 @@
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'main container' },
+	                _react2.default.createElement(_header2.default, null),
 	                _react2.default.createElement(_game_view2.default, { game: this.state.game })
 	            );
 	        }
@@ -25294,7 +25299,6 @@
 	                    var vector = new _three2.default.Vector3(0, 0, r);
 	                    vector.applyQuaternion(quaternion);
 	                    quaternion.normalize();
-	                    console.log(vector.x, vector.y, vector.z);
 
 	                    vector.toArray(position.array, i * 3);
 	                    progress.array[i] = e.progress;
@@ -25344,6 +25348,86 @@
 	}(_base_3d_view2.default);
 
 	exports.default = Viewer;
+
+/***/ },
+/* 284 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(33);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _game_view = __webpack_require__(282);
+
+	var _game_view2 = _interopRequireDefault(_game_view);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Header = function (_React$Component) {
+	    _inherits(Header, _React$Component);
+
+	    function Header() {
+	        _classCallCheck(this, Header);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Header).apply(this, arguments));
+	    }
+
+	    _createClass(Header, [{
+	        key: 'render',
+	        value: function render() {
+	            var rainbow = ['#fc0000', '#ff7f00', '#fefd00', '#02fd00', '#0000fd', '#8000fc', '#fd00fe'].map(function (x, i) {
+	                return _react2.default.createElement('div', { style: { background: x, animationDelay: Math.random() + 's', width: 100 - 3 * i + '%' }, key: i });
+	            });
+
+	            return _react2.default.createElement(
+	                'header',
+	                { className: 'page-header' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'title' },
+	                    _react2.default.createElement('img', { className: 'logo', src: 'images/logo.svg' }),
+	                    _react2.default.createElement(
+	                        'div',
+	                        { className: 'description' },
+	                        _react2.default.createElement(
+	                            'span',
+	                            { className: 'blurb' },
+	                            'Visualizing Katamari Damacy gameplay input.'
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'rainbow' },
+	                            rainbow
+	                        )
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return Header;
+	}(_react2.default.Component);
+
+	exports.default = Header;
+	;
 
 /***/ }
 /******/ ]);

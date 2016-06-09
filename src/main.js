@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import GameView from './game_view';
+import Header from './header';
 import {getData} from './data';
-
 
 class Main extends React.Component {
     constructor(props) {
@@ -25,6 +25,7 @@ class Main extends React.Component {
     render() {
         return (
             <div className="main container">
+                <Header />
                 <GameView game={this.state.game}/>
             </div>);
     }
