@@ -1,4 +1,5 @@
 import THREE from 'three';
+
 import {quaternionToVector} from './_common';
 
 /**
@@ -6,39 +7,32 @@ import {quaternionToVector} from './_common';
  */
 export default {
     uniforms: {
-        startColor: { type: "v4", value: new THREE.Vector4(0, 0, 0, 1) },
-        endColor: { type: "v4", value: new THREE.Vector4(0.9, 0.9, 0.9, 1) },
         time: { value: 0.0 },
         minRadius: { value: 0.0 },
-        maxRadius: { value: 1.0 }
+        maxRadius: { value: 1.0 },
+        objColor: {type: 'v4', value: new THREE.Vector4(0, 0, 0, 1) },
+        spherePosition: {type: 'v4', value: new THREE.Vector4(0, 0, 0, 1) }
     },
     vertexShader: `
-        uniform vec4 startColor;
-        uniform vec4 endColor;
         uniform float time;
         uniform float minRadius;
         uniform float maxRadius;
-
-        attribute vec4 spherePosition;
-
-        attribute float progress;
-        attribute float opacity;
-        attribute float innerScaling;
+        uniform vec4 spherePosition;
+        uniform vec4 objColor;
 
         varying vec4 vColor;
 
         ${quaternionToVector}
 
         void main() {
-            float alpha = float(progress < time) * opacity;
-            vColor = mix(startColor, endColor, progress) * vec4(1, 1, 1, alpha);
+            vColor = vec4(0, 1, 0, 1);
             
             // Compute position on sphere
-            float r = minRadius + (maxRadius - minRadius) * progress;
+            float r = minRadius + (maxRadius - minRadius) * time;
             vec3 rad = vec3(0, 0, r);
             vec3 posOnSphere = rotate_vector(spherePosition, rad);
 
-            vec3 pos = posOnSphere - ((innerScaling * 0.05) * posOnSphere);
+            vec3 pos = posOnSphere + position;
             gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
         }
     `,
@@ -48,9 +42,5 @@ export default {
         void main() {
             gl_FragColor = vColor;
         }
-    `,
-    transparent: true,
-    side: THREE.DoubleSide,
-    depthTest: false,
-   // depthWrite: false
+    `
 };

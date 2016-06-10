@@ -24863,7 +24863,7 @@
 /* 172 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -24872,6 +24872,8 @@
 	var _three = __webpack_require__(169);
 
 	var _three2 = _interopRequireDefault(_three);
+
+	var _common = __webpack_require__(287);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -24882,10 +24884,12 @@
 	    uniforms: {
 	        startColor: { type: "v4", value: new _three2.default.Vector4(0, 0, 0, 1) },
 	        endColor: { type: "v4", value: new _three2.default.Vector4(0.9, 0.9, 0.9, 1) },
-	        time: { value: 0.0 }
+	        time: { value: 0.0 },
+	        minRadius: { value: 0.0 },
+	        maxRadius: { value: 1.0 }
 	    },
-	    vertexShader: "\n        uniform vec4 startColor;\n        uniform vec4 endColor;\n        uniform float time;\n        \n        attribute float progress;\n        attribute float opacity;\n\n        varying vec4 vColor;\n\n        void main() {\n            float alpha = float(progress < time) * opacity;\n            \n            vColor = mix(startColor, endColor, progress) * vec4(1, 1, 1, alpha);\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\n        }\n    ",
-	    fragmentShader: "\n        varying vec4 vColor;\n        \n        void main() {\n            gl_FragColor = vColor;\n        }\n    ",
+	    vertexShader: '\n        uniform vec4 startColor;\n        uniform vec4 endColor;\n        uniform float time;\n        uniform float minRadius;\n        uniform float maxRadius;\n\n        attribute vec4 spherePosition;\n\n        attribute float progress;\n        attribute float opacity;\n        attribute float innerScaling;\n\n        varying vec4 vColor;\n\n        ' + _common.quaternionToVector + '\n\n        void main() {\n            float alpha = float(progress < time) * opacity;\n            vColor = mix(startColor, endColor, progress) * vec4(1, 1, 1, alpha);\n            \n            // Compute position on sphere\n            float r = minRadius + (maxRadius - minRadius) * progress;\n            vec3 rad = vec3(0, 0, r);\n            vec3 posOnSphere = rotate_vector(spherePosition, rad);\n\n            vec3 pos = posOnSphere - ((innerScaling * 0.05) * posOnSphere);\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);\n        }\n    ',
+	    fragmentShader: '\n        varying vec4 vColor;\n        \n        void main() {\n            gl_FragColor = vColor;\n        }\n    ',
 	    transparent: true,
 	    side: _three2.default.DoubleSide,
 	    depthTest: false
@@ -36174,6 +36178,10 @@
 
 	var _default_solid2 = _interopRequireDefault(_default_solid);
 
+	var _pointer = __webpack_require__(286);
+
+	var _pointer2 = _interopRequireDefault(_pointer);
+
 	var _base_3d_view = __webpack_require__(173);
 
 	var _base_3d_view2 = _interopRequireDefault(_base_3d_view);
@@ -36192,11 +36200,13 @@
 
 	var ResizeSensor = __webpack_require__(174);
 
-	var rMin = 0.01;
-	var rMax = 1;
-	var rD = rMax - rMin;
-
 	var shaderMaterial = new _three2.default.ShaderMaterial(_default_solid2.default);
+	var pointerShader = new _three2.default.ShaderMaterial(_pointer2.default);
+	pointerShader.uniforms.objColor.value = new _three2.default.Vector4(0x87, 0xbf, 0x26, 1);
+
+	pointerShader.uniforms.time = shaderMaterial.uniforms.time;
+	pointerShader.uniforms.minRadius = shaderMaterial.uniforms.minRadius;
+	pointerShader.uniforms.maxRadius = shaderMaterial.uniforms.maxRadius;
 
 	var closest = function closest(items, value) {
 	    var startIndex = 0;
@@ -36237,8 +36247,7 @@
 	        key: '_initPointer',
 	        value: function _initPointer() {
 	            var geometry = new _three2.default.SphereGeometry(0.01, 32, 32);
-	            var material = new _three2.default.MeshBasicMaterial({ color: 0x87BF26 });
-	            this._pointer = new _three2.default.Mesh(geometry, material);
+	            this._pointer = new _three2.default.Mesh(geometry, pointerShader);
 	            this._scene.add(this._pointer);
 	        }
 
@@ -36267,8 +36276,14 @@
 	            var position = new _three2.default.Float32Attribute(data.length * 3 * 2, 3);
 	            buffergeometry.addAttribute('position', position);
 
+	            var spherePosition = new _three2.default.Float32Attribute(data.length * 4 * 2, 4);
+	            buffergeometry.addAttribute('spherePosition', spherePosition);
+
 	            var opacity = new _three2.default.Float32Attribute(data.length * 2, 1);
 	            buffergeometry.addAttribute('opacity', opacity);
+
+	            var innerScaling = new _three2.default.Float32Attribute(data.length * 2, 1);
+	            buffergeometry.addAttribute('innerScaling', innerScaling);
 
 	            var progress = new _three2.default.Float32Attribute(data.length * 2, 1);
 	            buffergeometry.addAttribute('progress', progress);
@@ -36291,16 +36306,15 @@
 	                    angle = movement.angle;
 	                    quaternion = movement.quaternion;
 
-	                    var r = rMin + rD * e.progress;
-	                    var vector = new _three2.default.Vector3(0, 0, r);
-	                    vector.applyQuaternion(quaternion);
+	                    quaternion.toArray(spherePosition.array, i * 4 + 0); // inner
+	                    quaternion.toArray(spherePosition.array, i * 4 + 4); // outer
 	                    quaternion.normalize();
-
-	                    vector.clone().multiplyScalar(0.95).toArray(position.array, i * 3);
-	                    vector.toArray(position.array, i * 3 + 3);
 
 	                    opacity.array[i] = 0;
 	                    opacity.array[i + 1] = 0.4;
+
+	                    innerScaling.array[i] = 1;
+	                    innerScaling.array[i + 1] = 0;
 
 	                    progress.array[i] = progress.array[i + 1] = e.progress;
 	                    this._progress.push(e.progress);
@@ -36341,11 +36355,12 @@
 	            if (!this._line) return;
 
 	            var attr = this._line.geometry.attributes;
-	            var index = closest(this._progress, progress) * 3 * 2;
+	            var index = closest(this._progress, progress) * 4 * 2;
 
-	            var pos = new _three2.default.Vector3(attr.position.array[index + 3], attr.position.array[index + 3 + 1], attr.position.array[index + 3 + 2]);
+	            var quaternion = new _three2.default.Vector4(attr.spherePosition.array[index], attr.spherePosition.array[index + 1], attr.spherePosition.array[index + 2], attr.spherePosition.array[index + 3]);
 
-	            this._pointer.position.copy(pos);
+	            pointerShader.uniforms.spherePosition.value = quaternion;
+	            pointerShader.uniforms.spherePosition.needsUpdate = true;
 	        }
 
 	        /**
@@ -36438,6 +36453,50 @@
 	    }
 	    return { angle: angle, quaternion: quaternion };
 	};
+
+/***/ },
+/* 286 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _three = __webpack_require__(169);
+
+	var _three2 = _interopRequireDefault(_three);
+
+	var _common = __webpack_require__(287);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * Basic solid shader.
+	 */
+	exports.default = {
+	    uniforms: {
+	        time: { value: 0.0 },
+	        minRadius: { value: 0.0 },
+	        maxRadius: { value: 1.0 },
+	        objColor: { type: 'v4', value: new _three2.default.Vector4(0, 0, 0, 1) },
+	        spherePosition: { type: 'v4', value: new _three2.default.Vector4(0, 0, 0, 1) }
+	    },
+	    vertexShader: '\n        uniform float time;\n        uniform float minRadius;\n        uniform float maxRadius;\n        uniform vec4 spherePosition;\n        uniform vec4 objColor;\n\n        varying vec4 vColor;\n\n        ' + _common.quaternionToVector + '\n\n        void main() {\n            vColor = vec4(0, 1, 0, 1);\n            \n            // Compute position on sphere\n            float r = minRadius + (maxRadius - minRadius) * time;\n            vec3 rad = vec3(0, 0, r);\n            vec3 posOnSphere = rotate_vector(spherePosition, rad);\n\n            vec3 pos = posOnSphere + position;\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);\n        }\n    ',
+	    fragmentShader: '\n        varying vec4 vColor;\n        \n        void main() {\n            gl_FragColor = vColor;\n        }\n    '
+	};
+
+/***/ },
+/* 287 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var quaternionToVector = exports.quaternionToVector = "\n    // Taken from three.js source\n    vec3 rotate_vector(vec4 q, vec3 vec) {\n        // calculate quat * vector\n        float ix =  q.w * vec.x + q.y * vec.z - q.z * vec.y;\n        float iy =  q.w * vec.y + q.z * vec.x - q.x * vec.z;\n        float iz =  q.w * vec.z + q.x * vec.y - q.y * vec.x;\n        float iw = - q.x * vec.x - q.y * vec.y - q.z * vec.z;\n\n        // calculate result * inverse quat\n        return vec3(\n            ix * q.w + iw * - q.x + iy * - q.z - iz * - q.y,\n            iy * q.w + iw * - q.y + iz * - q.x - ix * - q.z,\n            iz * q.w + iw * - q.z + ix * - q.y - iy * - q.x);\n    }";
 
 /***/ }
 /******/ ]);

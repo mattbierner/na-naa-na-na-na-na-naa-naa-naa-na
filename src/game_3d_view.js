@@ -4,15 +4,19 @@ const ResizeSensor = require('imports?this=>window!css-element-queries/src/Resiz
 
 import OrbitControls from './OrbitControls';
 import Shader from './shaders/default_solid';
+import PointerShader from './shaders/pointer';
 
 import Base3dView from './base_3d_view';
 import katamariMovementForControls from './katamari_input';
 
-const rMin = 0.01;
-const rMax = 1;
-const rD = rMax - rMin;
-
 const shaderMaterial = new THREE.ShaderMaterial(Shader);
+const pointerShader = new THREE.ShaderMaterial(PointerShader);
+pointerShader.uniforms.objColor.value = new THREE.Vector4(0x87, 0xbf, 0x26, 1);
+
+pointerShader.uniforms.time = shaderMaterial.uniforms.time;
+pointerShader.uniforms.minRadius = shaderMaterial.uniforms.minRadius;
+pointerShader.uniforms.maxRadius = shaderMaterial.uniforms.maxRadius;
+
 
 const closest = (items, value) => {
     let startIndex = 0;
@@ -45,8 +49,7 @@ export default class Viewer extends Base3dView {
 
     _initPointer() {
         const geometry = new THREE.SphereGeometry(0.01, 32, 32);
-        const material = new THREE.MeshBasicMaterial({ color: 0x87BF26 });
-        this._pointer = new THREE.Mesh(geometry, material);
+        this._pointer = new THREE.Mesh(geometry, pointerShader);
         this._scene.add(this._pointer);
     }
 
@@ -69,8 +72,14 @@ export default class Viewer extends Base3dView {
         const position = new THREE.Float32Attribute(data.length * 3 * 2, 3);
         buffergeometry.addAttribute('position', position);
 
+        const spherePosition = new THREE.Float32Attribute(data.length * 4 * 2, 4);
+        buffergeometry.addAttribute('spherePosition', spherePosition);
+
         const opacity = new THREE.Float32Attribute(data.length * 2, 1);
         buffergeometry.addAttribute('opacity', opacity);
+
+        const innerScaling = new THREE.Float32Attribute(data.length * 2, 1);
+        buffergeometry.addAttribute('innerScaling', innerScaling);
 
         const progress = new THREE.Float32Attribute(data.length * 2, 1);
         buffergeometry.addAttribute('progress', progress);
@@ -86,21 +95,21 @@ export default class Viewer extends Base3dView {
             angle = movement.angle;
             quaternion = movement.quaternion;
 
-            const r = rMin + rD * e.progress;
-            const vector = new THREE.Vector3(0, 0, r);
-            vector.applyQuaternion(quaternion);
+            quaternion.toArray(spherePosition.array, i * 4 + 0); // inner
+            quaternion.toArray(spherePosition.array, i * 4 + 4); // outer
             quaternion.normalize();
-
-            vector.clone().multiplyScalar(0.95).toArray(position.array, i * 3);
-            vector.toArray(position.array, i * 3 + 3);
 
             opacity.array[i] = 0;
             opacity.array[i + 1] = 0.4;
+
+            innerScaling.array[i] = 1;
+            innerScaling.array[i + 1] = 0;
 
             progress.array[i] = progress.array[i + 1] = e.progress;
             this._progress.push(e.progress);
             i += 2;
         }
+
 
         const mesh = new THREE.Mesh(buffergeometry, shaderMaterial);
         mesh.drawMode = THREE.TriangleStripDrawMode;
@@ -115,16 +124,21 @@ export default class Viewer extends Base3dView {
     setProgress(progress) {
         shaderMaterial.uniforms.time.value = progress;
         shaderMaterial.uniforms.needsUpdate = true;
-
+        
         if (!this._line)
             return;
 
         const attr = this._line.geometry.attributes;
-        let index = closest(this._progress, progress) * 3 * 2;
+        let index = closest(this._progress, progress) * 4 * 2;
 
-        let pos = new THREE.Vector3(attr.position.array[index + 3], attr.position.array[index + 3 + 1], attr.position.array[index + 3 + 2]);
+        let quaternion = new THREE.Vector4(
+            attr.spherePosition.array[index], 
+            attr.spherePosition.array[index + 1],
+            attr.spherePosition.array[index + 2],
+            attr.spherePosition.array[index + 3]);
 
-        this._pointer.position.copy(pos);
+        pointerShader.uniforms.spherePosition.value = quaternion;
+        pointerShader.uniforms.spherePosition.needsUpdate = true;
     }
 
     /**
