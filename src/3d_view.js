@@ -11,7 +11,6 @@ const ROTATION_SCALE = 0.03;
 
 const shaderMaterial = new THREE.ShaderMaterial(Shader);
 
-
 const isDead = (x, y) =>
     x === 0 && y === 0;
 
@@ -32,7 +31,7 @@ const closest = (items, value) => {
         middle = Math.floor((stopIndex + startIndex) / 2);
     }
     return middle;
-}
+};
 
 /**
  * 3D view
@@ -55,6 +54,8 @@ export default class Viewer extends Base3dView {
      * 
      */
     draw(data, leftXKey, leftYKey, rightXKey, rightYKey, startColor, endColor) {
+        this.reset();
+
         const compSize = 3;
         
         const buffergeometry = new THREE.BufferGeometry();
@@ -158,8 +159,9 @@ export default class Viewer extends Base3dView {
     /**
      * Clear all current elements from the scene.
      */
-    clear() {
-        super.clear()
-        // TODO
+    reset() {
+        this._scene.remove(this._line);
+        this._line = null;
+        this.setProgress(0);
     }
 }

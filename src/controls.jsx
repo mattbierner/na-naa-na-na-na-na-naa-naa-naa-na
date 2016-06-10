@@ -1,13 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import GameSelector from './game_selector';
 import Timeline from './timeline';
 
 const interval = 30;
-const SCALE = 20;
-
-const tryInvoke = (f, x) =>
-    f ? f(x) : null;
 
 /**
  * 
@@ -172,7 +169,8 @@ export default class Controls extends React.Component {
                     <div className="button-group">
                         <button onClick={this.toggle.bind(this) } className='material-icons'>{this.state.playing ? 'pause' : 'play_arrow'}</button>
                     </div>
-                    <PlaybackSpeedControls onChange={this.onPlaybackSpeedChange.bind(this) } />
+                    <PlaybackSpeedControls onChange={this.onPlaybackSpeedChange.bind(this) }  />
+                    <GameSelector games={this.props.games} onChange={this.props.onGameChange} gameFile={this.props.gameFile} />
                 </div>
                 <Timeline {...this.props}
                     onDrag={this.onTimelineDrag.bind(this) }

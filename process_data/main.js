@@ -2,9 +2,11 @@
  * Simple script for converting raw text data to json
  */
 "use strict";
-const proces_data = require('proces_data');
 const fs = require('fs');
 const process = require('process');
+const process_data = require('../src/process_data/process_data');
+const moment = require('moment');
+const input = require('./input');
 
 /**
  * Load some raw data form a file.
@@ -16,19 +18,66 @@ const loadData = path =>
     });
 
 /**
+ * Remove data at ends when no input is being entered.
+ */
+const trimEnds = data => {
+    let start = 0;
+    let end = data.length - 1;
+    while (start < end && input.isDead(data[start]))
+        ++start;
+
+    while (end > start && input.isDead(data[end]))
+        --end;
+
+    return data.slice(start, end);
+};
+
+/**
+*/
+const extractRow = row => {
+    const elements = row.split(',').map(x => x.trim());
+    const time = moment(elements[0]);
+    return {
+        time,
+        right_x: +elements[3],
+        right_y: +elements[4],
+        left_x: +elements[5],
+        left_y: +elements[6]
+    };
+};
+
+const processRow = module.exports.processRow = data => {
+    const e = extractRow(data);
+    const left = input.normalize(e.left_x, e.left_y);
+    e.left_x = left.x;
+    e.left_y = left.y;
+    
+    const right = input.normalize(e.right_x, e.right_y);
+    e.right_x = right.x;
+    e.right_y = right.y;
+    return e;
+};
+
+/**
+*/
+const processData = text =>
+    text.split('\n').filter(x => x.indexOf(',') > 0).map(processRow);
+
+
+/**
  * Load data from a text file
  */
 const getData = path =>
     loadData(path)
         .then(x => processData(x))
         .then(trimEnds)
-        .then(createMatch);
+        .then(process_data.createMatch);
 
 
 const in_file = process.argv[2];
 const out_file = process.argv[3];
 
-proces_data.getData(in_file)
+getData(in_file)
     .then(data => {
         fs.writeFileSync(out_file, JSON.stringify(data, null, 2), '')
     })

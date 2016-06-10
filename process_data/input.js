@@ -20,3 +20,16 @@ module.exports.normalize = (x, y) => ({
     x: deaden(x - MID) / maxX,
     y: deaden(y - MID) / maxY
 });
+
+
+/**
+ * Check if single analog input is in the dead zone.
+ */
+const isDeadInput = value =>
+    Math.abs(value - MID) < DEAD_ZONE;
+
+/**
+ * Check if all analog inputs are in dead zones.
+ */
+module.exports.isDead = x =>
+    isDeadInput(x.right_x) && isDeadInput(x.right_y) && isDeadInput(x.left_x) && isDeadInput(x.left_y);
