@@ -8,7 +8,6 @@ import Shader from './shaders/default_solid';
 import Base3dView from './base_3d_view';
 import katamariMovementForControls from './katamari_input';
 
-const SCALE = 1 / 50;
 const rMin = 0.01;
 const rMax = 1;
 const rD = rMax - rMin;
@@ -65,17 +64,15 @@ export default class Viewer extends Base3dView {
     draw(data) {
         this.reset();
 
-        const compSize = 3;
-
         const buffergeometry = new THREE.BufferGeometry();
 
-        const position = new THREE.Float32Attribute(data.length * 3 * 3, 3);
+        const position = new THREE.Float32Attribute(data.length * 3 * 2, 3);
         buffergeometry.addAttribute('position', position);
 
-        const opacity = new THREE.Float32Attribute(data.length * 3, 1);
+        const opacity = new THREE.Float32Attribute(data.length * 2, 1);
         buffergeometry.addAttribute('opacity', opacity);
 
-        const progress = new THREE.Float32Attribute(data.length * 3, 1);
+        const progress = new THREE.Float32Attribute(data.length * 2, 1);
         buffergeometry.addAttribute('progress', progress);
 
         this._progress = [];
@@ -83,8 +80,6 @@ export default class Viewer extends Base3dView {
         let angle = 0;
         let quaternion = new THREE.Quaternion(0, 0, 0, 1);
         let i = 0;
-        const center = new THREE.Vector3(0, 0, 0);
-        let previous = center.clone();
 
         for (const e of data) {
             const movement = katamariMovementForControls(quaternion, angle, e);
@@ -96,23 +91,22 @@ export default class Viewer extends Base3dView {
             vector.applyQuaternion(quaternion);
             quaternion.normalize();
 
-            center.toArray(position.array, i * 3);
-            previous.toArray(position.array, i * 3 + 3);
-            vector.toArray(position.array, i * 3 + 6);
-            previous = vector;
+            vector.clone().multiplyScalar(0.95).toArray(position.array, i * 3);
+            vector.toArray(position.array, i * 3 + 3);
 
             opacity.array[i] = 0;
-            opacity.array[i + 1] = 0.2;
-            opacity.array[i + 2] = 0.2;
+            opacity.array[i + 1] = 0.4;
 
-            progress.array[i] = progress.array[i + 1] = progress.array[i + 2] = e.progress;
+            progress.array[i] = progress.array[i + 1] = e.progress;
             this._progress.push(e.progress);
-            i += 3;
+            i += 2;
         }
 
-        const line = new THREE.Mesh(buffergeometry, shaderMaterial);
-        this._scene.add(line);
-        this._line = line;
+        const mesh = new THREE.Mesh(buffergeometry, shaderMaterial);
+        mesh.drawMode = THREE.TriangleStripDrawMode;
+
+        this._scene.add(mesh);
+        this._line = mesh;
     }
 
     /**
@@ -126,7 +120,7 @@ export default class Viewer extends Base3dView {
             return;
 
         const attr = this._line.geometry.attributes;
-        let index = closest(this._progress, progress) * 3 * 3;
+        let index = closest(this._progress, progress) * 3 * 2;
 
         let pos = new THREE.Vector3(attr.position.array[index + 3], attr.position.array[index + 3 + 1], attr.position.array[index + 3 + 2]);
 

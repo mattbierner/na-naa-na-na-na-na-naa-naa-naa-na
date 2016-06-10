@@ -36192,7 +36192,6 @@
 
 	var ResizeSensor = __webpack_require__(174);
 
-	var SCALE = 1 / 50;
 	var rMin = 0.01;
 	var rMax = 1;
 	var rD = rMax - rMin;
@@ -36263,17 +36262,15 @@
 	        value: function draw(data) {
 	            this.reset();
 
-	            var compSize = 3;
-
 	            var buffergeometry = new _three2.default.BufferGeometry();
 
-	            var position = new _three2.default.Float32Attribute(data.length * 3 * 3, 3);
+	            var position = new _three2.default.Float32Attribute(data.length * 3 * 2, 3);
 	            buffergeometry.addAttribute('position', position);
 
-	            var opacity = new _three2.default.Float32Attribute(data.length * 3, 1);
+	            var opacity = new _three2.default.Float32Attribute(data.length * 2, 1);
 	            buffergeometry.addAttribute('opacity', opacity);
 
-	            var progress = new _three2.default.Float32Attribute(data.length * 3, 1);
+	            var progress = new _three2.default.Float32Attribute(data.length * 2, 1);
 	            buffergeometry.addAttribute('progress', progress);
 
 	            this._progress = [];
@@ -36281,8 +36278,6 @@
 	            var angle = 0;
 	            var quaternion = new _three2.default.Quaternion(0, 0, 0, 1);
 	            var i = 0;
-	            var center = new _three2.default.Vector3(0, 0, 0);
-	            var previous = center.clone();
 
 	            var _iteratorNormalCompletion = true;
 	            var _didIteratorError = false;
@@ -36301,18 +36296,15 @@
 	                    vector.applyQuaternion(quaternion);
 	                    quaternion.normalize();
 
-	                    center.toArray(position.array, i * 3);
-	                    previous.toArray(position.array, i * 3 + 3);
-	                    vector.toArray(position.array, i * 3 + 6);
-	                    previous = vector;
+	                    vector.clone().multiplyScalar(0.95).toArray(position.array, i * 3);
+	                    vector.toArray(position.array, i * 3 + 3);
 
 	                    opacity.array[i] = 0;
-	                    opacity.array[i + 1] = 0.2;
-	                    opacity.array[i + 2] = 0.2;
+	                    opacity.array[i + 1] = 0.4;
 
-	                    progress.array[i] = progress.array[i + 1] = progress.array[i + 2] = e.progress;
+	                    progress.array[i] = progress.array[i + 1] = e.progress;
 	                    this._progress.push(e.progress);
-	                    i += 3;
+	                    i += 2;
 	                }
 	            } catch (err) {
 	                _didIteratorError = true;
@@ -36329,9 +36321,11 @@
 	                }
 	            }
 
-	            var line = new _three2.default.Mesh(buffergeometry, shaderMaterial);
-	            this._scene.add(line);
-	            this._line = line;
+	            var mesh = new _three2.default.Mesh(buffergeometry, shaderMaterial);
+	            mesh.drawMode = _three2.default.TriangleStripDrawMode;
+
+	            this._scene.add(mesh);
+	            this._line = mesh;
 	        }
 
 	        /**
@@ -36347,7 +36341,7 @@
 	            if (!this._line) return;
 
 	            var attr = this._line.geometry.attributes;
-	            var index = closest(this._progress, progress) * 3 * 3;
+	            var index = closest(this._progress, progress) * 3 * 2;
 
 	            var pos = new _three2.default.Vector3(attr.position.array[index + 3], attr.position.array[index + 3 + 1], attr.position.array[index + 3 + 2]);
 
