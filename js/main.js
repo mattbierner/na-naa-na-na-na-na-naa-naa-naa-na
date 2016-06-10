@@ -20488,9 +20488,9 @@
 
 	var _three2 = _interopRequireDefault(_three);
 
-	var _d_view = __webpack_require__(170);
+	var _game_3d_view = __webpack_require__(284);
 
-	var _d_view2 = _interopRequireDefault(_d_view);
+	var _game_3d_view2 = _interopRequireDefault(_game_3d_view);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20501,7 +20501,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	/**
-	 * 
+	 * View for a complete game.
 	 */
 
 	var GameView = function (_React$Component) {
@@ -20523,13 +20523,14 @@
 
 	            var element = _reactDom2.default.findDOMNode(this);
 	            var canvas = element.getElementsByClassName('glCanvas')[0];
-	            this._3dview = new _d_view2.default(canvas, element);
+	            this._3dview = new _game_3d_view2.default(canvas, element);
+	            this._3dview.setColors(new _three2.default.Vector4(1, 0, 1, 1), new _three2.default.Vector4(0, 1, 1, 1));
 	        }
 	    }, {
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(newProps) {
 	            if (newProps.game && this.props.game !== newProps.game) {
-	                this._3dview.draw(newProps.game.events, 'left_x', 'left_y', 'right_x', 'right_y', new _three2.default.Vector4(1, 0, 1, 1), new _three2.default.Vector4(0, 1, 1, 1));
+	                this._3dview.draw(newProps.game.events);
 	            }
 	            if (newProps.progress != this.props.progress && typeof newProps.progress !== 'undefined') {
 	                this._3dview.setProgress(newProps.progress);
@@ -23887,245 +23888,7 @@
 	if(true){if(typeof module!=='undefined'&&module.exports){exports=module.exports=THREE;}exports.THREE=THREE;}else {undefined['THREE']=THREE;}
 
 /***/ },
-/* 170 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _three = __webpack_require__(169);
-
-	var _three2 = _interopRequireDefault(_three);
-
-	var _OrbitControls = __webpack_require__(171);
-
-	var _OrbitControls2 = _interopRequireDefault(_OrbitControls);
-
-	var _default_solid = __webpack_require__(172);
-
-	var _default_solid2 = _interopRequireDefault(_default_solid);
-
-	var _base_3d_view = __webpack_require__(173);
-
-	var _base_3d_view2 = _interopRequireDefault(_base_3d_view);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ResizeSensor = __webpack_require__(174);
-
-	var SCALE = 1 / 50;
-	var ROTATION_SCALE = 0.03;
-
-	var shaderMaterial = new _three2.default.ShaderMaterial(_default_solid2.default);
-
-	var isDead = function isDead(x, y) {
-	    return x === 0 && y === 0;
-	};
-
-	var closest = function closest(items, value) {
-	    var startIndex = 0;
-	    var stopIndex = items.length - 1;
-	    var middle = Math.floor((stopIndex + startIndex) / 2);
-
-	    while (items[middle] != value && startIndex < stopIndex) {
-	        //adjust search area
-	        if (value < items[middle]) {
-	            stopIndex = middle - 1;
-	        } else if (value > items[middle]) {
-	            startIndex = middle + 1;
-	        }
-
-	        //recalculate middle
-	        middle = Math.floor((stopIndex + startIndex) / 2);
-	    }
-	    return middle;
-	};
-
-	/**
-	 * 3D view
-	 */
-
-	var Viewer = function (_Base3dView) {
-	    _inherits(Viewer, _Base3dView);
-
-	    function Viewer(canvas, container) {
-	        _classCallCheck(this, Viewer);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Viewer).call(this, canvas, container));
-
-	        _this._initPointer();
-	        return _this;
-	    }
-
-	    _createClass(Viewer, [{
-	        key: '_initPointer',
-	        value: function _initPointer() {
-	            var geometry = new _three2.default.SphereGeometry(0.01, 32, 32);
-	            var material = new _three2.default.MeshBasicMaterial({ color: 0x87BF26 });
-	            this._pointer = new _three2.default.Mesh(geometry, material);
-	            this._scene.add(this._pointer);
-	        }
-
-	        /**
-	         * 
-	         */
-
-	    }, {
-	        key: 'draw',
-	        value: function draw(data, leftXKey, leftYKey, rightXKey, rightYKey, startColor, endColor) {
-	            this.reset();
-
-	            var compSize = 3;
-
-	            var buffergeometry = new _three2.default.BufferGeometry();
-
-	            var position = new _three2.default.Float32Attribute(data.length * 3 * compSize, 3);
-	            buffergeometry.addAttribute('position', position);
-
-	            var opacity = new _three2.default.Float32Attribute(data.length * compSize, 1);
-	            buffergeometry.addAttribute('opacity', opacity);
-
-	            var progress = new _three2.default.Float32Attribute(data.length * compSize, 1);
-	            buffergeometry.addAttribute('progress', progress);
-
-	            var rMin = 0.01;
-	            var rMax = 1;
-	            var rD = rMax - rMin;
-
-	            var angle = 0;
-	            var quaternion = new _three2.default.Quaternion(0, 0, 0, 1);
-	            var i = 0;
-	            this._progress = [];
-	            var center = new _three2.default.Vector3(0, 0, 0);
-	            var previous = center.clone();
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
-
-	            try {
-	                for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var e = _step.value;
-
-	                    var leftX = e[leftXKey];
-	                    var leftY = e[leftYKey];
-
-	                    var rightX = e[rightXKey];
-	                    var rightY = e[rightYKey];
-
-	                    var r = rMin + rD * e.progress;
-
-	                    // Update positon based on controls
-	                    if (isDead(leftX, leftY) && !isDead(rightX, rightY)) {
-	                        // right stick only rotation
-	                        angle += rightY * ROTATION_SCALE;
-	                    } else if (!isDead(leftX, leftY) && isDead(rightX, rightY)) {
-	                        // left stick only rotation
-	                        angle += -leftY * ROTATION_SCALE;
-	                    } else if (leftY > 0 && rightY < 0) {
-	                        // down left, up right rotation
-	                        angle += (leftY - rightY) * ROTATION_SCALE;
-	                    } else if (rightY > 0 && leftY < 0) {
-	                        // down left, up right rotation
-	                        angle += (rightY - leftY) * ROTATION_SCALE;
-	                    } else {
-	                        // must be a translation
-	                        var x = leftX + rightX;
-	                        var y = leftY + rightY;
-	                        if (x !== 0 && y !== 0) {
-	                            var direction = new _three2.default.Vector3(Math.sin(angle), Math.cos(angle), 0);
-	                            var perpendicular = new _three2.default.Vector3(-direction.y, direction.x, 0);
-
-	                            var horizontal = new _three2.default.Quaternion().setFromAxisAngle(direction, x * SCALE);
-	                            var vertical = new _three2.default.Quaternion().setFromAxisAngle(perpendicular, y * SCALE);
-	                            quaternion = quaternion.multiply(horizontal).multiply(vertical);
-	                        }
-	                    }
-
-	                    var vector = new _three2.default.Vector3(0, 0, r);
-	                    vector.applyQuaternion(quaternion);
-	                    quaternion.normalize();
-
-	                    center.toArray(position.array, i * 3 * compSize);
-	                    previous.toArray(position.array, i * 3 * compSize + 3);
-	                    vector.toArray(position.array, i * 3 * compSize + 6);
-	                    previous = vector;
-
-	                    opacity.array[i * compSize] = 0;
-	                    opacity.array[i * compSize + 1] = 0.2;
-	                    opacity.array[i * compSize + 2] = 0.2;
-
-	                    progress.array[i * compSize] = progress.array[i * compSize + 1] = progress.array[i * compSize + 2] = e.progress;
-	                    this._progress.push(e.progress);
-	                    ++i;
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
-	            }
-
-	            shaderMaterial.uniforms.startColor.value = startColor;
-	            shaderMaterial.uniforms.endColor.value = endColor;
-
-	            var line = new _three2.default.Mesh(buffergeometry, shaderMaterial);
-	            this._scene.add(line);
-	            this._line = line;
-	        }
-	    }, {
-	        key: 'setProgress',
-	        value: function setProgress(progress) {
-	            shaderMaterial.uniforms.time.value = progress;
-	            shaderMaterial.uniforms.needsUpdate = true;
-
-	            if (!this._line) return;
-
-	            var attr = this._line.geometry.attributes;
-	            var index = closest(this._progress, progress) * 3 * 3;
-
-	            var pos = new _three2.default.Vector3(attr.position.array[index + 3], attr.position.array[index + 3 + 1], attr.position.array[index + 3 + 2]);
-
-	            this._pointer.position.copy(pos);
-	        }
-
-	        /**
-	         * Clear all current elements from the scene.
-	         */
-
-	    }, {
-	        key: 'reset',
-	        value: function reset() {
-	            this._scene.remove(this._line);
-	            this._line = null;
-	            this.setProgress(0);
-	        }
-	    }]);
-
-	    return Viewer;
-	}(_base_3d_view2.default);
-
-	exports.default = Viewer;
-
-/***/ },
+/* 170 */,
 /* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -36386,6 +36149,301 @@
 	}(_react2.default.Component);
 
 	exports.default = PlaybackSpeedControls;
+
+/***/ },
+/* 284 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _three = __webpack_require__(169);
+
+	var _three2 = _interopRequireDefault(_three);
+
+	var _OrbitControls = __webpack_require__(171);
+
+	var _OrbitControls2 = _interopRequireDefault(_OrbitControls);
+
+	var _default_solid = __webpack_require__(172);
+
+	var _default_solid2 = _interopRequireDefault(_default_solid);
+
+	var _base_3d_view = __webpack_require__(173);
+
+	var _base_3d_view2 = _interopRequireDefault(_base_3d_view);
+
+	var _katamari_input = __webpack_require__(285);
+
+	var _katamari_input2 = _interopRequireDefault(_katamari_input);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var ResizeSensor = __webpack_require__(174);
+
+	var SCALE = 1 / 50;
+	var rMin = 0.01;
+	var rMax = 1;
+	var rD = rMax - rMin;
+
+	var shaderMaterial = new _three2.default.ShaderMaterial(_default_solid2.default);
+
+	var closest = function closest(items, value) {
+	    var startIndex = 0;
+	    var stopIndex = items.length - 1;
+	    var middle = Math.floor((stopIndex + startIndex) / 2);
+
+	    while (items[middle] != value && startIndex < stopIndex) {
+	        //adjust search area
+	        if (value < items[middle]) {
+	            stopIndex = middle - 1;
+	        } else if (value > items[middle]) {
+	            startIndex = middle + 1;
+	        }
+
+	        //recalculate middle
+	        middle = Math.floor((stopIndex + startIndex) / 2);
+	    }
+	    return middle;
+	};
+
+	/**
+	 * 3D view
+	 */
+
+	var Viewer = function (_Base3dView) {
+	    _inherits(Viewer, _Base3dView);
+
+	    function Viewer(canvas, container) {
+	        _classCallCheck(this, Viewer);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Viewer).call(this, canvas, container));
+
+	        _this._initPointer();
+	        return _this;
+	    }
+
+	    _createClass(Viewer, [{
+	        key: '_initPointer',
+	        value: function _initPointer() {
+	            var geometry = new _three2.default.SphereGeometry(0.01, 32, 32);
+	            var material = new _three2.default.MeshBasicMaterial({ color: 0x87BF26 });
+	            this._pointer = new _three2.default.Mesh(geometry, material);
+	            this._scene.add(this._pointer);
+	        }
+
+	        /**
+	         * Set progress colors.
+	         */
+
+	    }, {
+	        key: 'setColors',
+	        value: function setColors(startColor, endColor) {
+	            shaderMaterial.uniforms.startColor.value = startColor;
+	            shaderMaterial.uniforms.endColor.value = endColor;
+	        }
+
+	        /**
+	         * 
+	         */
+
+	    }, {
+	        key: 'draw',
+	        value: function draw(data) {
+	            this.reset();
+
+	            var compSize = 3;
+
+	            var buffergeometry = new _three2.default.BufferGeometry();
+
+	            var position = new _three2.default.Float32Attribute(data.length * 3 * 3, 3);
+	            buffergeometry.addAttribute('position', position);
+
+	            var opacity = new _three2.default.Float32Attribute(data.length * 3, 1);
+	            buffergeometry.addAttribute('opacity', opacity);
+
+	            var progress = new _three2.default.Float32Attribute(data.length * 3, 1);
+	            buffergeometry.addAttribute('progress', progress);
+
+	            this._progress = [];
+
+	            var angle = 0;
+	            var quaternion = new _three2.default.Quaternion(0, 0, 0, 1);
+	            var i = 0;
+	            var center = new _three2.default.Vector3(0, 0, 0);
+	            var previous = center.clone();
+
+	            var _iteratorNormalCompletion = true;
+	            var _didIteratorError = false;
+	            var _iteratorError = undefined;
+
+	            try {
+	                for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                    var e = _step.value;
+
+	                    var movement = (0, _katamari_input2.default)(quaternion, angle, e);
+	                    angle = movement.angle;
+	                    quaternion = movement.quaternion;
+
+	                    var r = rMin + rD * e.progress;
+	                    var vector = new _three2.default.Vector3(0, 0, r);
+	                    vector.applyQuaternion(quaternion);
+	                    quaternion.normalize();
+
+	                    center.toArray(position.array, i * 3);
+	                    previous.toArray(position.array, i * 3 + 3);
+	                    vector.toArray(position.array, i * 3 + 6);
+	                    previous = vector;
+
+	                    opacity.array[i] = 0;
+	                    opacity.array[i + 1] = 0.2;
+	                    opacity.array[i + 2] = 0.2;
+
+	                    progress.array[i] = progress.array[i + 1] = progress.array[i + 2] = e.progress;
+	                    this._progress.push(e.progress);
+	                    i += 3;
+	                }
+	            } catch (err) {
+	                _didIteratorError = true;
+	                _iteratorError = err;
+	            } finally {
+	                try {
+	                    if (!_iteratorNormalCompletion && _iterator.return) {
+	                        _iterator.return();
+	                    }
+	                } finally {
+	                    if (_didIteratorError) {
+	                        throw _iteratorError;
+	                    }
+	                }
+	            }
+
+	            var line = new _three2.default.Mesh(buffergeometry, shaderMaterial);
+	            this._scene.add(line);
+	            this._line = line;
+	        }
+
+	        /**
+	         * Set the progress in the current match.
+	         */
+
+	    }, {
+	        key: 'setProgress',
+	        value: function setProgress(progress) {
+	            shaderMaterial.uniforms.time.value = progress;
+	            shaderMaterial.uniforms.needsUpdate = true;
+
+	            if (!this._line) return;
+
+	            var attr = this._line.geometry.attributes;
+	            var index = closest(this._progress, progress) * 3 * 3;
+
+	            var pos = new _three2.default.Vector3(attr.position.array[index + 3], attr.position.array[index + 3 + 1], attr.position.array[index + 3 + 2]);
+
+	            this._pointer.position.copy(pos);
+	        }
+
+	        /**
+	         * Clear all current elements from the scene.
+	         */
+
+	    }, {
+	        key: 'reset',
+	        value: function reset() {
+	            this._scene.remove(this._line);
+	            this._line = null;
+	            this.setProgress(0);
+	        }
+	    }]);
+
+	    return Viewer;
+	}(_base_3d_view2.default);
+
+	exports.default = Viewer;
+
+/***/ },
+/* 285 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _three = __webpack_require__(169);
+
+	var _three2 = _interopRequireDefault(_three);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	/**
+	 * How much each rotation input action is scaled.
+	 */
+	var ROTATION_SCALE = 0.03;
+
+	/**
+	 * How much each translation input action is scaled.
+	 */
+	var TRANSLATION_SCALE = 1 / 50;
+
+	/**
+	 * Is a joystick active?
+	 */
+	var isDead = function isDead(x, y) {
+	    return x === 0 && y === 0;
+	};
+
+	/**
+	 * Translate input into Katamari movement on a sphere.
+	 */
+
+	exports.default = function (quaternion, angle, input) {
+	    var leftX = input.left_x;
+	    var leftY = input.left_y;
+
+	    var rightX = input.right_x;
+	    var rightY = input.right_y;
+
+	    // Update positon based on controls
+	    if (isDead(leftX, leftY) && !isDead(rightX, rightY)) {
+	        // right stick only rotation
+	        angle += rightY * ROTATION_SCALE;
+	    } else if (!isDead(leftX, leftY) && isDead(rightX, rightY)) {
+	        // left stick only rotation
+	        angle += -leftY * ROTATION_SCALE;
+	    } else if (leftY > 0 && rightY < 0) {
+	        // down left, up right rotation
+	        angle += (leftY - rightY) * ROTATION_SCALE;
+	    } else if (rightY > 0 && leftY < 0) {
+	        // down left, up right rotation
+	        angle += (rightY - leftY) * ROTATION_SCALE;
+	    } else {
+	        // must be a translation
+	        var x = leftX + rightX;
+	        var y = leftY + rightY;
+	        if (x !== 0 && y !== 0) {
+	            var direction = new _three2.default.Vector3(Math.sin(angle), Math.cos(angle), 0);
+	            var perpendicular = new _three2.default.Vector3(-direction.y, direction.x, 0);
+
+	            var horizontal = new _three2.default.Quaternion().setFromAxisAngle(direction, x * TRANSLATION_SCALE);
+	            var vertical = new _three2.default.Quaternion().setFromAxisAngle(perpendicular, y * TRANSLATION_SCALE);
+	            quaternion = quaternion.multiply(horizontal).multiply(vertical);
+	        }
+	    }
+	    return { angle: angle, quaternion: quaternion };
+	};
 
 /***/ }
 /******/ ]);

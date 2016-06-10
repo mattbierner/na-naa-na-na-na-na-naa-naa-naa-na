@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import THREE from 'three';
 
-import Viewer from './3d_view';
+import Viewer from './game_3d_view';
 
 /**
- * 
+ * View for a complete game.
  */
 export default class GameView extends React.Component {
     constructor(props) {
@@ -20,15 +20,16 @@ export default class GameView extends React.Component {
         const element = ReactDOM.findDOMNode(this);
         const canvas = element.getElementsByClassName('glCanvas')[0];
         this._3dview = new Viewer(canvas, element);
+        this._3dview.setColors(
+            new THREE.Vector4(1, 0, 1, 1),
+            new THREE.Vector4(0, 1, 1, 1));
     }
 
     componentWillReceiveProps(newProps) {
         if (newProps.game && this.props.game !== newProps.game) {
-            this._3dview.draw(newProps.game.events, 'left_x', 'left_y', 'right_x', 'right_y',
-                new THREE.Vector4(1, 0, 1, 1),
-                new THREE.Vector4(0, 1, 1, 1));
+            this._3dview.draw(newProps.game.events);
         }
-        if (newProps.progress != this.props.progress && typeof newProps.progress !== 'undefined' ) {
+        if (newProps.progress != this.props.progress && typeof newProps.progress !== 'undefined') {
             this._3dview.setProgress(newProps.progress);
         }
     }
@@ -37,6 +38,7 @@ export default class GameView extends React.Component {
         return (
             <div className="game-view">
                 <canvas className='glCanvas' />
-            </div>);
+            </div>
+        );
     }
 }
