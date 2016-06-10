@@ -1,5 +1,8 @@
 import THREE from 'three';
 
+/**
+ * Basic solid shader.
+ */
 export default {
     uniforms: {
         startColor: { type: "v4", value: new THREE.Vector4(0, 0, 0, 1) },

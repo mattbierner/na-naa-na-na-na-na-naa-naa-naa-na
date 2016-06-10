@@ -1,5 +1,3 @@
-"use strict";
-
 /**
  * Load data from a file
  */

@@ -1,8 +1,9 @@
 "use strict";
 import THREE from 'three';
-import OrbitControls from './OrbitControls';
-import Shader from './shader';
 const ResizeSensor = require('imports?this=>window!css-element-queries/src/ResizeSensor');
+
+import OrbitControls from './OrbitControls';
+import Shader from './shaders/default_solid';
 
 import Base3dView from './base_3d_view';
 

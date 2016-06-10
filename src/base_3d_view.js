@@ -1,11 +1,9 @@
 import THREE from 'three';
 import OrbitControls from './OrbitControls';
-import Shader from './shader';
 const ResizeSensor = require('imports?this=>window!css-element-queries/src/ResizeSensor');
 
-
 /**
- * 3D view
+ * Base class for Three.js 3d gameplay visulizations.
  */
 export default class BaseViewer {
     constructor(canvas, container) {

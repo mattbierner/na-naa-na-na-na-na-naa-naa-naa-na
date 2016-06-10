@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 import GameView from './game_view';
 import Header from './header';
-import Controls from './controls';
+import Controls from './controls/controls';
 
 import {getData} from './data';
 

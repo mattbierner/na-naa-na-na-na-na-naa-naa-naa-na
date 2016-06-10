@@ -12,6 +12,9 @@ export default class Header extends React.Component {
                     <img className="logo" src="images/logo.svg"/>
                     <div className="description">
                         <span className="blurb">Visualizing Katamari Damacy gameplay input.</span>
+                        <nav>
+                            <a href="https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/">source</a>
+                        </nav>
                     </div>
                 </div>
             </header>
