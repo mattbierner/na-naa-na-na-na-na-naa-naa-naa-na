@@ -28,6 +28,9 @@ export default class GameView extends React.Component {
                 new THREE.Vector4(1, 0, 1, 1),
                 new THREE.Vector4(0, 1, 1, 1));
         }
+        if (newProps.progress != this.props.progress && typeof newProps.progress !== 'undefined' ) {
+            this._3dview.setProgress(newProps.progress);
+        }
     }
 
     render() {

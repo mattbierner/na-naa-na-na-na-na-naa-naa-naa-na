@@ -1,65 +1,13 @@
-"use strict";
+import React from 'react';
+import  ReactDOM from 'react-dom';
+import moment from 'moment';
 
-const React = require('react');
-const ReactDOM = require('react-dom');
-const moment = require('moment');
 
-import * as num from '../num';
-
-import {getWeaponsTable} from '../data/weapons';
-
-const tryInvoke = (f, x) =>
-    f ? f(x) : null;
-
-const getWeaponName = weaponId => {
-    const weapon = getWeaponsTable().get(weaponId);
-    return weapon ? weapon.name : 'unknown';
-};
+const clamp = (min, max, x) =>
+    Math.max(min, Math.min(max, x));
 
 /**
- * Single event on the timeline.
- */
-class TimelineEvent extends React.Component {
-    onMouseEnter(event) {
-        tryInvoke(this.props.onFocus, this.props.event);
-    }
-
-    onMouseLeave(event) {
-        tryInvoke(this.props.onFocusEnd, this.props.event);
-    }
-
-    render() {
-        const progress = this.props.event ? this.props.event.MatchProgress : 0;
-        const style = {
-            left: `${progress * 100}%`
-        };
-        const weaponName = this.props.event ? getWeaponName(this.props.event.KillerWeaponStockId) : 'unknown';
-
-        return (
-            <li className={`timeline-event weapon weapon-${weaponName}`}
-                style={style}
-                onMouseEnter={this.onMouseEnter.bind(this) }
-                onMouseLeave={this.onMouseLeave.bind(this) } />);
-    }
-}
-
-/**
- * Set of timeline events
- */
-class TimelineEvents extends React.Component {
-    render() {
-        const events = [];
-        if (this.props.stream) {
-            this.props.stream.forEach(event => {
-                events.push(<TimelineEvent key={event.Id} event={event} {...this.props} />);
-            });
-        }
-        return <ul className="timeline-events">{events}</ul>;
-    }
-}
-
-/**
- * 
+ * Indicator of current position on timeline.
  */
 class TimelineScrubber extends React.Component {
     render() {
@@ -96,7 +44,7 @@ class TimelineTicks extends React.Component {
         const context = canvas.getContext('2d');
 
         context.lineWidth = 1;
-        context.strokeStyle = 'white';
+        context.strokeStyle = '#444';
         this.drawTicks(context, width, height, duration, height, 30000.0);
         this.drawTicks(context, width, height, duration, height / 4, 5000.0);
     }
@@ -120,7 +68,7 @@ class TimelineTicks extends React.Component {
 }
 
 /**
- * 
+ * Interactive timeline for game session.
  */
 export default class Timeline extends React.Component {
     constructor(props) {
@@ -169,7 +117,7 @@ export default class Timeline extends React.Component {
     getProgressFromMouseEvent(event) {
         const node = ReactDOM.findDOMNode(this).getElementsByClassName('timeline-content')[0];
         const rect = node.getBoundingClientRect();
-        const progress = num.clamp(0, 1.0, (event.pageX - rect.left) / rect.width);
+        const progress = clamp(0, 1.0, (event.pageX - rect.left) / rect.width);
         return progress
     }
 
@@ -178,19 +126,20 @@ export default class Timeline extends React.Component {
     }
 
     render() {
-        const end = this.props.stream && this.timeToString(this.props.stream.duration);
-        const middle = this.props.stream && this.timeToString(this.props.stream.duration * this.props.progress);
+        const end = this.timeToString(this.props.duration);
+        const middle = this.timeToString(this.props.duration * this.props.progress);
 
         return (
             <div id="timeline" onMouseDown={this.onMouseDown.bind(this) } onMouseUp={this.onMouseUp.bind(this) } onMouseMove={this.onMouseMove.bind(this) }>
                 <div className='timeline-content'>
-                    <TimelineTicks duration={this.props.stream && this.props.stream.duration} />
-                    <TimelineEvents stream={this.props.stream} />
-                    <TimelineScrubber progress={this.props.progress} />
+                    <div className='timeline-body'>
+                        <TimelineTicks duration={this.props.duration} />
+                        <TimelineScrubber progress={this.props.progress} />
+                    </div>
+                    <div className="timeline-label" style={{ left: 0 }}>{this.timeToString(0) }</div>
+                    <div className="timeline-label" style={{ left: '50%' }}>{middle}</div>
+                    <div className="timeline-label" style={{ right: 0 }}>{end}</div>
                 </div>
-                <div className="timeline-label" style={{ left: 0 }}>{this.timeToString(0) }</div>
-                <div className="timeline-label" style={{ left: '50%' }}>{middle}</div>
-                <div className="timeline-label" style={{ right: 0 }}>{end}</div>
             </div>);
     }
 };

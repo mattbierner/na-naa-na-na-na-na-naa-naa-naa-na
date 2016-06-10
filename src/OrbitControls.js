@@ -157,6 +157,8 @@ export default THREE.OrbitControls = function ( object, domElement ) {
 
 			spherical.radius *= scale;
 
+            scope.object.zoom = spherical.radius;
+             
 			// restrict radius to be between desired limits
 			spherical.radius = Math.max( scope.minDistance, Math.min( scope.maxDistance, spherical.radius ) );
 

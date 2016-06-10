@@ -1,4 +1,3 @@
-"use strict";
 import THREE from 'three';
 import OrbitControls from './OrbitControls';
 import Shader from './shader';

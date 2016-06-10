@@ -17,6 +17,10 @@ $text-color:       #383838;
 $background-color: #fdfdfd;
 $brand-color:      #2a7ae2;
 
+$panel-color: rgba(255, 255, 255, 0.85);
+
+$border-color: #eee;
+
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
 $grey-color-dark:  darken($grey-color, 25%);
@@ -51,7 +55,9 @@ $on-laptop:        800px;
     
     "gameView",
     "header",
-    
+    "timeline",
+    "playback-controls",
+
     "main";
 
 

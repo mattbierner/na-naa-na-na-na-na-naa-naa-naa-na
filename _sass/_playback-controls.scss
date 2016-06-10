@@ -1,0 +1,28 @@
+#controls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+#playback-controls {
+    text-align: center;
+    
+    & > * {
+        display: inline-block;
+    }
+}
+
+.button-group {
+    padding: 0 0.4em;
+    button {
+        background: none;
+        border: none;
+        outline: none;
+        border-radius: 100px;
+
+        &:hover {
+            background: #eee;
+        }
+    }
+}

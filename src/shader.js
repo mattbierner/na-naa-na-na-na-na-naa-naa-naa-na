@@ -12,13 +12,14 @@ export default {
         uniform float time;
         
         attribute float progress;
+        attribute float opacity;
 
         varying vec4 vColor;
 
         void main() {
-            float opacity = float(progress < time);
+            float alpha = float(progress < time) * opacity;
             
-            vColor = mix(startColor, endColor, progress) * vec4(1, 1, 1, opacity);
+            vColor = mix(startColor, endColor, progress) * vec4(1, 1, 1, alpha);
             gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
         }
     `,
@@ -29,5 +30,8 @@ export default {
             gl_FragColor = vColor;
         }
     `,
-    transparent: true
+    transparent: true,
+    side: THREE.DoubleSide,
+    depthTest: false,
+   // depthWrite: false
 };
