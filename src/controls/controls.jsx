@@ -3,76 +3,12 @@ import ReactDOM from 'react-dom';
 
 import GameSelector from './game_selector';
 import Timeline from './timeline';
-
-const interval = 30;
+import PlaybackSpeedControls from './playback_speed_controls';
 
 /**
- * 
+ * Number of ms between timeline position update checks.
  */
-class PlaybackSpeedControls extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            speed: +props.value,
-            value: props.value || '1',
-            customValue: '1',
-            custom: false
-        };
-    }
-
-    onChange(e) {
-        const value = e.target.value;
-        if (value === 'custom') {
-            if (+this.state.value)
-                this.props.onChange(+value);
-
-            this.setState({ value: 'custom', custom: true });
-            this.setValue(this.state.customValue);
-        } else {
-            this.setState({ value: value, custom: false, customValue: value });
-            this.setValue(value);
-        }
-    }
-
-    onCustomChange(e) {
-        const value = e.target.value;
-        this.setValue(value);
-        this.setState({ customValue: value });
-    }
-
-    setValue(value) {
-        const num = +value;
-        if (isNaN(num)) {
-            //this.
-            return false;
-        }
-        if (num <= 0 || num > 20) {
-            return false;
-        }
-        this.setState({ speed: num });
-        this.props.onChange(+num);
-        return true;
-    }
-
-    render() {
-        return (
-            <span className="control">
-                Speed:
-                <select style={{ zIndex: 999 }} className="speed-selector" onChange={this.onChange.bind(this) } value={this.state.value}>
-                    <option value="1">1x</option>
-                    <option value="2">2x</option>
-                    <option value="4">4x</option>
-                    <option value="8">8x</option>
-                    <option value="20">20x</option>
-                    <option value="custom">custom</option>
-                </select>
-                <input type="text" className={this.state.custom ? '' : 'hidden'}
-                    value={this.state.customValue}
-                    onChange={this.onCustomChange.bind(this) } />
-            </span>
-        );
-    }
-}
+const UPDATE_INTERVAL = 30;
 
 /**
  * 
@@ -115,7 +51,7 @@ export default class Controls extends React.Component {
                     return;
                 
                 const actual = Date.now() - _start;
-                const next = Math.max(0, interval - (actual - interval));
+                const next = Math.max(0, UPDATE_INTERVAL - (actual - UPDATE_INTERVAL));
                 
                 if (!self.state.dragging) {
                     const progress = self.props.progress + self.state.playbackSpeed * (actual / self.props.duration);
@@ -127,7 +63,7 @@ export default class Controls extends React.Component {
                 }
                 loop(next);
             }, when);
-        } (interval));
+        } (UPDATE_INTERVAL));
         
         this.props.onPlay && this.props.onPlay();
     }
@@ -166,11 +102,11 @@ export default class Controls extends React.Component {
         return (
             <div id="controls">
                 <div id="playback-controls">
+                    <GameSelector games={this.props.games} onChange={this.props.onGameChange} gameFile={this.props.gameFile} />
                     <div className="button-group">
                         <button onClick={this.toggle.bind(this) } className='material-icons'>{this.state.playing ? 'pause' : 'play_arrow'}</button>
                     </div>
                     <PlaybackSpeedControls onChange={this.onPlaybackSpeedChange.bind(this) }  />
-                    <GameSelector games={this.props.games} onChange={this.props.onGameChange} gameFile={this.props.gameFile} />
                 </div>
                 <Timeline {...this.props}
                     onDrag={this.onTimelineDrag.bind(this) }

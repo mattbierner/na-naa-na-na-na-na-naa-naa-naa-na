@@ -25525,7 +25525,7 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	/**
-	 * Page header.
+	 * Main page header.
 	 */
 
 	var Header = function (_React$Component) {
@@ -25606,6 +25606,10 @@
 
 	var _timeline2 = _interopRequireDefault(_timeline);
 
+	var _playback_speed_controls = __webpack_require__(283);
+
+	var _playback_speed_controls2 = _interopRequireDefault(_playback_speed_controls);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -25614,139 +25618,33 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var interval = 30;
+	/**
+	 * Number of ms between timeline position update checks.
+	 */
+	var UPDATE_INTERVAL = 30;
 
 	/**
 	 * 
 	 */
 
-	var PlaybackSpeedControls = function (_React$Component) {
-	    _inherits(PlaybackSpeedControls, _React$Component);
-
-	    function PlaybackSpeedControls(props) {
-	        _classCallCheck(this, PlaybackSpeedControls);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(PlaybackSpeedControls).call(this, props));
-
-	        _this.state = {
-	            speed: +props.value,
-	            value: props.value || '1',
-	            customValue: '1',
-	            custom: false
-	        };
-	        return _this;
-	    }
-
-	    _createClass(PlaybackSpeedControls, [{
-	        key: 'onChange',
-	        value: function onChange(e) {
-	            var value = e.target.value;
-	            if (value === 'custom') {
-	                if (+this.state.value) this.props.onChange(+value);
-
-	                this.setState({ value: 'custom', custom: true });
-	                this.setValue(this.state.customValue);
-	            } else {
-	                this.setState({ value: value, custom: false, customValue: value });
-	                this.setValue(value);
-	            }
-	        }
-	    }, {
-	        key: 'onCustomChange',
-	        value: function onCustomChange(e) {
-	            var value = e.target.value;
-	            this.setValue(value);
-	            this.setState({ customValue: value });
-	        }
-	    }, {
-	        key: 'setValue',
-	        value: function setValue(value) {
-	            var num = +value;
-	            if (isNaN(num)) {
-	                //this.
-	                return false;
-	            }
-	            if (num <= 0 || num > 20) {
-	                return false;
-	            }
-	            this.setState({ speed: num });
-	            this.props.onChange(+num);
-	            return true;
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'span',
-	                { className: 'control' },
-	                'Speed:',
-	                _react2.default.createElement(
-	                    'select',
-	                    { style: { zIndex: 999 }, className: 'speed-selector', onChange: this.onChange.bind(this), value: this.state.value },
-	                    _react2.default.createElement(
-	                        'option',
-	                        { value: '1' },
-	                        '1x'
-	                    ),
-	                    _react2.default.createElement(
-	                        'option',
-	                        { value: '2' },
-	                        '2x'
-	                    ),
-	                    _react2.default.createElement(
-	                        'option',
-	                        { value: '4' },
-	                        '4x'
-	                    ),
-	                    _react2.default.createElement(
-	                        'option',
-	                        { value: '8' },
-	                        '8x'
-	                    ),
-	                    _react2.default.createElement(
-	                        'option',
-	                        { value: '20' },
-	                        '20x'
-	                    ),
-	                    _react2.default.createElement(
-	                        'option',
-	                        { value: 'custom' },
-	                        'custom'
-	                    )
-	                ),
-	                _react2.default.createElement('input', { type: 'text', className: this.state.custom ? '' : 'hidden',
-	                    value: this.state.customValue,
-	                    onChange: this.onCustomChange.bind(this) })
-	            );
-	        }
-	    }]);
-
-	    return PlaybackSpeedControls;
-	}(_react2.default.Component);
-
-	/**
-	 * 
-	 */
-
-
-	var Controls = function (_React$Component2) {
-	    _inherits(Controls, _React$Component2);
+	var Controls = function (_React$Component) {
+	    _inherits(Controls, _React$Component);
 
 	    function Controls(props) {
 	        _classCallCheck(this, Controls);
 
-	        var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Controls).call(this, props));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Controls).call(this, props));
 
-	        _this2.state = {
+	        _this.state = {
 	            playing: false,
 	            dragging: false,
 	            playbackSpeed: 1
 	        };
 
-	        _this2._onKeyDown = function (e) {
-	            if (e.keyCode === 32) _this2.toggle();
+	        _this._onKeyDown = function (e) {
+	            if (e.keyCode === 32) _this.toggle();
 	        };
-	        return _this2;
+	        return _this;
 	    }
 
 	    _createClass(Controls, [{
@@ -25774,7 +25672,7 @@
 	                    if (!self.state.playing) return;
 
 	                    var actual = Date.now() - _start;
-	                    var next = Math.max(0, interval - (actual - interval));
+	                    var next = Math.max(0, UPDATE_INTERVAL - (actual - UPDATE_INTERVAL));
 
 	                    if (!self.state.dragging) {
 	                        var progress = self.props.progress + self.state.playbackSpeed * (actual / self.props.duration);
@@ -25786,7 +25684,7 @@
 	                    }
 	                    loop(next);
 	                }, when);
-	            })(interval);
+	            })(UPDATE_INTERVAL);
 
 	            this.props.onPlay && this.props.onPlay();
 	        }
@@ -25831,6 +25729,7 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { id: 'playback-controls' },
+	                    _react2.default.createElement(_game_selector2.default, { games: this.props.games, onChange: this.props.onGameChange, gameFile: this.props.gameFile }),
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'button-group' },
@@ -25840,8 +25739,7 @@
 	                            this.state.playing ? 'pause' : 'play_arrow'
 	                        )
 	                    ),
-	                    _react2.default.createElement(PlaybackSpeedControls, { onChange: this.onPlaybackSpeedChange.bind(this) }),
-	                    _react2.default.createElement(_game_selector2.default, { games: this.props.games, onChange: this.props.onGameChange, gameFile: this.props.gameFile })
+	                    _react2.default.createElement(_playback_speed_controls2.default, { onChange: this.onPlaybackSpeedChange.bind(this) })
 	                ),
 	                _react2.default.createElement(_timeline2.default, _extends({}, this.props, {
 	                    onDrag: this.onTimelineDrag.bind(this),
@@ -36351,6 +36249,143 @@
 	        xmlhttp.send();
 	    });
 	};
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(38);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	/**
+	 * Playback speed selector.
+	 * 
+	 * Provides set of default speed plus ability to enter custom speed.
+	 */
+
+	var PlaybackSpeedControls = function (_React$Component) {
+	    _inherits(PlaybackSpeedControls, _React$Component);
+
+	    function PlaybackSpeedControls(props) {
+	        _classCallCheck(this, PlaybackSpeedControls);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(PlaybackSpeedControls).call(this, props));
+
+	        _this.state = {
+	            speed: +props.value,
+	            value: props.value || '1',
+	            customValue: '1',
+	            custom: false
+	        };
+	        return _this;
+	    }
+
+	    _createClass(PlaybackSpeedControls, [{
+	        key: 'onChange',
+	        value: function onChange(e) {
+	            var value = e.target.value;
+	            if (value === 'custom') {
+	                if (+this.state.value) this.props.onChange(+value);
+
+	                this.setState({ value: 'custom', custom: true });
+	                this.setValue(this.state.customValue);
+	            } else {
+	                this.setState({ value: value, custom: false, customValue: value });
+	                this.setValue(value);
+	            }
+	        }
+	    }, {
+	        key: 'onCustomChange',
+	        value: function onCustomChange(e) {
+	            var value = e.target.value;
+	            this.setValue(value);
+	            this.setState({ customValue: value });
+	        }
+	    }, {
+	        key: 'setValue',
+	        value: function setValue(value) {
+	            var num = +value;
+	            if (isNaN(num)) return false;
+
+	            if (num <= 0 || num > 20) return false;
+
+	            this.setState({ speed: num });
+	            this.props.onChange(+num);
+	            return true;
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'span',
+	                { className: 'control' },
+	                'Speed:',
+	                _react2.default.createElement(
+	                    'select',
+	                    { style: { zIndex: 999 }, className: 'speed-selector', onChange: this.onChange.bind(this), value: this.state.value },
+	                    _react2.default.createElement(
+	                        'option',
+	                        { value: '1' },
+	                        '1x'
+	                    ),
+	                    _react2.default.createElement(
+	                        'option',
+	                        { value: '2' },
+	                        '2x'
+	                    ),
+	                    _react2.default.createElement(
+	                        'option',
+	                        { value: '4' },
+	                        '4x'
+	                    ),
+	                    _react2.default.createElement(
+	                        'option',
+	                        { value: '8' },
+	                        '8x'
+	                    ),
+	                    _react2.default.createElement(
+	                        'option',
+	                        { value: '20' },
+	                        '20x'
+	                    ),
+	                    _react2.default.createElement(
+	                        'option',
+	                        { value: 'custom' },
+	                        'custom'
+	                    )
+	                ),
+	                _react2.default.createElement('input', { type: 'text', className: this.state.custom ? '' : 'hidden',
+	                    value: this.state.customValue,
+	                    onChange: this.onCustomChange.bind(this) })
+	            );
+	        }
+	    }]);
+
+	    return PlaybackSpeedControls;
+	}(_react2.default.Component);
+
+	exports.default = PlaybackSpeedControls;
 
 /***/ }
 /******/ ]);

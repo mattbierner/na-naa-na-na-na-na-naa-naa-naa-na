@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 /**
- * Page header.
+ * Main page header.
  */
 export default class Header extends React.Component {
     render() {
