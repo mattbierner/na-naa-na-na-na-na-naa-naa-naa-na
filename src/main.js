@@ -4,38 +4,34 @@ import ReactDOM from 'react-dom';
 import GameView from './game_view';
 import Header from './header';
 import Controls from './controls/controls';
+import OptionsPanel from './controls/options_panel';
 
 import {getData} from './data';
+import * as options from './options';
 
-const games = [
-    {
-        name: 'Sumo',
-        file: 'examples/katamari/sumo.json'
-    }, {
-        name: 'Sweets',
-        file: 'examples/katamari/sweets.json'
-    }, {
-        name: 'Origami',
-        file: 'examples/katamari/origami.json'
-    }, {
-        name: '1000m',
-        file: 'examples/katamari/1000m.json'
-    }, {
-        name: '2500m',
-        file: 'examples/katamari/2500m.json'
-    }, {
-        name: '3000m',
-        file: 'examples/katamari/3000m.json'
+/**
+ * Options panel.
+ */
+class MainOptionsPanel extends React.Component {
+    render() {
+        return (
+            <OptionsPanel>
+                s
+            </OptionsPanel>
+        );
     }
-];
+}
 
 class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            gameFile: games[0].file,
+            progress: 0,
             game: null,
-            progress: 0
+                
+            // options
+            gameFile: options.games[0].file,
+        
         };
     }
 
@@ -60,14 +56,17 @@ class Main extends React.Component {
         return (
             <div className="main container">
                 <Header />
-                <GameView game={this.state.game} progress={this.state.progress} gameFile={this.state.gameFile} />
-                <Controls
-                    games={games}
-                    game={this.state.game}
-                    duration={this.state.game ? this.state.game.duration : 0}
-                    progress={this.state.progress}
-                    onPositionChange={this.onPositionChange.bind(this) }
-                    onGameChange={this.onGameChange.bind(this) }/>
+                <MainOptionsPanel {...this.state} />
+                <div className="main-view">
+                    <GameView game={this.state.game} progress={this.state.progress} gameFile={this.state.gameFile} />
+                    <Controls
+                        games={options.games}
+                        game={this.state.game}
+                        duration={this.state.game ? this.state.game.duration : 0}
+                        progress={this.state.progress}
+                        onPositionChange={this.onPositionChange.bind(this) }
+                        onGameChange={this.onGameChange.bind(this) }/>
+                </div>
             </div>);
     }
 };

@@ -68,7 +68,17 @@
 
 	var _controls2 = _interopRequireDefault(_controls);
 
+	var _options_panel = __webpack_require__(290);
+
+	var _options_panel2 = _interopRequireDefault(_options_panel);
+
 	var _data = __webpack_require__(282);
+
+	var _options = __webpack_require__(289);
+
+	var options = _interopRequireWildcard(_options);
+
+	function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -78,40 +88,50 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var games = [{
-	    name: 'Sumo',
-	    file: 'examples/katamari/sumo.json'
-	}, {
-	    name: 'Sweets',
-	    file: 'examples/katamari/sweets.json'
-	}, {
-	    name: 'Origami',
-	    file: 'examples/katamari/origami.json'
-	}, {
-	    name: '1000m',
-	    file: 'examples/katamari/1000m.json'
-	}, {
-	    name: '2500m',
-	    file: 'examples/katamari/2500m.json'
-	}, {
-	    name: '3000m',
-	    file: 'examples/katamari/3000m.json'
-	}];
+	/**
+	 * Options panel.
+	 */
 
-	var Main = function (_React$Component) {
-	    _inherits(Main, _React$Component);
+	var MainOptionsPanel = function (_React$Component) {
+	    _inherits(MainOptionsPanel, _React$Component);
+
+	    function MainOptionsPanel() {
+	        _classCallCheck(this, MainOptionsPanel);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(MainOptionsPanel).apply(this, arguments));
+	    }
+
+	    _createClass(MainOptionsPanel, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _options_panel2.default,
+	                null,
+	                's'
+	            );
+	        }
+	    }]);
+
+	    return MainOptionsPanel;
+	}(_react2.default.Component);
+
+	var Main = function (_React$Component2) {
+	    _inherits(Main, _React$Component2);
 
 	    function Main(props) {
 	        _classCallCheck(this, Main);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this, props));
+	        var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this, props));
 
-	        _this.state = {
-	            gameFile: games[0].file,
+	        _this2.state = {
+	            progress: 0,
 	            game: null,
-	            progress: 0
+
+	            // options
+	            gameFile: options.games[0].file
+
 	        };
-	        return _this;
+	        return _this2;
 	    }
 
 	    _createClass(Main, [{
@@ -127,10 +147,10 @@
 	    }, {
 	        key: 'onGameChange',
 	        value: function onGameChange(gameFile) {
-	            var _this2 = this;
+	            var _this3 = this;
 
 	            (0, _data.getData)(gameFile).then(function (game) {
-	                _this2.setState({ game: game, progress: 0 });
+	                _this3.setState({ game: game, progress: 0 });
 	            }).catch(function (e) {
 	                return console.error(e);
 	            });
@@ -142,14 +162,19 @@
 	                'div',
 	                { className: 'main container' },
 	                _react2.default.createElement(_header2.default, null),
-	                _react2.default.createElement(_game_view2.default, { game: this.state.game, progress: this.state.progress, gameFile: this.state.gameFile }),
-	                _react2.default.createElement(_controls2.default, {
-	                    games: games,
-	                    game: this.state.game,
-	                    duration: this.state.game ? this.state.game.duration : 0,
-	                    progress: this.state.progress,
-	                    onPositionChange: this.onPositionChange.bind(this),
-	                    onGameChange: this.onGameChange.bind(this) })
+	                _react2.default.createElement(MainOptionsPanel, this.state),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'main-view' },
+	                    _react2.default.createElement(_game_view2.default, { game: this.state.game, progress: this.state.progress, gameFile: this.state.gameFile }),
+	                    _react2.default.createElement(_controls2.default, {
+	                        games: options.games,
+	                        game: this.state.game,
+	                        duration: this.state.game ? this.state.game.duration : 0,
+	                        progress: this.state.progress,
+	                        onPositionChange: this.onPositionChange.bind(this),
+	                        onGameChange: this.onGameChange.bind(this) })
+	                )
 	            );
 	        }
 	    }]);
@@ -36670,6 +36695,127 @@
 	}(React.Component);
 
 	exports.default = ViewControls;
+	;
+
+/***/ },
+/* 289 */
+/***/ function(module, exports) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	var games = exports.games = [{
+	    name: 'Sumo',
+	    file: 'examples/katamari/sumo.json'
+	}, {
+	    name: 'Sweets',
+	    file: 'examples/katamari/sweets.json'
+	}, {
+	    name: 'Origami',
+	    file: 'examples/katamari/origami.json'
+	}, {
+	    name: '1000m',
+	    file: 'examples/katamari/1000m.json'
+	}, {
+	    name: '2500m',
+	    file: 'examples/katamari/2500m.json'
+	}, {
+	    name: '3000m',
+	    file: 'examples/katamari/3000m.json'
+	}];
+
+/***/ },
+/* 290 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(38);
+
+	/**
+	 * Collapsible side panel containing a set of options.
+	 */
+
+	var OptionsPane = function (_React$Component) {
+	    _inherits(OptionsPane, _React$Component);
+
+	    function OptionsPane(props) {
+	        _classCallCheck(this, OptionsPane);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(OptionsPane).call(this, props));
+
+	        _this.state = {
+	            active: false,
+	            implicit: true
+	        };
+	        return _this;
+	    }
+
+	    _createClass(OptionsPane, [{
+	        key: 'onSettingsButtonClick',
+	        value: function onSettingsButtonClick() {
+	            this.setState({ active: !this.state.active, implicit: false });
+	        }
+	    }, {
+	        key: 'onCloseButtonClick',
+	        value: function onCloseButtonClick() {
+	            this.setState({ active: false, implicit: false });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var classes = [];
+	            if (this.state.implicit) classes.push('implicit');
+	            if (this.state.active) classes.push('active');
+
+	            return React.createElement(
+	                'div',
+	                { className: 'side-panel ' + classes.join(' ') },
+	                React.createElement(
+	                    'button',
+	                    { className: 'panel-settings-button material-icons',
+	                        onClick: this.onSettingsButtonClick.bind(this) },
+	                    'settings'
+	                ),
+	                React.createElement(
+	                    'button',
+	                    { className: 'panel-close-button material-icons',
+	                        onClick: this.onCloseButtonClick.bind(this) },
+	                    'clear'
+	                ),
+	                React.createElement(
+	                    'div',
+	                    { className: 'panel-contents' },
+	                    React.createElement(
+	                        'h1',
+	                        null,
+	                        'Options'
+	                    ),
+	                    this.props.children
+	                )
+	            );
+	        }
+	    }]);
+
+	    return OptionsPane;
+	}(React.Component);
+
+	exports.default = OptionsPane;
 	;
 
 /***/ }

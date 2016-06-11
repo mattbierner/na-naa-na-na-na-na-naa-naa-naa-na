@@ -2,6 +2,7 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
 
+
 /**
  * Collapsible side panel containing a set of options.
  */
@@ -32,11 +33,9 @@ export default class OptionsPane extends React.Component {
         return (
             <div className={'side-panel ' + classes.join(' ')}>
                 <button className="panel-settings-button material-icons"
-                    onClick={this.onSettingsButtonClick.bind(this)}>settings
-                </button>
+                    onClick={this.onSettingsButtonClick.bind(this)}>settings</button>
                 <button className="panel-close-button material-icons"
-                    onClick={this.onCloseButtonClick.bind(this)}>clear
-                </button>
+                    onClick={this.onCloseButtonClick.bind(this)}>clear</button>
                 <div className="panel-contents">
                     <h1>Options</h1>
                     {this.props.children}
