@@ -25496,6 +25496,16 @@
 	            if (this.state.playing) this.pause();else this.play();
 	        }
 	    }, {
+	        key: 'goToStart',
+	        value: function goToStart() {
+	            this.props.onPositionChange(0);
+	        }
+	    }, {
+	        key: 'goToEnd',
+	        value: function goToEnd() {
+	            this.props.onPositionChange(1);
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -25507,11 +25517,33 @@
 	                    _react2.default.createElement(_game_selector2.default, { games: this.props.games, onChange: this.props.onGameChange, gameFile: this.props.gameFile }),
 	                    _react2.default.createElement(
 	                        'div',
-	                        { className: 'button-group' },
+	                        { className: 'player-controls' },
 	                        _react2.default.createElement(
-	                            'button',
-	                            { onClick: this.toggle.bind(this), className: 'material-icons' },
-	                            this.state.playing ? 'pause' : 'play_arrow'
+	                            'div',
+	                            { className: 'button-group' },
+	                            _react2.default.createElement(
+	                                'button',
+	                                { onClick: this.goToStart.bind(this), className: 'material-icons' },
+	                                'skip_previous'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'button-group' },
+	                            _react2.default.createElement(
+	                                'button',
+	                                { onClick: this.toggle.bind(this), className: 'material-icons' },
+	                                this.state.playing ? 'pause' : 'play_arrow'
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'button-group' },
+	                            _react2.default.createElement(
+	                                'button',
+	                                { onClick: this.goToEnd.bind(this), className: 'material-icons' },
+	                                'skip_next'
+	                            )
 	                        )
 	                    ),
 	                    _react2.default.createElement(_playback_speed_controls2.default, { onChange: this.onPlaybackSpeedChange.bind(this), value: this.state.playbackSpeed })
@@ -25588,7 +25620,7 @@
 
 	            return _react2.default.createElement(
 	                'span',
-	                { className: 'control' },
+	                { className: 'selector-control' },
 	                'Game:',
 	                _react2.default.createElement(
 	                    'select',
@@ -36141,7 +36173,7 @@
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'span',
-	                { className: 'control' },
+	                { className: 'selector-control' },
 	                'Speed:',
 	                _react2.default.createElement(
 	                    'select',

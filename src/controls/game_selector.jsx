@@ -14,7 +14,7 @@ export default class GameSelector extends React.Component {
             <option value={x.file} key={x.file}>{x.name}</option>);
 
         return (
-            <span className="control">
+            <span className="selector-control">
                 Game:
                 <select style={{ zIndex: 999 }} className="game-selector" onChange={this.onChange.bind(this) } value={this.props.gameFile}>
                     {options}

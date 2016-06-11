@@ -105,13 +105,29 @@ export default class Controls extends React.Component {
             this.play();
     }
 
+    goToStart() {
+        this.props.onPositionChange(0);
+    }
+
+    goToEnd() {
+        this.props.onPositionChange(1);
+    }
+
     render() {
         return (
             <div id="controls">
                 <div id="playback-controls">
                     <GameSelector games={this.props.games} onChange={this.props.onGameChange} gameFile={this.props.gameFile} />
-                    <div className="button-group">
-                        <button onClick={this.toggle.bind(this) } className='material-icons'>{this.state.playing ? 'pause' : 'play_arrow'}</button>
+                    <div className="player-controls">
+                        <div className="button-group">
+                            <button onClick={this.goToStart.bind(this) } className='material-icons'>skip_previous</button>
+                        </div>
+                        <div className="button-group">
+                            <button onClick={this.toggle.bind(this) } className='material-icons'>{this.state.playing ? 'pause' : 'play_arrow'}</button>
+                        </div>
+                        <div className="button-group">
+                            <button onClick={this.goToEnd.bind(this) } className='material-icons'>skip_next</button>
+                        </div>
                     </div>
                     <PlaybackSpeedControls onChange={this.onPlaybackSpeedChange.bind(this) } value={this.state.playbackSpeed}  />
                 </div>
