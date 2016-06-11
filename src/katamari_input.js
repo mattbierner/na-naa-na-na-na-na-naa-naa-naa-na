@@ -3,7 +3,7 @@ import THREE from 'three';
 /**
  * How much each rotation input action is scaled.
  */
-const ROTATION_SCALE = 0.025;
+const ROTATION_SCALE = 0.03;
 
 /**
  * How much each translation input action is scaled.
@@ -44,6 +44,7 @@ export default (quaternion, angle, input) => {
         const x = leftX + rightX;
         const y = leftY + rightY;
         if (x !== 0 || y !== 0) {
+            angle += ROTATION_SCALE * (rightY - leftY);
             const direction = new THREE.Vector3(Math.sin(angle), Math.cos(angle), 0);
             const perpendicular = new THREE.Vector3(-direction.y, direction.x, 0);
 

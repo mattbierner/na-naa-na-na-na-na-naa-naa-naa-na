@@ -35351,7 +35351,7 @@
 	/**
 	 * How much each rotation input action is scaled.
 	 */
-	var ROTATION_SCALE = 0.025;
+	var ROTATION_SCALE = 0.03;
 
 	/**
 	 * How much each translation input action is scaled.
@@ -35394,6 +35394,7 @@
 	        var x = leftX + rightX;
 	        var y = leftY + rightY;
 	        if (x !== 0 || y !== 0) {
+	            angle += ROTATION_SCALE * (rightY - leftY);
 	            var direction = new _three2.default.Vector3(Math.sin(angle), Math.cos(angle), 0);
 	            var perpendicular = new _three2.default.Vector3(-direction.y, direction.x, 0);
 
