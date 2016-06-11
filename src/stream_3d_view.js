@@ -1,20 +1,14 @@
-"use strict";
 import THREE from 'three';
 import OrbitControls from './OrbitControls';
-import Shader from './stream_shader';
-const ResizeSensor = require('imports?this=>window!css-element-queries/src/ResizeSensor');
+import Shader from './shaders/stream_shader';
 
 import Base3dView from './base_3d_view';
+import katamariMovementForControls from './katamari_input';
 
-const SCALE = 1 / 50;
 const BUFFER_SIZE = 300;
 const RADIUS = 1;
-const ROTATION_SCALE = 0.03;
 
 const shaderMaterial = new THREE.ShaderMaterial(Shader);
-
-const isDead = (x, y) =>
-    x === 0 && y === 0;
 
 /**
  * 3D view that accepts streaming data
@@ -58,30 +52,11 @@ export default class Viewer extends Base3dView {
     /**
      * Add a single point to the drawn line
      */
-    draw(data, leftXKey, leftYKey, rightXKey, rightYKey) {
-        const leftX = data[leftXKey];
-        const leftY = data[leftYKey];
-
-        const rightX = data[rightXKey];
-        const rightY = data[rightYKey];
-
-        // Update positon based on controls
-        if (isDead(leftX, leftY) && !isDead(rightX, rightY)) {
-            // right stick only rotation
-            this._rotate(rightY * 1);
-        } else if (!isDead(leftX, leftY) && isDead(rightX, rightY)) {
-            // left stick only rotation
-            this._rotate(leftY * -1);
-        } else if (leftY > 0 && rightY < 0) {
-            // down left, up right rotation
-            this._rotate(leftY - right);
-        } else if (rightY > 0 && leftY < 0) {
-            // down left, up right rotation
-            this._rotate(rightY - leftY);
-        } else {
-            // must be a translation
-            this._translate(leftX + rightX, leftY + rightY);
-        }
+    draw(data) {
+        console.log(data);
+        const movement = katamariMovementForControls(this._quaternion, this._angle, data);
+        this._angle = movement.angle;
+        this._quaternion = movement.quaternion;
 
         // update geometry
         const vector = new THREE.Vector3(0, 0, RADIUS);
@@ -99,6 +74,7 @@ export default class Viewer extends Base3dView {
 
         // update pointer
         this._pointer.position.copy(vector);
+        const direction = new THREE.Vector3(Math.sin(this._angle), Math.cos(this._angle), 0);
 
         const temp = new THREE.Matrix4()
         temp.lookAt(direction, new THREE.Vector3(0, 0, 0), new THREE.Vector3(0, 0, 1));
@@ -109,18 +85,5 @@ export default class Viewer extends Base3dView {
 
         ++this._i;
         this._i %= BUFFER_SIZE;
-    }
-
-    _rotate(amount) {
-        this._angle += amount * ROTATION_SCALE;
-    }
-
-    _translate(x, y) {
-        const direction = new THREE.Vector3(Math.sin(this._angle), Math.cos(this._angle), 0);
-        const perpendicular = new THREE.Vector3(-direction.y, direction.x, 0);
-
-        const horizontal = new THREE.Quaternion().setFromAxisAngle(direction, x * SCALE);
-        const vertical = new THREE.Quaternion().setFromAxisAngle(perpendicular, y * SCALE);
-        this._quaternion.multiply(horizontal).multiply(vertical).normalize();
     }
 }

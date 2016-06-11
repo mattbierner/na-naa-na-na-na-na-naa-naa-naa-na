@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import THREE from 'three';
-import process_data from './process_data/process_data';
+import processRow from './process/row';
 import Viewer from './stream_3d_view';
 
 /**
@@ -22,7 +22,7 @@ export default class GameView extends React.Component {
         this._3dview = new Viewer(canvas, element);
         this._socket = new WebSocket('ws://localhost:8000');
         this._socket.onmessage = (e) => {
-            this._3dview.draw(process_data.processRow(e.data), 'left_x', 'left_y', 'right_x', 'right_y');
+            this._3dview.draw(processRow(e.data));
         };
     }
 

@@ -58,29 +58,21 @@
 
 	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	var _game_view = __webpack_require__(168);
+	var _stream_game_view = __webpack_require__(292);
 
-	var _game_view2 = _interopRequireDefault(_game_view);
+	var _stream_game_view2 = _interopRequireDefault(_stream_game_view);
 
 	var _header = __webpack_require__(179);
 
 	var _header2 = _interopRequireDefault(_header);
 
+	var _main_options_panel = __webpack_require__(297);
+
+	var _main_options_panel2 = _interopRequireDefault(_main_options_panel);
+
 	var _controls = __webpack_require__(180);
 
 	var _controls2 = _interopRequireDefault(_controls);
-
-	var _options_panel = __webpack_require__(287);
-
-	var _options_panel2 = _interopRequireDefault(_options_panel);
-
-	var _range_input = __webpack_require__(290);
-
-	var _range_input2 = _interopRequireDefault(_range_input);
-
-	var _color_input = __webpack_require__(291);
-
-	var _color_input2 = _interopRequireDefault(_color_input);
 
 	var _data = __webpack_require__(288);
 
@@ -98,75 +90,15 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	/**
-	 * Options panel.
-	 */
-
-	var MainOptionsPanel = function (_React$Component) {
-	    _inherits(MainOptionsPanel, _React$Component);
-
-	    function MainOptionsPanel() {
-	        _classCallCheck(this, MainOptionsPanel);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(MainOptionsPanel).apply(this, arguments));
-	    }
-
-	    _createClass(MainOptionsPanel, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                _options_panel2.default,
-	                null,
-	                _react2.default.createElement(_range_input2.default, { label: 'Edge Thickness',
-	                    unit: '%',
-	                    min: '1',
-	                    max: '100',
-	                    value: this.props.edging,
-	                    onChange: this.props.onEdgingChange }),
-	                _react2.default.createElement(_range_input2.default, { label: 'Opacity',
-	                    unit: '%',
-	                    min: '1',
-	                    max: '100',
-	                    value: this.props.opacity,
-	                    onChange: this.props.onOpacityChange }),
-	                _react2.default.createElement(_range_input2.default, { label: 'Inner Radius',
-	                    unit: '%',
-	                    min: '1',
-	                    max: '100',
-	                    value: this.props.innerRadius,
-	                    onChange: this.props.onInnerRadiusChange }),
-	                _react2.default.createElement(_color_input2.default, { label: 'Start Color',
-	                    value: this.props.startColor,
-	                    onChange: this.props.onStartColorChange }),
-	                _react2.default.createElement(_color_input2.default, { label: 'End Color',
-	                    value: this.props.endColor,
-	                    onChange: this.props.onEndColorChange }),
-	                _react2.default.createElement(
-	                    'div',
-	                    { className: 'credits' },
-	                    '© 2016 ',
-	                    _react2.default.createElement(
-	                        'a',
-	                        { href: 'http://mattbierner.com' },
-	                        'Matt Bierner'
-	                    )
-	                )
-	            );
-	        }
-	    }]);
-
-	    return MainOptionsPanel;
-	}(_react2.default.Component);
-
-	var Main = function (_React$Component2) {
-	    _inherits(Main, _React$Component2);
+	var Main = function (_React$Component) {
+	    _inherits(Main, _React$Component);
 
 	    function Main(props) {
 	        _classCallCheck(this, Main);
 
-	        var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this, props));
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Main).call(this, props));
 
-	        _this2.state = {
+	        _this.state = {
 	            progress: 0,
 	            game: null,
 
@@ -178,7 +110,7 @@
 	            startColor: '#ff00ff',
 	            endColor: '#00ffff'
 	        };
-	        return _this2;
+	        return _this;
 	    }
 
 	    _createClass(Main, [{
@@ -194,10 +126,10 @@
 	    }, {
 	        key: 'onGameChange',
 	        value: function onGameChange(gameFile) {
-	            var _this3 = this;
+	            var _this2 = this;
 
 	            (0, _data.getData)(gameFile).then(function (game) {
-	                _this3.setState({ game: game, progress: 0 });
+	                _this2.setState({ game: game, progress: 0 });
 	            }).catch(function (e) {
 	                return console.error(e);
 	            });
@@ -234,7 +166,7 @@
 	                'div',
 	                { className: 'main container' },
 	                _react2.default.createElement(_header2.default, null),
-	                _react2.default.createElement(MainOptionsPanel, _extends({}, this.state, {
+	                _react2.default.createElement(_main_options_panel2.default, _extends({}, this.state, {
 	                    onEdgingChange: this.onEdgingChange.bind(this),
 	                    onOpacityChange: this.onOpacityChange.bind(this),
 	                    onInnerRadiusChange: this.onInnerRadiusChange.bind(this),
@@ -243,7 +175,7 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'main-view' },
-	                    _react2.default.createElement(_game_view2.default, this.state),
+	                    _react2.default.createElement(_stream_game_view2.default, this.state),
 	                    _react2.default.createElement(_controls2.default, {
 	                        games: options.games,
 	                        game: this.state.game,
@@ -20568,125 +20500,7 @@
 	module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ },
-/* 168 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var _reactDom = __webpack_require__(38);
-
-	var _reactDom2 = _interopRequireDefault(_reactDom);
-
-	var _three = __webpack_require__(169);
-
-	var _three2 = _interopRequireDefault(_three);
-
-	var _game_3d_view = __webpack_require__(170);
-
-	var _game_3d_view2 = _interopRequireDefault(_game_3d_view);
-
-	var _view_controls = __webpack_require__(178);
-
-	var _view_controls2 = _interopRequireDefault(_view_controls);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	/**
-	 * Convert hex color string to Vec4 color.
-	 */
-	var hexToVec4 = function hexToVec4(hex) {
-	    var m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-	    return new _three2.default.Vector4(parseInt(m[1], 16) / 255, parseInt(m[2], 16) / 255, parseInt(m[3], 16) / 255, 1);
-	};
-
-	/**
-	 * View for a complete game.
-	 */
-
-	var GameView = function (_React$Component) {
-	    _inherits(GameView, _React$Component);
-
-	    function GameView(props) {
-	        _classCallCheck(this, GameView);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(GameView).call(this, props));
-
-	        _this.state = {};
-	        return _this;
-	    }
-
-	    _createClass(GameView, [{
-	        key: 'componentDidMount',
-	        value: function componentDidMount() {
-	            if (this._3dview) return;
-
-	            var element = _reactDom2.default.findDOMNode(this);
-	            var canvas = element.getElementsByClassName('glCanvas')[0];
-	            this._3dview = new _game_3d_view2.default(canvas, element);
-	            this.updateOptions(this.props);
-	        }
-	    }, {
-	        key: 'componentWillReceiveProps',
-	        value: function componentWillReceiveProps(newProps) {
-	            if (newProps.game && this.props.game !== newProps.game) {
-	                this._3dview.draw(newProps.game.events);
-	            }
-
-	            if (newProps.progress != this.props.progress && typeof newProps.progress !== 'undefined') {
-	                this._3dview.setProgress(newProps.progress);
-	            }
-
-	            this.updateOptions(newProps);
-	        }
-	    }, {
-	        key: 'updateOptions',
-	        value: function updateOptions(props) {
-	            this._3dview.setEdging(props.edging);
-	            this._3dview.setOpacity(props.opacity);
-	            this._3dview.setInnerRadius(props.innerRadius);
-
-	            this._3dview.setColors(hexToVec4(props.startColor), hexToVec4(props.endColor));
-	        }
-	    }, {
-	        key: 'resetView',
-	        value: function resetView() {
-	            if (!this._3dview) return;
-	            this._3dview.resetView();
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return _react2.default.createElement(
-	                'div',
-	                { className: 'game-view' },
-	                _react2.default.createElement(_view_controls2.default, { resetView: this.resetView.bind(this) }),
-	                _react2.default.createElement('canvas', { className: 'glCanvas' })
-	            );
-	        }
-	    }]);
-
-	    return GameView;
-	}(_react2.default.Component);
-
-	exports.default = GameView;
-
-/***/ },
+/* 168 */,
 /* 169 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -24022,266 +23836,7 @@
 	if(true){if(typeof module!=='undefined'&&module.exports){exports=module.exports=THREE;}exports.THREE=THREE;}else {undefined['THREE']=THREE;}
 
 /***/ },
-/* 170 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _three = __webpack_require__(169);
-
-	var _three2 = _interopRequireDefault(_three);
-
-	var _OrbitControls = __webpack_require__(171);
-
-	var _OrbitControls2 = _interopRequireDefault(_OrbitControls);
-
-	var _default_solid = __webpack_require__(172);
-
-	var _default_solid2 = _interopRequireDefault(_default_solid);
-
-	var _pointer = __webpack_require__(174);
-
-	var _pointer2 = _interopRequireDefault(_pointer);
-
-	var _base_3d_view = __webpack_require__(175);
-
-	var _base_3d_view2 = _interopRequireDefault(_base_3d_view);
-
-	var _katamari_input = __webpack_require__(177);
-
-	var _katamari_input2 = _interopRequireDefault(_katamari_input);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var ResizeSensor = __webpack_require__(176);
-
-	var shaderMaterial = new _three2.default.ShaderMaterial(_default_solid2.default);
-	var pointerShader = new _three2.default.ShaderMaterial(_pointer2.default);
-	pointerShader.uniforms.objColor.value = new _three2.default.Vector4(0x87, 0xbf, 0x26, 1);
-
-	pointerShader.uniforms.time = shaderMaterial.uniforms.time;
-	pointerShader.uniforms.minRadius = shaderMaterial.uniforms.minRadius;
-	pointerShader.uniforms.maxRadius = shaderMaterial.uniforms.maxRadius;
-
-	var closest = function closest(items, value) {
-	    var startIndex = 0;
-	    var stopIndex = items.length - 1;
-	    var middle = Math.floor((stopIndex + startIndex) / 2);
-
-	    while (items[middle] != value && startIndex < stopIndex) {
-	        //adjust search area
-	        if (value < items[middle]) {
-	            stopIndex = middle - 1;
-	        } else if (value > items[middle]) {
-	            startIndex = middle + 1;
-	        }
-
-	        //recalculate middle
-	        middle = Math.floor((stopIndex + startIndex) / 2);
-	    }
-	    return middle;
-	};
-
-	/**
-	 * 3D view
-	 */
-
-	var Viewer = function (_Base3dView) {
-	    _inherits(Viewer, _Base3dView);
-
-	    function Viewer(canvas, container) {
-	        _classCallCheck(this, Viewer);
-
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Viewer).call(this, canvas, container));
-
-	        _this._initPointer();
-	        return _this;
-	    }
-
-	    _createClass(Viewer, [{
-	        key: '_initPointer',
-	        value: function _initPointer() {
-	            var geometry = new _three2.default.SphereGeometry(0.01, 32, 32);
-	            this._pointer = new _three2.default.Mesh(geometry, pointerShader);
-	            this._scene.add(this._pointer);
-	        }
-
-	        /**
-	         * Set progress colors.
-	         */
-
-	    }, {
-	        key: 'setColors',
-	        value: function setColors(startColor, endColor) {
-	            shaderMaterial.uniforms.startColor.value = startColor;
-	            shaderMaterial.uniforms.endColor.value = endColor;
-	        }
-
-	        /**
-	         * 
-	         */
-
-	    }, {
-	        key: 'draw',
-	        value: function draw(data) {
-	            this.reset();
-
-	            var buffergeometry = new _three2.default.BufferGeometry();
-
-	            var position = new _three2.default.Float32Attribute(data.length * 3 * 2, 3);
-	            buffergeometry.addAttribute('position', position);
-
-	            var spherePosition = new _three2.default.Float32Attribute(data.length * 4 * 2, 4);
-	            buffergeometry.addAttribute('spherePosition', spherePosition);
-
-	            var opacity = new _three2.default.Float32Attribute(data.length * 2, 1);
-	            buffergeometry.addAttribute('opacity', opacity);
-
-	            var innerScaling = new _three2.default.Float32Attribute(data.length * 2, 1);
-	            buffergeometry.addAttribute('innerScaling', innerScaling);
-
-	            var progress = new _three2.default.Float32Attribute(data.length * 2, 1);
-	            buffergeometry.addAttribute('progress', progress);
-
-	            this._progress = [];
-
-	            var angle = 0;
-	            var quaternion = new _three2.default.Quaternion(0, 0, 0, 1);
-	            var i = 0;
-
-	            var _iteratorNormalCompletion = true;
-	            var _didIteratorError = false;
-	            var _iteratorError = undefined;
-
-	            try {
-	                for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                    var e = _step.value;
-
-	                    var movement = (0, _katamari_input2.default)(quaternion, angle, e);
-	                    angle = movement.angle;
-	                    quaternion = movement.quaternion;
-
-	                    quaternion.toArray(spherePosition.array, i * 4 + 0); // inner
-	                    quaternion.toArray(spherePosition.array, i * 4 + 4); // outer
-	                    quaternion.normalize();
-
-	                    opacity.array[i] = 0;
-	                    opacity.array[i + 1] = 1;
-
-	                    innerScaling.array[i] = 1;
-	                    innerScaling.array[i + 1] = 0;
-
-	                    progress.array[i] = progress.array[i + 1] = e.progress;
-	                    this._progress.push(e.progress);
-	                    i += 2;
-	                }
-	            } catch (err) {
-	                _didIteratorError = true;
-	                _iteratorError = err;
-	            } finally {
-	                try {
-	                    if (!_iteratorNormalCompletion && _iterator.return) {
-	                        _iterator.return();
-	                    }
-	                } finally {
-	                    if (_didIteratorError) {
-	                        throw _iteratorError;
-	                    }
-	                }
-	            }
-
-	            var mesh = new _three2.default.Mesh(buffergeometry, shaderMaterial);
-	            mesh.drawMode = _three2.default.TriangleStripDrawMode;
-
-	            this._scene.add(mesh);
-	            this._line = mesh;
-	        }
-
-	        /**
-	         * Set the progress in the current match.
-	         */
-
-	    }, {
-	        key: 'setProgress',
-	        value: function setProgress(progress) {
-	            shaderMaterial.uniforms.time.value = progress;
-	            shaderMaterial.uniforms.needsUpdate = true;
-
-	            if (!this._line) return;
-
-	            var attr = this._line.geometry.attributes;
-	            var index = closest(this._progress, progress) * 4 * 2;
-
-	            var quaternion = new _three2.default.Vector4(attr.spherePosition.array[index], attr.spherePosition.array[index + 1], attr.spherePosition.array[index + 2], attr.spherePosition.array[index + 3]);
-
-	            pointerShader.uniforms.spherePosition.value = quaternion;
-	            pointerShader.uniforms.spherePosition.needsUpdate = true;
-	        }
-
-	        /**
-	         * Update edge thickness
-	         */
-
-	    }, {
-	        key: 'setEdging',
-	        value: function setEdging(value) {
-	            shaderMaterial.uniforms.edging.value = value / 100;
-	            shaderMaterial.uniforms.edging.needsUpdate = true;
-	        }
-
-	        /**
-	         * Update opacity of shape
-	         */
-
-	    }, {
-	        key: 'setOpacity',
-	        value: function setOpacity(value) {
-	            shaderMaterial.uniforms.totalOpacity.value = value / 100;
-	            shaderMaterial.uniforms.totalOpacity.needsUpdate = true;
-	        }
-
-	        /**
-	         * Update inner radius of lines.
-	         */
-
-	    }, {
-	        key: 'setInnerRadius',
-	        value: function setInnerRadius(value) {
-	            shaderMaterial.uniforms.minRadius.value = value / 100;
-	            shaderMaterial.uniforms.minRadius.needsUpdate = true;
-	        }
-
-	        /**
-	         * Clear all current elements from the scene.
-	         */
-
-	    }, {
-	        key: 'reset',
-	        value: function reset() {
-	            this._scene.remove(this._line);
-	            this._line = null;
-	            this.setProgress(0);
-	        }
-	    }]);
-
-	    return Viewer;
-	}(_base_3d_view2.default);
-
-	exports.default = Viewer;
-
-/***/ },
+/* 170 */,
 /* 171 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -25253,89 +24808,9 @@
 	});
 
 /***/ },
-/* 172 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _three = __webpack_require__(169);
-
-	var _three2 = _interopRequireDefault(_three);
-
-	var _common = __webpack_require__(173);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * Basic solid shader.
-	 */
-	exports.default = {
-	    uniforms: {
-	        startColor: { type: "v4", value: new _three2.default.Vector4(0, 0, 0, 1) },
-	        endColor: { type: "v4", value: new _three2.default.Vector4(0.9, 0.9, 0.9, 1) },
-	        time: { value: 0.0 },
-
-	        minRadius: { value: 0.05 },
-	        maxRadius: { value: 1.0 },
-	        edging: { value: 0.05 },
-	        totalOpacity: { value: 1.0 }
-	    },
-	    vertexShader: '\n        uniform vec4 startColor;\n        uniform vec4 endColor;\n        uniform float time;\n        uniform float minRadius;\n        uniform float maxRadius;\n        uniform float edging;\n        uniform float totalOpacity;\n\n        attribute vec4 spherePosition;\n\n        attribute float progress;\n        attribute float opacity;\n        attribute float innerScaling;\n\n        varying vec4 vColor;\n\n        ' + _common.quaternionToVector + '\n\n        void main() {\n            float alpha = float(progress < time) * opacity * totalOpacity;\n            vColor = mix(startColor, endColor, progress) * vec4(1, 1, 1, alpha);\n            \n            // Compute position on sphere\n            float r = minRadius + (maxRadius - minRadius) * progress;\n            vec3 rad = vec3(0, 0, r);\n            vec3 posOnSphere = rotate_vector(spherePosition, rad);\n\n            vec3 pos = posOnSphere - ((innerScaling * edging) * posOnSphere);\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);\n        }\n    ',
-	    fragmentShader: '\n        varying vec4 vColor;\n        \n        void main() {\n            gl_FragColor = vColor;\n        }\n    ',
-	    transparent: true,
-	    side: _three2.default.DoubleSide,
-	    depthTest: false
-	};
-
-/***/ },
-/* 173 */
-/***/ function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-	var quaternionToVector = exports.quaternionToVector = "\n    // Taken from three.js source\n    vec3 rotate_vector(vec4 q, vec3 vec) {\n        // calculate quat * vector\n        float ix =  q.w * vec.x + q.y * vec.z - q.z * vec.y;\n        float iy =  q.w * vec.y + q.z * vec.x - q.x * vec.z;\n        float iz =  q.w * vec.z + q.x * vec.y - q.y * vec.x;\n        float iw = - q.x * vec.x - q.y * vec.y - q.z * vec.z;\n\n        // calculate result * inverse quat\n        return vec3(\n            ix * q.w + iw * - q.x + iy * - q.z - iz * - q.y,\n            iy * q.w + iw * - q.y + iz * - q.x - ix * - q.z,\n            iz * q.w + iw * - q.z + ix * - q.y - iy * - q.x);\n    }";
-
-/***/ },
-/* 174 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _three = __webpack_require__(169);
-
-	var _three2 = _interopRequireDefault(_three);
-
-	var _common = __webpack_require__(173);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	/**
-	 * Basic solid shader.
-	 */
-	exports.default = {
-	    uniforms: {
-	        time: { value: 0.0 },
-	        minRadius: { value: 0.0 },
-	        maxRadius: { value: 1.0 },
-	        objColor: { type: 'v4', value: new _three2.default.Vector4(0, 0, 0, 1) },
-	        spherePosition: { type: 'v4', value: new _three2.default.Vector4(0, 0, 0, 1) }
-	    },
-	    vertexShader: '\n        uniform float time;\n        uniform float minRadius;\n        uniform float maxRadius;\n        uniform vec4 spherePosition;\n        uniform vec4 objColor;\n\n        varying vec4 vColor;\n\n        ' + _common.quaternionToVector + '\n\n        void main() {\n            vColor = vec4(0, 1, 0, 1);\n            \n            // Compute position on sphere\n            float r = minRadius + (maxRadius - minRadius) * time;\n            vec3 rad = vec3(0, 0, r);\n            vec3 posOnSphere = rotate_vector(spherePosition, rad);\n\n            vec3 pos = posOnSphere + position;\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);\n        }\n    ',
-	    fragmentShader: '\n        varying vec4 vColor;\n        \n        void main() {\n            gl_FragColor = vColor;\n        }\n    '
-	};
-
-/***/ },
+/* 172 */,
+/* 173 */,
+/* 174 */,
 /* 175 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -25770,7 +25245,7 @@
 	        // must be a translation
 	        var x = leftX + rightX;
 	        var y = leftY + rightY;
-	        if (x !== 0 && y !== 0) {
+	        if (x !== 0 || y !== 0) {
 	            var direction = new _three2.default.Vector3(Math.sin(angle), Math.cos(angle), 0);
 	            var perpendicular = new _three2.default.Vector3(-direction.y, direction.x, 0);
 
@@ -25783,96 +25258,7 @@
 	};
 
 /***/ },
-/* 178 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	    value: true
-	});
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(38);
-
-	var ViewControlButton = function (_React$Component) {
-	    _inherits(ViewControlButton, _React$Component);
-
-	    function ViewControlButton() {
-	        _classCallCheck(this, ViewControlButton);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ViewControlButton).apply(this, arguments));
-	    }
-
-	    _createClass(ViewControlButton, [{
-	        key: '_onClick',
-	        value: function _onClick(e, callback) {
-	            e.preventDefault();
-	            e.stopPropagation();
-	            this.props.onClick && this.props.onClick();
-	        }
-	    }, {
-	        key: '_onMouseDown',
-	        value: function _onMouseDown(e) {
-	            e.stopPropagation();
-	            e.nativeEvent.stopImmediatePropagation();
-	        }
-	    }, {
-	        key: 'render',
-	        value: function render() {
-	            return React.createElement(
-	                'button',
-	                {
-	                    onMouseDown: this._onMouseDown.bind(this),
-	                    onClick: this._onClick.bind(this) },
-	                this.props.label
-	            );
-	        }
-	    }]);
-
-	    return ViewControlButton;
-	}(React.Component);
-
-	/**
-	 * Controls for the match display.
-	 */
-
-
-	var ViewControls = function (_React$Component2) {
-	    _inherits(ViewControls, _React$Component2);
-
-	    function ViewControls() {
-	        _classCallCheck(this, ViewControls);
-
-	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ViewControls).apply(this, arguments));
-	    }
-
-	    _createClass(ViewControls, [{
-	        key: 'render',
-	        value: function render() {
-	            return React.createElement(
-	                'div',
-	                { id: 'view-controls' },
-	                React.createElement(ViewControlButton, { label: 'Reset View', onClick: this.props.resetView })
-	            );
-	        }
-	    }]);
-
-	    return ViewControls;
-	}(React.Component);
-
-	exports.default = ViewControls;
-	;
-
-/***/ },
+/* 178 */,
 /* 179 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -37114,6 +36500,444 @@
 
 	exports.default = RangeInput;
 	;
+
+/***/ },
+/* 292 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(38);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _three = __webpack_require__(169);
+
+	var _three2 = _interopRequireDefault(_three);
+
+	var _row = __webpack_require__(295);
+
+	var _row2 = _interopRequireDefault(_row);
+
+	var _stream_3d_view = __webpack_require__(293);
+
+	var _stream_3d_view2 = _interopRequireDefault(_stream_3d_view);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	/**
+	 * 
+	 */
+
+	var GameView = function (_React$Component) {
+	    _inherits(GameView, _React$Component);
+
+	    function GameView(props) {
+	        _classCallCheck(this, GameView);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(GameView).call(this, props));
+
+	        _this.state = {};
+	        return _this;
+	    }
+
+	    _createClass(GameView, [{
+	        key: 'componentDidMount',
+	        value: function componentDidMount() {
+	            var _this2 = this;
+
+	            if (this._3dview) return;
+
+	            var element = _reactDom2.default.findDOMNode(this);
+	            var canvas = element.getElementsByClassName('glCanvas')[0];
+	            this._3dview = new _stream_3d_view2.default(canvas, element);
+	            this._socket = new WebSocket('ws://localhost:8000');
+	            this._socket.onmessage = function (e) {
+	                _this2._3dview.draw((0, _row2.default)(e.data));
+	            };
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'game-view' },
+	                _react2.default.createElement('canvas', { className: 'glCanvas' })
+	            );
+	        }
+	    }]);
+
+	    return GameView;
+	}(_react2.default.Component);
+
+	exports.default = GameView;
+
+/***/ },
+/* 293 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _three = __webpack_require__(169);
+
+	var _three2 = _interopRequireDefault(_three);
+
+	var _OrbitControls = __webpack_require__(171);
+
+	var _OrbitControls2 = _interopRequireDefault(_OrbitControls);
+
+	var _stream_shader = __webpack_require__(294);
+
+	var _stream_shader2 = _interopRequireDefault(_stream_shader);
+
+	var _base_3d_view = __webpack_require__(175);
+
+	var _base_3d_view2 = _interopRequireDefault(_base_3d_view);
+
+	var _katamari_input = __webpack_require__(177);
+
+	var _katamari_input2 = _interopRequireDefault(_katamari_input);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var BUFFER_SIZE = 300;
+	var RADIUS = 1;
+
+	var shaderMaterial = new _three2.default.ShaderMaterial(_stream_shader2.default);
+
+	/**
+	 * 3D view that accepts streaming data
+	 */
+
+	var Viewer = function (_Base3dView) {
+	    _inherits(Viewer, _Base3dView);
+
+	    function Viewer(canvas, container) {
+	        _classCallCheck(this, Viewer);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Viewer).call(this, canvas, container));
+
+	        _this._initGeometry();
+	        _this._initPointer();
+	        _this._quaternion = new _three2.default.Quaternion(0, 0, 0, 1);
+	        _this._i = 0;
+	        _this._start = new _three2.default.Vector3(0, 0, RADIUS);
+	        _this._angle = 0;
+	        return _this;
+	    }
+
+	    _createClass(Viewer, [{
+	        key: '_initGeometry',
+	        value: function _initGeometry() {
+	            this._buffergeometry = new _three2.default.BufferGeometry();
+
+	            this._position = new _three2.default.Float32Attribute(BUFFER_SIZE * 3 * 2, 3);
+	            this._buffergeometry.addAttribute('position', this._position);
+
+	            this._progress = new _three2.default.Float32Attribute(BUFFER_SIZE * 2, 1);
+	            this._buffergeometry.addAttribute('progress', this._progress);
+
+	            var material = shaderMaterial.clone();
+	            material.uniforms.startColor.value = new _three2.default.Vector4(0, 0, 0, 1);
+	            material.uniforms.endColor.value = new _three2.default.Vector4(0, 0, 0, 1);
+
+	            var line = new _three2.default.LineSegments(this._buffergeometry, material);
+	            this._scene.add(line);
+	        }
+	    }, {
+	        key: '_initPointer',
+	        value: function _initPointer() {
+	            var geometry = new _three2.default.CylinderGeometry(0, 0.05, 0.05 * 2, 4);
+	            var material = new _three2.default.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
+	            this._pointer = new _three2.default.Mesh(geometry, material);
+	            this._scene.add(this._pointer);
+	        }
+
+	        /**
+	         * Add a single point to the drawn line
+	         */
+
+	    }, {
+	        key: 'draw',
+	        value: function draw(data) {
+	            console.log(data);
+	            var movement = (0, _katamari_input2.default)(this._quaternion, this._angle, data);
+	            this._angle = movement.angle;
+	            this._quaternion = movement.quaternion;
+
+	            // update geometry
+	            var vector = new _three2.default.Vector3(0, 0, RADIUS);
+	            vector.applyQuaternion(this._quaternion);
+
+	            this._start.toArray(this._position.array, this._i * 3 * 2);
+	            vector.toArray(this._position.array, this._i * 3 * 2 + 3);
+	            this._start = vector;
+
+	            this._progress.array[this._i * 2] = 1;
+	            this._progress.array[this._i * 2 + 1] = 1;
+
+	            this._position.needsUpdate = true;
+	            this._progress.needsUpdate = true;
+
+	            // update pointer
+	            this._pointer.position.copy(vector);
+	            var direction = new _three2.default.Vector3(Math.sin(this._angle), Math.cos(this._angle), 0);
+
+	            var temp = new _three2.default.Matrix4();
+	            temp.lookAt(direction, new _three2.default.Vector3(0, 0, 0), new _three2.default.Vector3(0, 0, 1));
+
+	            this._pointer.quaternion.copy(this._quaternion.clone().multiply(new _three2.default.Quaternion().setFromRotationMatrix(temp)).multiply(new _three2.default.Quaternion().setFromAxisAngle(new _three2.default.Vector3(1, 0, 0), -Math.PI / 2)));
+
+	            ++this._i;
+	            this._i %= BUFFER_SIZE;
+	        }
+	    }]);
+
+	    return Viewer;
+	}(_base_3d_view2.default);
+
+	exports.default = Viewer;
+
+/***/ },
+/* 294 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _three = __webpack_require__(169);
+
+	var _three2 = _interopRequireDefault(_three);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = {
+	    uniforms: {
+	        startColor: { type: "v4", value: new _three2.default.Vector4(0, 0, 0, 1) },
+	        endColor: { type: "v4", value: new _three2.default.Vector4(0.9, 0.9, 0.9, 1) },
+	        time: { value: 0.0 }
+	    },
+	    vertexShader: "\n        uniform vec4 startColor;\n        uniform vec4 endColor;\n        uniform float time;\n        \n        attribute float progress;\n\n        varying vec4 vColor;\n\n        void main() {\n            float opacity = float(progress < time);\n            \n            vColor = vec4(0, 0, 0, 1);\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);\n        }\n    ",
+	    fragmentShader: "\n        varying vec4 vColor;\n        \n        void main() {\n            gl_FragColor = vColor;\n        }\n    ",
+	    transparent: true
+	};
+
+/***/ },
+/* 295 */
+/***/ function(module, exports, __webpack_require__) {
+
+	/**
+	 * Simple script for converting raw text data to json
+	 */
+	"use strict";
+
+	var moment = __webpack_require__(183);
+	var input = __webpack_require__(296);
+
+	/**
+	*/
+	var extractRow = function extractRow(row) {
+	    var elements = row.split(',').map(function (x) {
+	        return x.trim();
+	    });
+	    var time = moment(elements[0]);
+	    return {
+	        time: time,
+	        right_x: +elements[3],
+	        right_y: +elements[4],
+	        left_x: +elements[5],
+	        left_y: +elements[6]
+	    };
+	};
+
+	module.exports = function (data) {
+	    var e = extractRow(data);
+	    var left = input.normalize(e.left_x, e.left_y);
+	    e.left_x = left.x;
+	    e.left_y = left.y;
+
+	    var right = input.normalize(e.right_x, e.right_y);
+	    e.right_x = right.x;
+	    e.right_y = right.y;
+	    return e;
+	};
+
+/***/ },
+/* 296 */
+/***/ function(module, exports) {
+
+	"use strict";
+
+	/**
+	 * Helper functions for translating analog stick data to a more useful format.
+	 */
+	var MID = 128;
+	var MAX = 256;
+	var DEAD_ZONE = 40;
+
+	var maxX = MAX - MID - DEAD_ZONE;
+	var maxY = MAX - MID - DEAD_ZONE;
+
+	var deaden = function deaden(c) {
+	  return Math.abs(c) < DEAD_ZONE ? 0 : c < 0 ? c + DEAD_ZONE : c - DEAD_ZONE;
+	};
+
+	/**
+	 * Normalize raw analog stick data to [-1, 1] ranges.
+	 */
+	module.exports.normalize = function (x, y) {
+	  return {
+	    x: deaden(x - MID) / maxX,
+	    y: deaden(y - MID) / maxY
+	  };
+	};
+
+	/**
+	 * Check if single analog input is in the dead zone.
+	 */
+	var isDeadInput = function isDeadInput(value) {
+	  return Math.abs(value - MID) < DEAD_ZONE;
+	};
+
+	/**
+	 * Check if all analog inputs are in dead zones.
+	 */
+	module.exports.isDead = function (x) {
+	  return isDeadInput(x.right_x) && isDeadInput(x.right_y) && isDeadInput(x.left_x) && isDeadInput(x.left_y);
+	};
+
+/***/ },
+/* 297 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(38);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _options_panel = __webpack_require__(287);
+
+	var _options_panel2 = _interopRequireDefault(_options_panel);
+
+	var _range_input = __webpack_require__(290);
+
+	var _range_input2 = _interopRequireDefault(_range_input);
+
+	var _color_input = __webpack_require__(291);
+
+	var _color_input2 = _interopRequireDefault(_color_input);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	/**
+	 * Main options panel.
+	 */
+
+	var MainOptionsPanel = function (_React$Component) {
+	    _inherits(MainOptionsPanel, _React$Component);
+
+	    function MainOptionsPanel() {
+	        _classCallCheck(this, MainOptionsPanel);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(MainOptionsPanel).apply(this, arguments));
+	    }
+
+	    _createClass(MainOptionsPanel, [{
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                _options_panel2.default,
+	                null,
+	                _react2.default.createElement(_range_input2.default, { label: 'Edge Thickness',
+	                    unit: '%',
+	                    min: '1',
+	                    max: '100',
+	                    value: this.props.edging,
+	                    onChange: this.props.onEdgingChange }),
+	                _react2.default.createElement(_range_input2.default, { label: 'Opacity',
+	                    unit: '%',
+	                    min: '1',
+	                    max: '100',
+	                    value: this.props.opacity,
+	                    onChange: this.props.onOpacityChange }),
+	                _react2.default.createElement(_range_input2.default, { label: 'Inner Radius',
+	                    unit: '%',
+	                    min: '1',
+	                    max: '100',
+	                    value: this.props.innerRadius,
+	                    onChange: this.props.onInnerRadiusChange }),
+	                _react2.default.createElement(_color_input2.default, { label: 'Start Color',
+	                    value: this.props.startColor,
+	                    onChange: this.props.onStartColorChange }),
+	                _react2.default.createElement(_color_input2.default, { label: 'End Color',
+	                    value: this.props.endColor,
+	                    onChange: this.props.onEndColorChange }),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'credits' },
+	                    '© 2016 ',
+	                    _react2.default.createElement(
+	                        'a',
+	                        { href: 'http://mattbierner.com' },
+	                        'Matt Bierner'
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return MainOptionsPanel;
+	}(_react2.default.Component);
+
+	exports.default = MainOptionsPanel;
 
 /***/ }
 /******/ ]);

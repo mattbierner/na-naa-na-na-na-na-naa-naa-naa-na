@@ -43,7 +43,7 @@ export default (quaternion, angle, input) => {
         // must be a translation
         const x = leftX + rightX;
         const y = leftY + rightY;
-        if (x !== 0 && y !== 0) {
+        if (x !== 0 || y !== 0) {
             const direction = new THREE.Vector3(Math.sin(angle), Math.cos(angle), 0);
             const perpendicular = new THREE.Vector3(-direction.y, direction.x, 0);
 

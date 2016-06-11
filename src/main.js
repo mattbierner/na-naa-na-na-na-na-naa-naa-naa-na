@@ -1,60 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import GameView from './game_view';
+import GameView from './stream_game_view';
 import Header from './header';
+import MainOptionsPanel from './main_options_panel';
 import Controls from './controls/controls';
-import OptionsPanel from './controls/options_panel';
-import RangeInput from './controls/range_input';
-import ColorInput from './controls/color_input';
 
 import {getData} from './data';
 import * as options from './options';
-
-/**
- * Options panel.
- */
-class MainOptionsPanel extends React.Component {
-    render() {
-        return (
-            <OptionsPanel>
-                <RangeInput label='Edge Thickness'
-                    unit='%'
-                    min="1"
-                    max="100"
-                    value={this.props.edging}
-                    onChange={this.props.onEdgingChange} />
-
-                <RangeInput label='Opacity'
-                    unit='%'
-                    min="1"
-                    max="100"
-                    value={this.props.opacity}
-                    onChange={this.props.onOpacityChange} />
-                
-                <RangeInput label='Inner Radius'
-                    unit='%'
-                    min="1"
-                    max="100"
-                    value={this.props.innerRadius}
-                    onChange={this.props.onInnerRadiusChange} />
-                
-                <ColorInput label='Start Color'
-                    value={this.props.startColor}
-                    onChange={this.props.onStartColorChange} />
-
-                <ColorInput label='End Color'
-                    value={this.props.endColor}
-                    onChange={this.props.onEndColorChange} />
-                
-                <div className="credits">
-                    &copy; 2016 <a href="http://mattbierner.com">Matt Bierner</a>
-                </div>
-
-            </OptionsPanel>
-        );
-    }
-}
 
 class Main extends React.Component {
     constructor(props) {
