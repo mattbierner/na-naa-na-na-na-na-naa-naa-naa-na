@@ -1,5 +1,5 @@
 <div align="center">
-    <h1 align="center">Na, Naa Na Na Na, Na Naa Naa Naa Na<h1>
+    <h1 align="center">Na, Naa Na Na Na, Na Naa Naa Naa Na</h1>
     <p>Visulizing Katamari Damacy gameplay input.</p>
     <img src="https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/main.png" />
 </div>
