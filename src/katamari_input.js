@@ -3,7 +3,7 @@ import THREE from 'three';
 /**
  * How much each rotation input action is scaled.
  */
-const ROTATION_SCALE = 0.03;
+const ROTATION_SCALE = 0.025;
 
 /**
  * How much each translation input action is scaled.
@@ -32,10 +32,10 @@ export default (quaternion, angle, input) => {
         angle += rightY * ROTATION_SCALE;
     } else if (!isDead(leftX, leftY) && isDead(rightX, rightY)) {
         // left stick only rotation
-        angle += -leftY * ROTATION_SCALE;
+        angle -= leftY * ROTATION_SCALE;
     } else if (leftY > 0 && rightY < 0) {
         // down left, up right rotation
-        angle += (leftY - rightY) * ROTATION_SCALE;
+        angle -= (leftY - rightY) * ROTATION_SCALE;
     } else if (rightY > 0 && leftY < 0) {
         // down left, up right rotation
         angle += (rightY - leftY) * ROTATION_SCALE;

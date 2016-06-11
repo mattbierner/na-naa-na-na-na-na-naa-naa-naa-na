@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import GameView from './stream_game_view';
+import GameView from './game_view';
 import Header from './header';
 import MainOptionsPanel from './main_options_panel';
 import Controls from './controls/controls';

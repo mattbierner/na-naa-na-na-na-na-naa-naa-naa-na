@@ -17,12 +17,15 @@ export default class Viewer extends Base3dView {
     constructor(canvas, container) {
         super(canvas, container);
 
-        this._initGeometry();
-        this._initPointer();
+
         this._quaternion = new THREE.Quaternion(0, 0, 0, 1);
         this._i = 0;
         this._start = new THREE.Vector3(0, 0, RADIUS);
         this._angle = 0;
+
+        this._initGeometry();
+        this._initPointer();
+        this._initGuide();
     }
 
     _initGeometry() {
@@ -47,6 +50,13 @@ export default class Viewer extends Base3dView {
         const material = new THREE.MeshBasicMaterial({ color: 0xff0000, wireframe: true });
         this._pointer = new THREE.Mesh(geometry, material);
         this._scene.add(this._pointer);
+    }
+
+    _initGuide() {
+        const geometry = new THREE.SphereGeometry(1, 32, 32);
+        const material = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true, transparent: true, opacity: 0.05 });
+        this._guide = new THREE.Mesh(geometry, material);
+        this._scene.add(this._guide);
     }
 
     /**

@@ -6,7 +6,9 @@ module.exports = {
         extensions: ['', '.js', '.jsx']
     },
     entry: {
-        main: './src/main.js'
+        main: './src/main.js',
+        stream: './src/stream_main.js'
+
     },
     output: {
         path: path.join(__dirname, "js"),
