@@ -16,7 +16,7 @@ class MainOptionsPanel extends React.Component {
     render() {
         return (
             <OptionsPanel>
-                s
+                <input type="range" min="1" max="100" value={this.props.edging} onChange={this.props.onEdgingChange} />
             </OptionsPanel>
         );
     }
@@ -31,6 +31,7 @@ class Main extends React.Component {
                 
             // options
             gameFile: options.games[0].file,
+            edging: 5
         
         };
     }
@@ -52,13 +53,18 @@ class Main extends React.Component {
             .catch(e => console.error(e));
     }
 
+    onEdgingChange(e) {
+        this.setState({ edging: e.target.value });
+    }
+
     render() {
         return (
             <div className="main container">
                 <Header />
-                <MainOptionsPanel {...this.state} />
+                <MainOptionsPanel {...this.state}
+                    onEdgingChange={this.onEdgingChange.bind(this)} />
                 <div className="main-view">
-                    <GameView game={this.state.game} progress={this.state.progress} gameFile={this.state.gameFile} />
+                    <GameView {...this.state} />
                     <Controls
                         games={options.games}
                         game={this.state.game}

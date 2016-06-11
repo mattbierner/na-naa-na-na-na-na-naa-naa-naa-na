@@ -1,0 +1,103 @@
+$options-pane-width: 300px;
+
+.main-view {
+    height: 100%;
+    position: relative;
+}
+
+.side-panel {
+    box-sizing: border-box;
+    position: relative;
+    height: 100%;
+    max-height: 100%;
+    z-index: 100;
+    float: right;
+
+    h1 {
+        font-weight: lighter;
+    }
+
+    .panel-contents {
+        height: 100%;
+        box-sizing: border-box;
+        border-left: 1px solid $border-color;
+        background: $panel-color;
+        display: none;
+        width: $options-pane-width;
+        text-align: center;
+        overflow-y: scroll;
+    }
+    
+    &.implicit .panel-contents  ,
+    &.active .panel-contents  {
+        display: block;
+    }
+}
+
+ .side-panel.implicit + .main-view,
+ .side-panel.active + .main-view {
+    margin-right: $options-pane-width;
+}
+
+
+ .side-panel > button {
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    font-size: 30px;
+    border: none;
+    background: none;
+    position: absolute;
+    padding: 0; 
+    
+    &.panel-settings-button {
+        left: 0;
+        margin-left: -46px;
+        opacity: 0.75;
+    }
+    
+    &.panel-close-button {
+        right: 0;
+        left: 0;
+        margin-right: 10px;
+        opacity: 0.75;
+    }
+ }
+
+.options-pane {
+    padding-top: 0.6em;
+    padding-bottom: 3em;
+    border-bottom: 1px solid #444;
+    h2 {
+       font-weight: lighter;
+    }
+}
+
+
+// hide panel on screen if user has not manually expanded it
+@media only screen and (max-width: 1200px) {
+    .side-panel:not(.active) .panel-contents {
+        display: none;
+        border: none;
+    }
+    
+    .side-panel:not(.active) + .main-view {
+        margin-right: 0 !important;
+    }
+}
+
+// Make panel fullscreen
+@media only screen and (max-width: 500px) {
+    .side-panel.active {
+        float: none;
+
+        .panel-contents {
+            width: 100%;
+            border: none;
+        }
+    }
+
+    .side-panel.active + .main-view {
+        display: none;
+    }
+}

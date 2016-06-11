@@ -24,15 +24,24 @@ export default class GameView extends React.Component {
         this._3dview.setColors(
             new THREE.Vector4(1, 0, 1, 1),
             new THREE.Vector4(0, 1, 1, 1));
+
+        this.updateOptions(this.props);
     }
 
     componentWillReceiveProps(newProps) {
         if (newProps.game && this.props.game !== newProps.game) {
             this._3dview.draw(newProps.game.events);
         }
+        
         if (newProps.progress != this.props.progress && typeof newProps.progress !== 'undefined') {
             this._3dview.setProgress(newProps.progress);
         }
+
+        this.updateOptions(newProps);
+    }
+
+    updateOptions(props) {
+        this._3dview.setEdging(props.edging);
     }
 
     resetView() {

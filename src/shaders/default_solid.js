@@ -10,7 +10,9 @@ export default {
         endColor: { type: "v4", value: new THREE.Vector4(0.9, 0.9, 0.9, 1) },
         time: { value: 0.0 },
         minRadius: { value: 0.05 },
-        maxRadius: { value: 1.0 }
+        maxRadius: { value: 1.0 },
+        edging: { value: 0.05 }
+
     },
     vertexShader: `
         uniform vec4 startColor;
@@ -18,6 +20,7 @@ export default {
         uniform float time;
         uniform float minRadius;
         uniform float maxRadius;
+        uniform float edging;
 
         attribute vec4 spherePosition;
 
@@ -38,7 +41,7 @@ export default {
             vec3 rad = vec3(0, 0, r);
             vec3 posOnSphere = rotate_vector(spherePosition, rad);
 
-            vec3 pos = posOnSphere - ((innerScaling * 0.05) * posOnSphere);
+            vec3 pos = posOnSphere - ((innerScaling * edging) * posOnSphere);
             gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);
         }
     `,

@@ -32,6 +32,7 @@
     "moment": "^2.13.0",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
+    "react-input-range": "^0.8.0",
     "three": "^0.76.1"
   }
 }

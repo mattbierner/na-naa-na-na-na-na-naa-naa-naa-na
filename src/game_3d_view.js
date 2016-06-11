@@ -142,6 +142,15 @@ export default class Viewer extends Base3dView {
     }
 
     /**
+     * 
+    */
+    setEdging(edging) {
+        shaderMaterial.uniforms.edging.value = edging / 100;
+        shaderMaterial.uniforms.edging.needsUpdate = true;
+    }
+    
+
+    /**
      * Clear all current elements from the scene.
      */
     reset() {
