@@ -6,15 +6,15 @@ The visualization uses controller input to draw a path in 3d, trying to approxim
 
 Press both joysticks forward, and the drawing cursor moves forward on the sphere. Press both backwards, and the cursor moves backwards.
 
-![](https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/forward.png)
+![](https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/forward.gif)
 
 Press a single Joystick forward to rotate the cursor (pressing one joystick forward and one backwards rotates faster.)
 
-![](https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/forward.png)
+![](https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/forward.gif)
 
 Pressing both joysticks in a single direction but unevenly (such as the left joy stick fully forward and the right one only partially pressed forward) steers the cursor as it moves.
 
-![](https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/forward.png)
+![](https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/forward.gif)
 
 Besides basic movement, the sphere the cursor is drawing on slows expands outwards over time. At the beginning of a visualization game for example, it may be drawing on a 1m sphere, which expands to a 10m sphere by the end of the game. This expansion can be controlled or even disabled using the options.
 
