@@ -54,9 +54,11 @@ export default class Viewer extends Base3dView {
 
     _initGuide() {
         const geometry = new THREE.SphereGeometry(1, 32, 32);
-        const material = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true, transparent: true, opacity: 0.05 });
-        this._guide = new THREE.Mesh(geometry, material);
-        this._scene.add(this._guide);
+        const material = new THREE.MeshBasicMaterial({ color: 0x000000, wireframe: true, transparent: true, opacity: 0.25 });
+        this._scene.add(new THREE.Mesh(geometry, material));
+
+        const material2 = new THREE.MeshBasicMaterial({ color: 0xeeeeee });
+        this._scene.add(new THREE.Mesh(geometry, material2));
     }
 
     /**

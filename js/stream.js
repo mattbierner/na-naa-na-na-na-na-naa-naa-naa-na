@@ -34167,9 +34167,11 @@
 	        key: '_initGuide',
 	        value: function _initGuide() {
 	            var geometry = new _three2.default.SphereGeometry(1, 32, 32);
-	            var material = new _three2.default.MeshBasicMaterial({ color: 0x000000, wireframe: true, transparent: true, opacity: 0.05 });
-	            this._guide = new _three2.default.Mesh(geometry, material);
-	            this._scene.add(this._guide);
+	            var material = new _three2.default.MeshBasicMaterial({ color: 0x000000, wireframe: true, transparent: true, opacity: 0.25 });
+	            this._scene.add(new _three2.default.Mesh(geometry, material));
+
+	            var material2 = new _three2.default.MeshBasicMaterial({ color: 0xeeeeee });
+	            this._scene.add(new _three2.default.Mesh(geometry, material2));
 	        }
 
 	        /**

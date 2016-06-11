@@ -1,9 +1,7 @@
 <div align="center">
     <img src="https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/main2.png" />
-    
+    <p>Visualizing Katamari Damacy gameplay input.</p>
 </div>
-
-Visualizing Katamari Damacy gameplay input.
 
 * [Site][site]
 * [Documentation][documentation]
@@ -59,7 +57,7 @@ Instead of writing to a file, start a websocket server using the [Playstation 2 
 
 ```bash
 cd ps2_controller_collector
-python collector.py --websocket --log
+python websocket_collector.py  --log
 ```
 
 Then navigate to http://mattbierner.github.io/na_naa-na-na-na_na-naa-naa-naa-na/stream
