@@ -1,0 +1,28 @@
+.range-control {
+    margin: 0 10px;
+    
+    input {
+        display: block;
+        width: 100%;
+    }
+
+    .min-label,
+    .max-label,
+    .value-label {
+        display: block;
+        color: #aaa;
+        font-size: 12px;
+    }
+
+    .value-label {
+        text-align: center;
+    }
+
+    .min-label {
+        float: left;
+    }
+
+    .max-label {
+        float: right;
+    }
+}

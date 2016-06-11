@@ -100,7 +100,7 @@ export default class Viewer extends Base3dView {
             quaternion.normalize();
 
             opacity.array[i] = 0;
-            opacity.array[i + 1] = 0.4;
+            opacity.array[i + 1] = 1;
 
             innerScaling.array[i] = 1;
             innerScaling.array[i + 1] = 0;
@@ -142,13 +142,20 @@ export default class Viewer extends Base3dView {
     }
 
     /**
-     * 
-    */
-    setEdging(edging) {
-        shaderMaterial.uniforms.edging.value = edging / 100;
+     * Update edge thickness
+     */
+    setEdging(value) {
+        shaderMaterial.uniforms.edging.value = value / 100;
         shaderMaterial.uniforms.edging.needsUpdate = true;
     }
-    
+
+    /**
+     * Update opacity of shape
+     */
+    setOpacity(value) {
+        shaderMaterial.uniforms.totalOpacity.value = value / 100;
+        shaderMaterial.uniforms.totalOpacity.needsUpdate = true;
+    }
 
     /**
      * Clear all current elements from the scene.

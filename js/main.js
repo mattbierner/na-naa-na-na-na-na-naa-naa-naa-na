@@ -74,6 +74,10 @@
 
 	var _options_panel2 = _interopRequireDefault(_options_panel);
 
+	var _range_input = __webpack_require__(290);
+
+	var _range_input2 = _interopRequireDefault(_range_input);
+
 	var _data = __webpack_require__(288);
 
 	var _options = __webpack_require__(289);
@@ -109,7 +113,18 @@
 	            return _react2.default.createElement(
 	                _options_panel2.default,
 	                null,
-	                _react2.default.createElement('input', { type: 'range', min: '1', max: '100', value: this.props.edging, onChange: this.props.onEdgingChange })
+	                _react2.default.createElement(_range_input2.default, { label: 'Edge Thickness',
+	                    unit: '%',
+	                    min: '1',
+	                    max: '100',
+	                    value: this.props.edging,
+	                    onChange: this.props.onEdgingChange }),
+	                _react2.default.createElement(_range_input2.default, { label: 'Opacity',
+	                    unit: '%',
+	                    min: '1',
+	                    max: '100',
+	                    value: this.props.opacity,
+	                    onChange: this.props.onOpacityChange })
 	            );
 	        }
 	    }]);
@@ -131,8 +146,8 @@
 
 	            // options
 	            gameFile: options.games[0].file,
-	            edging: 5
-
+	            edging: 5,
+	            opacity: 30
 	        };
 	        return _this2;
 	    }
@@ -160,8 +175,13 @@
 	        }
 	    }, {
 	        key: 'onEdgingChange',
-	        value: function onEdgingChange(e) {
-	            this.setState({ edging: e.target.value });
+	        value: function onEdgingChange(value) {
+	            this.setState({ edging: value });
+	        }
+	    }, {
+	        key: 'onOpacityChange',
+	        value: function onOpacityChange(value) {
+	            this.setState({ opacity: value });
 	        }
 	    }, {
 	        key: 'render',
@@ -171,7 +191,8 @@
 	                { className: 'main container' },
 	                _react2.default.createElement(_header2.default, null),
 	                _react2.default.createElement(MainOptionsPanel, _extends({}, this.state, {
-	                    onEdgingChange: this.onEdgingChange.bind(this) })),
+	                    onEdgingChange: this.onEdgingChange.bind(this),
+	                    onOpacityChange: this.onOpacityChange.bind(this) })),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'main-view' },
@@ -20584,6 +20605,7 @@
 	        key: 'updateOptions',
 	        value: function updateOptions(props) {
 	            this._3dview.setEdging(props.edging);
+	            this._3dview.setOpacity(props.opacity);
 	        }
 	    }, {
 	        key: 'resetView',
@@ -24100,7 +24122,7 @@
 	                    quaternion.normalize();
 
 	                    opacity.array[i] = 0;
-	                    opacity.array[i + 1] = 0.4;
+	                    opacity.array[i + 1] = 1;
 
 	                    innerScaling.array[i] = 1;
 	                    innerScaling.array[i + 1] = 0;
@@ -24153,14 +24175,25 @@
 	        }
 
 	        /**
-	         * 
-	        */
+	         * Update edge thickness
+	         */
 
 	    }, {
 	        key: 'setEdging',
-	        value: function setEdging(edging) {
-	            shaderMaterial.uniforms.edging.value = edging / 100;
+	        value: function setEdging(value) {
+	            shaderMaterial.uniforms.edging.value = value / 100;
 	            shaderMaterial.uniforms.edging.needsUpdate = true;
+	        }
+
+	        /**
+	         * Update opacity of shape
+	         */
+
+	    }, {
+	        key: 'setOpacity',
+	        value: function setOpacity(value) {
+	            shaderMaterial.uniforms.totalOpacity.value = value / 100;
+	            shaderMaterial.uniforms.totalOpacity.needsUpdate = true;
 	        }
 
 	        /**
@@ -25178,12 +25211,13 @@
 	        startColor: { type: "v4", value: new _three2.default.Vector4(0, 0, 0, 1) },
 	        endColor: { type: "v4", value: new _three2.default.Vector4(0.9, 0.9, 0.9, 1) },
 	        time: { value: 0.0 },
+
 	        minRadius: { value: 0.05 },
 	        maxRadius: { value: 1.0 },
-	        edging: { value: 0.05 }
-
+	        edging: { value: 0.05 },
+	        totalOpacity: { value: 1.0 }
 	    },
-	    vertexShader: '\n        uniform vec4 startColor;\n        uniform vec4 endColor;\n        uniform float time;\n        uniform float minRadius;\n        uniform float maxRadius;\n        uniform float edging;\n\n        attribute vec4 spherePosition;\n\n        attribute float progress;\n        attribute float opacity;\n        attribute float innerScaling;\n\n        varying vec4 vColor;\n\n        ' + _common.quaternionToVector + '\n\n        void main() {\n            float alpha = float(progress < time) * opacity;\n            vColor = mix(startColor, endColor, progress) * vec4(1, 1, 1, alpha);\n            \n            // Compute position on sphere\n            float r = minRadius + (maxRadius - minRadius) * progress;\n            vec3 rad = vec3(0, 0, r);\n            vec3 posOnSphere = rotate_vector(spherePosition, rad);\n\n            vec3 pos = posOnSphere - ((innerScaling * edging) * posOnSphere);\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);\n        }\n    ',
+	    vertexShader: '\n        uniform vec4 startColor;\n        uniform vec4 endColor;\n        uniform float time;\n        uniform float minRadius;\n        uniform float maxRadius;\n        uniform float edging;\n        uniform float totalOpacity;\n\n        attribute vec4 spherePosition;\n\n        attribute float progress;\n        attribute float opacity;\n        attribute float innerScaling;\n\n        varying vec4 vColor;\n\n        ' + _common.quaternionToVector + '\n\n        void main() {\n            float alpha = float(progress < time) * opacity * totalOpacity;\n            vColor = mix(startColor, endColor, progress) * vec4(1, 1, 1, alpha);\n            \n            // Compute position on sphere\n            float r = minRadius + (maxRadius - minRadius) * progress;\n            vec3 rad = vec3(0, 0, r);\n            vec3 posOnSphere = rotate_vector(spherePosition, rad);\n\n            vec3 pos = posOnSphere - ((innerScaling * edging) * posOnSphere);\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);\n        }\n    ',
 	    fragmentShader: '\n        varying vec4 vColor;\n        \n        void main() {\n            gl_FragColor = vColor;\n        }\n    ',
 	    transparent: true,
 	    side: _three2.default.DoubleSide,
@@ -36708,7 +36742,7 @@
 /* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -36716,14 +36750,21 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(38);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(38);
 
 	/**
 	 * Collapsible side panel containing a set of options.
@@ -36761,25 +36802,25 @@
 	            if (this.state.implicit) classes.push('implicit');
 	            if (this.state.active) classes.push('active');
 
-	            return React.createElement(
+	            return _react2.default.createElement(
 	                'div',
 	                { className: 'side-panel ' + classes.join(' ') },
-	                React.createElement(
+	                _react2.default.createElement(
 	                    'button',
 	                    { className: 'panel-settings-button material-icons',
 	                        onClick: this.onSettingsButtonClick.bind(this) },
 	                    'settings'
 	                ),
-	                React.createElement(
+	                _react2.default.createElement(
 	                    'button',
 	                    { className: 'panel-close-button material-icons',
 	                        onClick: this.onCloseButtonClick.bind(this) },
 	                    'clear'
 	                ),
-	                React.createElement(
+	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'panel-contents' },
-	                    React.createElement(
+	                    _react2.default.createElement(
 	                        'h1',
 	                        null,
 	                        'Options'
@@ -36791,7 +36832,7 @@
 	    }]);
 
 	    return OptionsPane;
-	}(React.Component);
+	}(_react2.default.Component);
 
 	exports.default = OptionsPane;
 	;
@@ -36848,6 +36889,90 @@
 	    name: '3000m',
 	    file: 'examples/katamari/3000m.json'
 	}];
+
+/***/ },
+/* 290 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(38);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var RangeInput = function (_React$Component) {
+	    _inherits(RangeInput, _React$Component);
+
+	    function RangeInput() {
+	        _classCallCheck(this, RangeInput);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(RangeInput).apply(this, arguments));
+	    }
+
+	    _createClass(RangeInput, [{
+	        key: 'onChange',
+	        value: function onChange(e) {
+	            this.props.onChange(e.target.value);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'range-control' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'label' },
+	                    this.props.label
+	                ),
+	                _react2.default.createElement('input', { type: 'range',
+	                    min: this.props.min, max: this.props.max, value: this.props.value, onChange: this.onChange.bind(this) }),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'labels' },
+	                    _react2.default.createElement(
+	                        'span',
+	                        { className: 'min-label' },
+	                        this.props.min
+	                    ),
+	                    _react2.default.createElement(
+	                        'span',
+	                        { className: 'max-label' },
+	                        this.props.max
+	                    ),
+	                    _react2.default.createElement(
+	                        'span',
+	                        { className: 'value-label' },
+	                        this.props.value + (this.props.unit || '')
+	                    )
+	                )
+	            );
+	        }
+	    }]);
+
+	    return RangeInput;
+	}(_react2.default.Component);
+
+	exports.default = RangeInput;
+	;
 
 /***/ }
 /******/ ]);

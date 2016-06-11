@@ -42,6 +42,8 @@ export default class GameView extends React.Component {
 
     updateOptions(props) {
         this._3dview.setEdging(props.edging);
+        this._3dview.setOpacity(props.opacity);
+        
     }
 
     resetView() {

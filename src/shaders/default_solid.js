@@ -9,10 +9,11 @@ export default {
         startColor: { type: "v4", value: new THREE.Vector4(0, 0, 0, 1) },
         endColor: { type: "v4", value: new THREE.Vector4(0.9, 0.9, 0.9, 1) },
         time: { value: 0.0 },
+
         minRadius: { value: 0.05 },
         maxRadius: { value: 1.0 },
-        edging: { value: 0.05 }
-
+        edging: { value: 0.05 },
+        totalOpacity: { value: 1.0 }
     },
     vertexShader: `
         uniform vec4 startColor;
@@ -21,6 +22,7 @@ export default {
         uniform float minRadius;
         uniform float maxRadius;
         uniform float edging;
+        uniform float totalOpacity;
 
         attribute vec4 spherePosition;
 
@@ -33,7 +35,7 @@ export default {
         ${quaternionToVector}
 
         void main() {
-            float alpha = float(progress < time) * opacity;
+            float alpha = float(progress < time) * opacity * totalOpacity;
             vColor = mix(startColor, endColor, progress) * vec4(1, 1, 1, alpha);
             
             // Compute position on sphere

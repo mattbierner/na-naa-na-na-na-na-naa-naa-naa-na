@@ -5,6 +5,7 @@ import GameView from './game_view';
 import Header from './header';
 import Controls from './controls/controls';
 import OptionsPanel from './controls/options_panel';
+import RangeInput from './controls/range_input';
 
 import {getData} from './data';
 import * as options from './options';
@@ -16,7 +17,19 @@ class MainOptionsPanel extends React.Component {
     render() {
         return (
             <OptionsPanel>
-                <input type="range" min="1" max="100" value={this.props.edging} onChange={this.props.onEdgingChange} />
+                <RangeInput label='Edge Thickness'
+                    unit='%'
+                    min="1"
+                    max="100"
+                    value={this.props.edging}
+                    onChange={this.props.onEdgingChange} />
+
+                <RangeInput label='Opacity'
+                    unit='%'
+                    min="1"
+                    max="100"
+                    value={this.props.opacity}
+                    onChange={this.props.onOpacityChange} />
             </OptionsPanel>
         );
     }
@@ -31,8 +44,8 @@ class Main extends React.Component {
                 
             // options
             gameFile: options.games[0].file,
-            edging: 5
-        
+            edging: 5,
+            opacity: 30,
         };
     }
 
@@ -53,8 +66,12 @@ class Main extends React.Component {
             .catch(e => console.error(e));
     }
 
-    onEdgingChange(e) {
-        this.setState({ edging: e.target.value });
+    onEdgingChange(value) {
+        this.setState({ edging: value });
+    }
+
+    onOpacityChange(value) {
+        this.setState({ opacity: value });
     }
 
     render() {
@@ -62,7 +79,8 @@ class Main extends React.Component {
             <div className="main container">
                 <Header />
                 <MainOptionsPanel {...this.state}
-                    onEdgingChange={this.onEdgingChange.bind(this)} />
+                    onEdgingChange={this.onEdgingChange.bind(this)}
+                    onOpacityChange={this.onOpacityChange.bind(this)}/>
                 <div className="main-view">
                     <GameView {...this.state} />
                     <Controls

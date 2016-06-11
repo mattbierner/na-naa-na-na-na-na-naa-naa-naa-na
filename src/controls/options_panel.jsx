@@ -1,7 +1,5 @@
-"use strict";
-const React = require('react');
-const ReactDOM = require('react-dom');
-
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 /**
  * Collapsible side panel containing a set of options.
