@@ -6,6 +6,7 @@ import Header from './header';
 import Controls from './controls/controls';
 import OptionsPanel from './controls/options_panel';
 import RangeInput from './controls/range_input';
+import ColorInput from './controls/color_input';
 
 import {getData} from './data';
 import * as options from './options';
@@ -30,6 +31,22 @@ class MainOptionsPanel extends React.Component {
                     max="100"
                     value={this.props.opacity}
                     onChange={this.props.onOpacityChange} />
+                
+                <RangeInput label='Inner Radius'
+                    unit='%'
+                    min="1"
+                    max="100"
+                    value={this.props.innerRadius}
+                    onChange={this.props.onInnerRadiusChange} />
+                
+                <ColorInput label='Start Color'
+                    value={this.props.startColor}
+                    onChange={this.props.onStartColorChange} />
+
+                <ColorInput label='End Color'
+                    value={this.props.endColor}
+                    onChange={this.props.onEndColorChange} />
+
             </OptionsPanel>
         );
     }
@@ -46,6 +63,9 @@ class Main extends React.Component {
             gameFile: options.games[0].file,
             edging: 5,
             opacity: 30,
+            innerRadius: 1,
+            startColor: '#ff00ff',
+            endColor: '#00ffff'
         };
     }
 
@@ -74,13 +94,29 @@ class Main extends React.Component {
         this.setState({ opacity: value });
     }
 
+    onInnerRadiusChange(value) {
+        this.setState({ innerRadius: value });
+    }
+
+    onStartColorChange(value) {
+        this.setState({ startColor: value });
+    }
+
+    onEndColorChange(value) {
+        this.setState({ endColor: value });
+    }
+
     render() {
         return (
             <div className="main container">
                 <Header />
                 <MainOptionsPanel {...this.state}
                     onEdgingChange={this.onEdgingChange.bind(this)}
-                    onOpacityChange={this.onOpacityChange.bind(this)}/>
+                    onOpacityChange={this.onOpacityChange.bind(this)}
+                    onInnerRadiusChange={this.onInnerRadiusChange.bind(this)}
+                    onStartColorChange={this.onStartColorChange.bind(this)}
+                    onEndColorChange={this.onEndColorChange.bind(this)}/>
+                
                 <div className="main-view">
                     <GameView {...this.state} />
                     <Controls

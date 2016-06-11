@@ -6,6 +6,14 @@ import Viewer from './game_3d_view';
 import ViewControls from './controls/view_controls';
 
 /**
+ * Convert hex color string to Vec4 color.
+ */
+const hexToVec4 = hex => {
+    const m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+    return new THREE.Vector4(parseInt(m[1], 16) / 255, parseInt(m[2], 16) / 255, parseInt(m[3], 16) / 255, 1);
+};
+
+/**
  * View for a complete game.
  */
 export default class GameView extends React.Component {
@@ -21,10 +29,6 @@ export default class GameView extends React.Component {
         const element = ReactDOM.findDOMNode(this);
         const canvas = element.getElementsByClassName('glCanvas')[0];
         this._3dview = new Viewer(canvas, element);
-        this._3dview.setColors(
-            new THREE.Vector4(1, 0, 1, 1),
-            new THREE.Vector4(0, 1, 1, 1));
-
         this.updateOptions(this.props);
     }
 
@@ -43,7 +47,9 @@ export default class GameView extends React.Component {
     updateOptions(props) {
         this._3dview.setEdging(props.edging);
         this._3dview.setOpacity(props.opacity);
-        
+        this._3dview.setInnerRadius(props.innerRadius);
+ 
+        this._3dview.setColors(hexToVec4(props.startColor), hexToVec4(props.endColor));
     }
 
     resetView() {

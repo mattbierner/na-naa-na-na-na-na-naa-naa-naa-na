@@ -78,6 +78,10 @@
 
 	var _range_input2 = _interopRequireDefault(_range_input);
 
+	var _color_input = __webpack_require__(291);
+
+	var _color_input2 = _interopRequireDefault(_color_input);
+
 	var _data = __webpack_require__(288);
 
 	var _options = __webpack_require__(289);
@@ -124,7 +128,19 @@
 	                    min: '1',
 	                    max: '100',
 	                    value: this.props.opacity,
-	                    onChange: this.props.onOpacityChange })
+	                    onChange: this.props.onOpacityChange }),
+	                _react2.default.createElement(_range_input2.default, { label: 'Inner Radius',
+	                    unit: '%',
+	                    min: '1',
+	                    max: '100',
+	                    value: this.props.innerRadius,
+	                    onChange: this.props.onInnerRadiusChange }),
+	                _react2.default.createElement(_color_input2.default, { label: 'Start Color',
+	                    value: this.props.startColor,
+	                    onChange: this.props.onStartColorChange }),
+	                _react2.default.createElement(_color_input2.default, { label: 'End Color',
+	                    value: this.props.endColor,
+	                    onChange: this.props.onEndColorChange })
 	            );
 	        }
 	    }]);
@@ -147,7 +163,10 @@
 	            // options
 	            gameFile: options.games[0].file,
 	            edging: 5,
-	            opacity: 30
+	            opacity: 30,
+	            innerRadius: 1,
+	            startColor: '#ff00ff',
+	            endColor: '#00ffff'
 	        };
 	        return _this2;
 	    }
@@ -184,6 +203,21 @@
 	            this.setState({ opacity: value });
 	        }
 	    }, {
+	        key: 'onInnerRadiusChange',
+	        value: function onInnerRadiusChange(value) {
+	            this.setState({ innerRadius: value });
+	        }
+	    }, {
+	        key: 'onStartColorChange',
+	        value: function onStartColorChange(value) {
+	            this.setState({ startColor: value });
+	        }
+	    }, {
+	        key: 'onEndColorChange',
+	        value: function onEndColorChange(value) {
+	            this.setState({ endColor: value });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
@@ -192,7 +226,10 @@
 	                _react2.default.createElement(_header2.default, null),
 	                _react2.default.createElement(MainOptionsPanel, _extends({}, this.state, {
 	                    onEdgingChange: this.onEdgingChange.bind(this),
-	                    onOpacityChange: this.onOpacityChange.bind(this) })),
+	                    onOpacityChange: this.onOpacityChange.bind(this),
+	                    onInnerRadiusChange: this.onInnerRadiusChange.bind(this),
+	                    onStartColorChange: this.onStartColorChange.bind(this),
+	                    onEndColorChange: this.onEndColorChange.bind(this) })),
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'main-view' },
@@ -20561,6 +20598,14 @@
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	/**
+	 * Convert hex color string to Vec4 color.
+	 */
+	var hexToVec4 = function hexToVec4(hex) {
+	    var m = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+	    return new _three2.default.Vector4(parseInt(m[1], 16) / 255, parseInt(m[2], 16) / 255, parseInt(m[3], 16) / 255, 1);
+	};
+
+	/**
 	 * View for a complete game.
 	 */
 
@@ -20584,8 +20629,6 @@
 	            var element = _reactDom2.default.findDOMNode(this);
 	            var canvas = element.getElementsByClassName('glCanvas')[0];
 	            this._3dview = new _game_3d_view2.default(canvas, element);
-	            this._3dview.setColors(new _three2.default.Vector4(1, 0, 1, 1), new _three2.default.Vector4(0, 1, 1, 1));
-
 	            this.updateOptions(this.props);
 	        }
 	    }, {
@@ -20606,6 +20649,9 @@
 	        value: function updateOptions(props) {
 	            this._3dview.setEdging(props.edging);
 	            this._3dview.setOpacity(props.opacity);
+	            this._3dview.setInnerRadius(props.innerRadius);
+
+	            this._3dview.setColors(hexToVec4(props.startColor), hexToVec4(props.endColor));
 	        }
 	    }, {
 	        key: 'resetView',
@@ -24197,6 +24243,17 @@
 	        }
 
 	        /**
+	         * Update inner radius of lines.
+	         */
+
+	    }, {
+	        key: 'setInnerRadius',
+	        value: function setInnerRadius(value) {
+	            shaderMaterial.uniforms.minRadius.value = value / 100;
+	            shaderMaterial.uniforms.minRadius.needsUpdate = true;
+	        }
+
+	        /**
 	         * Clear all current elements from the scene.
 	         */
 
@@ -25363,7 +25420,7 @@
 
 	            var aspect = viewWidth / viewHeight;
 	            this._camera = new _three2.default.PerspectiveCamera(75, aspect, 0.01, 800);
-	            this._camera.position.z = Math.abs(aspect / Math.sin(this._camera.fov * (Math.PI / 180) / 2));
+	            this._camera.position.z = 2;
 	        }
 
 	        /**
@@ -25382,7 +25439,7 @@
 	        key: 'resetView',
 	        value: function resetView() {
 	            this._controls.reset();
-	            this._camera.position.set(0, 0, 1);
+	            this._camera.position.set(0, 0, 2);
 	        }
 
 	        /**
@@ -36964,6 +37021,70 @@
 	                        this.props.value + (this.props.unit || '')
 	                    )
 	                )
+	            );
+	        }
+	    }]);
+
+	    return RangeInput;
+	}(_react2.default.Component);
+
+	exports.default = RangeInput;
+	;
+
+/***/ },
+/* 291 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(38);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var RangeInput = function (_React$Component) {
+	    _inherits(RangeInput, _React$Component);
+
+	    function RangeInput() {
+	        _classCallCheck(this, RangeInput);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(RangeInput).apply(this, arguments));
+	    }
+
+	    _createClass(RangeInput, [{
+	        key: 'onChange',
+	        value: function onChange(e) {
+	            this.props.onChange(e.target.value);
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'color-control' },
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'label' },
+	                    this.props.label
+	                ),
+	                _react2.default.createElement('input', { type: 'color', value: this.props.value, onChange: this.onChange.bind(this) })
 	            );
 	        }
 	    }]);

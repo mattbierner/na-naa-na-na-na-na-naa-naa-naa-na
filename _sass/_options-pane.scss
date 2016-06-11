@@ -18,14 +18,7 @@ $options-pane-width: 300px;
     }
 
     .panel-contents {
-        height: 100%;
-        box-sizing: border-box;
-        border-left: 1px solid $border-color;
-        background: $panel-color;
         display: none;
-        width: $options-pane-width;
-        text-align: center;
-        overflow-y: scroll;
     }
     
     &.implicit .panel-contents  ,
@@ -39,6 +32,20 @@ $options-pane-width: 300px;
     margin-right: $options-pane-width;
 }
 
+
+.panel-contents {
+    height: 100%;
+    box-sizing: border-box;
+    border-left: 1px solid $border-color;
+    background: $panel-color;
+    width: $options-pane-width;
+    text-align: center;
+    overflow-y: scroll;
+
+    & > * {
+        padding-bottom: 1em;
+    }
+}
 
  .side-panel > button {
     width: 40px;

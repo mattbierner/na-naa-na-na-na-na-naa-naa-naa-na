@@ -1,6 +1,8 @@
 .range-control {
-    margin: 0 10px;
-    
+    margin: 10px 20px;
+    -webkit-user-select: none;
+    user-select: none;
+
     input {
         display: block;
         width: 100%;

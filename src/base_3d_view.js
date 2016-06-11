@@ -49,7 +49,7 @@ export default class BaseViewer {
         const [viewWidth, viewHeight] = this._getViewportSize();
         const aspect = viewWidth / viewHeight;
         this._camera = new THREE.PerspectiveCamera(75, aspect, 0.01, 800);
-        this._camera.position.z = Math.abs(aspect / Math.sin(this._camera.fov * ( Math.PI / 180 ) / 2));
+        this._camera.position.z = 2;
     }
 
     /**
@@ -64,7 +64,7 @@ export default class BaseViewer {
 
     resetView() {
         this._controls.reset();
-        this._camera.position.set(0, 0, 1);
+        this._camera.position.set(0, 0, 2);
     }
 
     /**

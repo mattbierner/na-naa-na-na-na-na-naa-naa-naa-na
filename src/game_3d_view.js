@@ -158,6 +158,14 @@ export default class Viewer extends Base3dView {
     }
 
     /**
+     * Update inner radius of lines.
+     */
+    setInnerRadius(value) {
+        shaderMaterial.uniforms.minRadius.value = value / 100;
+        shaderMaterial.uniforms.minRadius.needsUpdate = true;
+    }
+
+    /**
      * Clear all current elements from the scene.
      */
     reset() {
