@@ -46,6 +46,10 @@ class MainOptionsPanel extends React.Component {
                 <ColorInput label='End Color'
                     value={this.props.endColor}
                     onChange={this.props.onEndColorChange} />
+                
+                <div className="credits">
+                    &copy; 2016 <a href="http://mattbierner.com">Matt Bierner</a>
+                </div>
 
             </OptionsPanel>
         );

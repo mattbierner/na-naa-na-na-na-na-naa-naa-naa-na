@@ -140,7 +140,17 @@
 	                    onChange: this.props.onStartColorChange }),
 	                _react2.default.createElement(_color_input2.default, { label: 'End Color',
 	                    value: this.props.endColor,
-	                    onChange: this.props.onEndColorChange })
+	                    onChange: this.props.onEndColorChange }),
+	                _react2.default.createElement(
+	                    'div',
+	                    { className: 'credits' },
+	                    '© 2016 ',
+	                    _react2.default.createElement(
+	                        'a',
+	                        { href: 'http://mattbierner.com' },
+	                        'Matt Bierner'
+	                    )
+	                )
 	            );
 	        }
 	    }]);
@@ -25919,15 +25929,25 @@
 	                        _react2.default.createElement(
 	                            'span',
 	                            { className: 'blurb' },
-	                            'Visualizing Katamari Damacy gameplay input.'
+	                            'Visualizing Katamari Damacy Gameplay Input'
 	                        ),
 	                        _react2.default.createElement(
 	                            'nav',
-	                            null,
+	                            { className: 'links' },
 	                            _react2.default.createElement(
 	                                'a',
 	                                { href: 'https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/' },
-	                                'source'
+	                                'About'
+	                            ),
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: 'https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/' },
+	                                'Source'
+	                            ),
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: 'https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/' },
+	                                'Post'
 	                            )
 	                        )
 	                    )
