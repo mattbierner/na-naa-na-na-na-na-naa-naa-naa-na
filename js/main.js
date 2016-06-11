@@ -25767,16 +25767,14 @@
 	        value: function onMouseDown(event) {
 	            if (this.state.dragging) return;
 	            this.setState({ dragging: true });
-	            var progress = this.getProgressFromMouseEvent(event);
-	            this.props.onDrag(progress);
+	            this.updateProgress(event.pageX);
 	        }
 	    }, {
 	        key: 'onMouseUp',
 	        value: function onMouseUp(event) {
 	            if (!this.state.dragging) return;
 	            this.setState({ dragging: false });
-	            var progress = this.getProgressFromMouseEvent(event);
-	            this.props.onDragDone(progress);
+	            this.updateProgress(event.pageX);
 	        }
 	    }, {
 	        key: 'onMouseMove',
@@ -25784,13 +25782,25 @@
 	            if (!this.state.dragging) return;
 	            e.stopPropagation();
 	            e.nativeEvent.stopImmediatePropagation();
+	            this.updateProgress(event.pageX);
+	        }
+	    }, {
+	        key: 'onTouchMove',
+	        value: function onTouchMove() {
+	            e.stopPropagation();
+	            e.nativeEvent.stopImmediatePropagation();
 
-	            var progress = this.getProgressFromMouseEvent(e);
+	            this.updateProgress(event.touches[0].pageX);
+	        }
+	    }, {
+	        key: 'updateProgress',
+	        value: function updateProgress(x) {
+	            var progress = this.getProgressFromPosition(x);
 	            this.props.onDrag(progress);
 	        }
 	    }, {
-	        key: 'getProgressFromMouseEvent',
-	        value: function getProgressFromMouseEvent(event) {
+	        key: 'getProgressFromPosition',
+	        value: function getProgressFromPosition(x) {
 	            var node = _reactDom2.default.findDOMNode(this).getElementsByClassName('timeline-content')[0];
 	            var rect = node.getBoundingClientRect();
 	            var progress = clamp(0, 1.0, (event.pageX - rect.left) / rect.width);
@@ -25809,7 +25819,12 @@
 
 	            return _react2.default.createElement(
 	                'div',
-	                { id: 'timeline', onMouseDown: this.onMouseDown.bind(this), onMouseUp: this.onMouseUp.bind(this), onMouseMove: this.onMouseMove.bind(this) },
+	                { id: 'timeline',
+	                    onMouseDown: this.onMouseDown.bind(this),
+	                    onMouseUp: this.onMouseUp.bind(this),
+	                    onMouseMove: this.onMouseMove.bind(this),
+	                    onTouchStart: this.onTouchMove.bind(this),
+	                    onTouchMove: this.onTouchMove.bind(this) },
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'timeline-content' },

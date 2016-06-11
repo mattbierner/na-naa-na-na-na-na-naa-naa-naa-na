@@ -92,16 +92,14 @@ export default class Timeline extends React.Component {
         if (this.state.dragging)
             return;
         this.setState({ dragging: true })
-        const progress = this.getProgressFromMouseEvent(event);
-        this.props.onDrag(progress);
+        this.updateProgress(event.pageX);
     }
 
     onMouseUp(event) {
         if (!this.state.dragging)
             return;
         this.setState({ dragging: false });
-        const progress = this.getProgressFromMouseEvent(event);
-        this.props.onDragDone(progress);
+        this.updateProgress(event.pageX);
     }
 
     onMouseMove(e) {
@@ -109,12 +107,22 @@ export default class Timeline extends React.Component {
             return;
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
-        
-        const progress = this.getProgressFromMouseEvent(e);
+        this.updateProgress(event.pageX);
+    }
+
+    onTouchMove() {
+        e.stopPropagation();
+        e.nativeEvent.stopImmediatePropagation();
+
+        this.updateProgress(event.touches[0].pageX);
+    }
+
+    updateProgress(x) {
+        const progress = this.getProgressFromPosition(x);
         this.props.onDrag(progress);
     }
 
-    getProgressFromMouseEvent(event) {
+    getProgressFromPosition(x) {
         const node = ReactDOM.findDOMNode(this).getElementsByClassName('timeline-content')[0];
         const rect = node.getBoundingClientRect();
         const progress = clamp(0, 1.0, (event.pageX - rect.left) / rect.width);
@@ -130,7 +138,12 @@ export default class Timeline extends React.Component {
         const middle = this.timeToString(this.props.duration * this.props.progress);
 
         return (
-            <div id="timeline" onMouseDown={this.onMouseDown.bind(this) } onMouseUp={this.onMouseUp.bind(this) } onMouseMove={this.onMouseMove.bind(this) }>
+            <div id="timeline"
+                onMouseDown={this.onMouseDown.bind(this) }
+                onMouseUp={this.onMouseUp.bind(this) }
+                onMouseMove={this.onMouseMove.bind(this) }
+                onTouchStart={this.onTouchMove.bind(this)}
+                onTouchMove={this.onTouchMove.bind(this)}>
                 <div className='timeline-content'>
                     <div className='timeline-body'>
                         <TimelineTicks duration={this.props.duration} />
