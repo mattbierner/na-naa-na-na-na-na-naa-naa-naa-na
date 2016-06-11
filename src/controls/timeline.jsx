@@ -92,14 +92,16 @@ export default class Timeline extends React.Component {
         if (this.state.dragging)
             return;
         this.setState({ dragging: true })
-        this.updateProgress(event.pageX);
+        const progress = this.getProgressFromPosition(event.pageX);
+        this.props.onDrag(progress);
     }
 
     onMouseUp(event) {
         if (!this.state.dragging)
             return;
         this.setState({ dragging: false });
-        this.updateProgress(event.pageX);
+        const progress = this.getProgressFromPosition(event.pageX);
+        this.props.onDragDone(progress);
     }
 
     onMouseMove(e) {
@@ -107,25 +109,34 @@ export default class Timeline extends React.Component {
             return;
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
-        this.updateProgress(event.pageX);
+        
+        const progress = this.getProgressFromPosition(e.pageX);
+        this.props.onDrag(progress);
     }
 
-    onTouchMove() {
+    onTouchMove(e) {
+        this.setState({ dragging: true });
+
         e.stopPropagation();
         e.nativeEvent.stopImmediatePropagation();
 
-        this.updateProgress(event.touches[0].pageX);
+        const progress = this.getProgressFromPosition(e.touches[0].pageX);
+        this.props.onDrag(progress);
     }
 
-    updateProgress(x) {
-        const progress = this.getProgressFromPosition(x);
-        this.props.onDrag(progress);
+    onTouchEnd(e) {
+        this.setState({ dragging: false });
+
+        e.stopPropagation();
+        e.nativeEvent.stopImmediatePropagation();
+
+        this.props.onDragDone(this.props.progress);
     }
 
     getProgressFromPosition(x) {
         const node = ReactDOM.findDOMNode(this).getElementsByClassName('timeline-content')[0];
         const rect = node.getBoundingClientRect();
-        const progress = clamp(0, 1.0, (event.pageX - rect.left) / rect.width);
+        const progress = clamp(0, 1.0, (x - rect.left) / rect.width);
         return progress
     }
 
@@ -143,7 +154,8 @@ export default class Timeline extends React.Component {
                 onMouseUp={this.onMouseUp.bind(this) }
                 onMouseMove={this.onMouseMove.bind(this) }
                 onTouchStart={this.onTouchMove.bind(this)}
-                onTouchMove={this.onTouchMove.bind(this)}>
+                onTouchMove={this.onTouchMove.bind(this)}
+                onTouchEnd={this.onTouchEnd.bind(this)}>
                 <div className='timeline-content'>
                     <div className='timeline-body'>
                         <TimelineTicks duration={this.props.duration} />

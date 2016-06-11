@@ -145,6 +145,7 @@
 	                _react2.default.createElement(_game_view2.default, { game: this.state.game, progress: this.state.progress, gameFile: this.state.gameFile }),
 	                _react2.default.createElement(_controls2.default, {
 	                    games: games,
+	                    game: this.state.game,
 	                    duration: this.state.game ? this.state.game.duration : 0,
 	                    progress: this.state.progress,
 	                    onPositionChange: this.onPositionChange.bind(this),
@@ -24885,7 +24886,7 @@
 	        startColor: { type: "v4", value: new _three2.default.Vector4(0, 0, 0, 1) },
 	        endColor: { type: "v4", value: new _three2.default.Vector4(0.9, 0.9, 0.9, 1) },
 	        time: { value: 0.0 },
-	        minRadius: { value: 0.0 },
+	        minRadius: { value: 0.05 },
 	        maxRadius: { value: 1.0 }
 	    },
 	    vertexShader: '\n        uniform vec4 startColor;\n        uniform vec4 endColor;\n        uniform float time;\n        uniform float minRadius;\n        uniform float maxRadius;\n\n        attribute vec4 spherePosition;\n\n        attribute float progress;\n        attribute float opacity;\n        attribute float innerScaling;\n\n        varying vec4 vColor;\n\n        ' + _common.quaternionToVector + '\n\n        void main() {\n            float alpha = float(progress < time) * opacity;\n            vColor = mix(startColor, endColor, progress) * vec4(1, 1, 1, alpha);\n            \n            // Compute position on sphere\n            float r = minRadius + (maxRadius - minRadius) * progress;\n            vec3 rad = vec3(0, 0, r);\n            vec3 posOnSphere = rotate_vector(spherePosition, rad);\n\n            vec3 pos = posOnSphere - ((innerScaling * 0.05) * posOnSphere);\n            gl_Position = projectionMatrix * modelViewMatrix * vec4(pos, 1.0);\n        }\n    ',
@@ -25405,7 +25406,7 @@
 	        _this.state = {
 	            playing: false,
 	            dragging: false,
-	            playbackSpeed: 1
+	            playbackSpeed: 8
 	        };
 
 	        _this._onKeyDown = function (e) {
@@ -25424,6 +25425,13 @@
 	        key: 'componentWillUnmount',
 	        value: function componentWillUnmount() {
 	            window.removeEventListener('keypress', this._onKeyDown);
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(newProps) {
+	            if (newProps.game && this.props.game !== newProps.game) {
+	                this.play();
+	            }
 	        }
 	    }, {
 	        key: 'play',
@@ -25506,7 +25514,7 @@
 	                            this.state.playing ? 'pause' : 'play_arrow'
 	                        )
 	                    ),
-	                    _react2.default.createElement(_playback_speed_controls2.default, { onChange: this.onPlaybackSpeedChange.bind(this) })
+	                    _react2.default.createElement(_playback_speed_controls2.default, { onChange: this.onPlaybackSpeedChange.bind(this), value: this.state.playbackSpeed })
 	                ),
 	                _react2.default.createElement(_timeline2.default, _extends({}, this.props, {
 	                    onDrag: this.onTimelineDrag.bind(this),
@@ -25767,14 +25775,16 @@
 	        value: function onMouseDown(event) {
 	            if (this.state.dragging) return;
 	            this.setState({ dragging: true });
-	            this.updateProgress(event.pageX);
+	            var progress = this.getProgressFromPosition(event.pageX);
+	            this.props.onDrag(progress);
 	        }
 	    }, {
 	        key: 'onMouseUp',
 	        value: function onMouseUp(event) {
 	            if (!this.state.dragging) return;
 	            this.setState({ dragging: false });
-	            this.updateProgress(event.pageX);
+	            var progress = this.getProgressFromPosition(event.pageX);
+	            this.props.onDragDone(progress);
 	        }
 	    }, {
 	        key: 'onMouseMove',
@@ -25782,28 +25792,37 @@
 	            if (!this.state.dragging) return;
 	            e.stopPropagation();
 	            e.nativeEvent.stopImmediatePropagation();
-	            this.updateProgress(event.pageX);
+
+	            var progress = this.getProgressFromPosition(e.pageX);
+	            this.props.onDrag(progress);
 	        }
 	    }, {
 	        key: 'onTouchMove',
-	        value: function onTouchMove() {
+	        value: function onTouchMove(e) {
+	            this.setState({ dragging: true });
+
 	            e.stopPropagation();
 	            e.nativeEvent.stopImmediatePropagation();
 
-	            this.updateProgress(event.touches[0].pageX);
+	            var progress = this.getProgressFromPosition(e.touches[0].pageX);
+	            this.props.onDrag(progress);
 	        }
 	    }, {
-	        key: 'updateProgress',
-	        value: function updateProgress(x) {
-	            var progress = this.getProgressFromPosition(x);
-	            this.props.onDrag(progress);
+	        key: 'onTouchEnd',
+	        value: function onTouchEnd(e) {
+	            this.setState({ dragging: false });
+
+	            e.stopPropagation();
+	            e.nativeEvent.stopImmediatePropagation();
+
+	            this.props.onDragDone(this.props.progress);
 	        }
 	    }, {
 	        key: 'getProgressFromPosition',
 	        value: function getProgressFromPosition(x) {
 	            var node = _reactDom2.default.findDOMNode(this).getElementsByClassName('timeline-content')[0];
 	            var rect = node.getBoundingClientRect();
-	            var progress = clamp(0, 1.0, (event.pageX - rect.left) / rect.width);
+	            var progress = clamp(0, 1.0, (x - rect.left) / rect.width);
 	            return progress;
 	        }
 	    }, {
@@ -25824,7 +25843,8 @@
 	                    onMouseUp: this.onMouseUp.bind(this),
 	                    onMouseMove: this.onMouseMove.bind(this),
 	                    onTouchStart: this.onTouchMove.bind(this),
-	                    onTouchMove: this.onTouchMove.bind(this) },
+	                    onTouchMove: this.onTouchMove.bind(this),
+	                    onTouchEnd: this.onTouchEnd.bind(this) },
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'timeline-content' },

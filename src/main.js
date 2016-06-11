@@ -63,6 +63,7 @@ class Main extends React.Component {
                 <GameView game={this.state.game} progress={this.state.progress} gameFile={this.state.gameFile} />
                 <Controls
                     games={games}
+                    game={this.state.game}
                     duration={this.state.game ? this.state.game.duration : 0}
                     progress={this.state.progress}
                     onPositionChange={this.onPositionChange.bind(this) }

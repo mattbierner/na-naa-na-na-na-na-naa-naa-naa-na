@@ -19,7 +19,7 @@ export default class Controls extends React.Component {
         this.state = {
             playing: false,
             dragging: false,
-            playbackSpeed: 1
+            playbackSpeed: 8
         };
 
         this._onKeyDown = (e) => {
@@ -35,6 +35,13 @@ export default class Controls extends React.Component {
 
     componentWillUnmount() {
         window.removeEventListener('keypress', this._onKeyDown);
+    }
+
+
+    componentWillReceiveProps(newProps) {
+        if (newProps.game && this.props.game !== newProps.game) {
+            this.play();
+        }
     }
 
     play() {
@@ -74,7 +81,7 @@ export default class Controls extends React.Component {
         });
 
         if (this.props.onPositionChange) {
-            this.props.onPositionChange(progress)
+            this.props.onPositionChange(progress);
         }
     }
 
@@ -106,7 +113,7 @@ export default class Controls extends React.Component {
                     <div className="button-group">
                         <button onClick={this.toggle.bind(this) } className='material-icons'>{this.state.playing ? 'pause' : 'play_arrow'}</button>
                     </div>
-                    <PlaybackSpeedControls onChange={this.onPlaybackSpeedChange.bind(this) }  />
+                    <PlaybackSpeedControls onChange={this.onPlaybackSpeedChange.bind(this) } value={this.state.playbackSpeed}  />
                 </div>
                 <Timeline {...this.props}
                     onDrag={this.onTimelineDrag.bind(this) }

@@ -9,7 +9,7 @@ export default {
         startColor: { type: "v4", value: new THREE.Vector4(0, 0, 0, 1) },
         endColor: { type: "v4", value: new THREE.Vector4(0.9, 0.9, 0.9, 1) },
         time: { value: 0.0 },
-        minRadius: { value: 0.0 },
+        minRadius: { value: 0.05 },
         maxRadius: { value: 1.0 }
     },
     vertexShader: `
