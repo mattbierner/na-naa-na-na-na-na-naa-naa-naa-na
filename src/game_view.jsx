@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import THREE from 'three';
 
 import Viewer from './game_3d_view';
+import ViewControls from './controls/view_controls';
 
 /**
  * View for a complete game.
@@ -34,9 +35,16 @@ export default class GameView extends React.Component {
         }
     }
 
+    resetView() {
+        if (!this._3dview)
+            return;
+        this._3dview.resetView();
+    }
+
     render() {
         return (
             <div className="game-view">
+                <ViewControls resetView={this.resetView.bind(this)}/>
                 <canvas className='glCanvas' />
             </div>
         );

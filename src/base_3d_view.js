@@ -62,6 +62,11 @@ export default class BaseViewer {
         this._controls.enableZoom = true;
     }
 
+    resetView() {
+        this._controls.reset();
+        this._camera.position.set(0, 0, 1);
+    }
+
     /**
      * Get the size of the viewport.
      */

@@ -20493,6 +20493,10 @@
 
 	var _game_3d_view2 = _interopRequireDefault(_game_3d_view);
 
+	var _view_controls = __webpack_require__(288);
+
+	var _view_controls2 = _interopRequireDefault(_view_controls);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20538,11 +20542,18 @@
 	            }
 	        }
 	    }, {
+	        key: 'resetView',
+	        value: function resetView() {
+	            if (!this._3dview) return;
+	            this._3dview.resetView();
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'game-view' },
+	                _react2.default.createElement(_view_controls2.default, { resetView: this.resetView.bind(this) }),
 	                _react2.default.createElement('canvas', { className: 'glCanvas' })
 	            );
 	        }
@@ -25005,6 +25016,12 @@
 	            this._controls.enableDamping = true;
 	            this._controls.dampingFactor = 0.25;
 	            this._controls.enableZoom = true;
+	        }
+	    }, {
+	        key: 'resetView',
+	        value: function resetView() {
+	            this._controls.reset();
+	            this._camera.position.set(0, 0, 1);
 	        }
 
 	        /**
@@ -36564,6 +36581,96 @@
 	    value: true
 	});
 	var quaternionToVector = exports.quaternionToVector = "\n    // Taken from three.js source\n    vec3 rotate_vector(vec4 q, vec3 vec) {\n        // calculate quat * vector\n        float ix =  q.w * vec.x + q.y * vec.z - q.z * vec.y;\n        float iy =  q.w * vec.y + q.z * vec.x - q.x * vec.z;\n        float iz =  q.w * vec.z + q.x * vec.y - q.y * vec.x;\n        float iw = - q.x * vec.x - q.y * vec.y - q.z * vec.z;\n\n        // calculate result * inverse quat\n        return vec3(\n            ix * q.w + iw * - q.x + iy * - q.z - iz * - q.y,\n            iy * q.w + iw * - q.y + iz * - q.x - ix * - q.z,\n            iz * q.w + iw * - q.z + ix * - q.y - iy * - q.x);\n    }";
+
+/***/ },
+/* 288 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var React = __webpack_require__(1);
+	var ReactDOM = __webpack_require__(38);
+
+	var ViewControlButton = function (_React$Component) {
+	    _inherits(ViewControlButton, _React$Component);
+
+	    function ViewControlButton() {
+	        _classCallCheck(this, ViewControlButton);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ViewControlButton).apply(this, arguments));
+	    }
+
+	    _createClass(ViewControlButton, [{
+	        key: '_onClick',
+	        value: function _onClick(e, callback) {
+	            e.preventDefault();
+	            e.stopPropagation();
+	            this.props.onClick && this.props.onClick();
+	        }
+	    }, {
+	        key: '_onMouseDown',
+	        value: function _onMouseDown(e) {
+	            e.stopPropagation();
+	            e.nativeEvent.stopImmediatePropagation();
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                'button',
+	                {
+	                    onMouseDown: this._onMouseDown.bind(this),
+	                    onClick: this._onClick.bind(this) },
+	                this.props.label
+	            );
+	        }
+	    }]);
+
+	    return ViewControlButton;
+	}(React.Component);
+
+	/**
+	 * Controls for the match display.
+	 */
+
+
+	var ViewControls = function (_React$Component2) {
+	    _inherits(ViewControls, _React$Component2);
+
+	    function ViewControls() {
+	        _classCallCheck(this, ViewControls);
+
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(ViewControls).apply(this, arguments));
+	    }
+
+	    _createClass(ViewControls, [{
+	        key: 'render',
+	        value: function render() {
+	            return React.createElement(
+	                'div',
+	                { id: 'view-controls' },
+	                React.createElement(ViewControlButton, { label: 'Reset View', onClick: this.props.resetView })
+	            );
+	        }
+	    }]);
+
+	    return ViewControls;
+	}(React.Component);
+
+	exports.default = ViewControls;
+	;
 
 /***/ }
 /******/ ]);

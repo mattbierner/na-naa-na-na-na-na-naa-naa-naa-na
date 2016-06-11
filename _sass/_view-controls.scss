@@ -1,0 +1,10 @@
+#view-controls {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    
+    button {
+        border: 1px solid $border-color;
+        background: none;
+    }
+}
