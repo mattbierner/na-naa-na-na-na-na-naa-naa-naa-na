@@ -6,7 +6,7 @@ const fs = require('fs');
 const process = require('process');
 const processRow = require('../src/process/row');
 const moment = require('moment');
-const input = require('./input');
+const input = require('../src/process/input');
 
 /**
  * Load some raw data form a file.
