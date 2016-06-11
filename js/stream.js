@@ -35627,6 +35627,8 @@
 	 */
 
 	exports.default = function (quaternion, angle, input) {
+	    var scaling = arguments.length <= 3 || arguments[3] === undefined ? 1 : arguments[3];
+
 	    var leftX = input.left_x;
 	    var leftY = input.left_y;
 
@@ -35655,8 +35657,8 @@
 	            var direction = new _three2.default.Vector3(Math.sin(angle), Math.cos(angle), 0);
 	            var perpendicular = new _three2.default.Vector3(-direction.y, direction.x, 0);
 
-	            var horizontal = new _three2.default.Quaternion().setFromAxisAngle(direction, x * TRANSLATION_SCALE);
-	            var vertical = new _three2.default.Quaternion().setFromAxisAngle(perpendicular, y * TRANSLATION_SCALE);
+	            var horizontal = new _three2.default.Quaternion().setFromAxisAngle(direction, x * TRANSLATION_SCALE * scaling);
+	            var vertical = new _three2.default.Quaternion().setFromAxisAngle(perpendicular, y * TRANSLATION_SCALE * scaling);
 	            quaternion = quaternion.multiply(horizontal).multiply(vertical);
 	        }
 	    }

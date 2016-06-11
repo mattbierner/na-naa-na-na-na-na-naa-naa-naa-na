@@ -19,7 +19,7 @@ const isDead = (x, y) =>
 /**
  * Translate input into Katamari movement on a sphere.
  */
-export default (quaternion, angle, input) => {
+export default (quaternion, angle, input, scaling = 1) => {
     const leftX = input.left_x;
     const leftY = input.left_y;
 
@@ -48,8 +48,8 @@ export default (quaternion, angle, input) => {
             const direction = new THREE.Vector3(Math.sin(angle), Math.cos(angle), 0);
             const perpendicular = new THREE.Vector3(-direction.y, direction.x, 0);
 
-            const horizontal = new THREE.Quaternion().setFromAxisAngle(direction, x * TRANSLATION_SCALE);
-            const vertical = new THREE.Quaternion().setFromAxisAngle(perpendicular, y * TRANSLATION_SCALE);
+            const horizontal = new THREE.Quaternion().setFromAxisAngle(direction, x * TRANSLATION_SCALE * scaling);
+            const vertical = new THREE.Quaternion().setFromAxisAngle(perpendicular, y * TRANSLATION_SCALE * scaling);
             quaternion = quaternion.multiply(horizontal).multiply(vertical);
         }
     }
