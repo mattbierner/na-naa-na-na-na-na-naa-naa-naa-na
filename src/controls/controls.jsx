@@ -23,8 +23,10 @@ export default class Controls extends React.Component {
         };
 
         this._onKeyDown = (e) => {
-            if (e.keyCode === 32)
+            if (e.keyCode === 32) {
+                e.preventDefault();
                 this.toggle();
+            }
         };
     }
 
@@ -105,7 +107,7 @@ export default class Controls extends React.Component {
             this.play();
     }
 
-    goToStart() {
+    goToStart(e) {
         this.props.onPositionChange(0);
     }
 
@@ -120,13 +122,13 @@ export default class Controls extends React.Component {
                     <GameSelector games={this.props.games} onChange={this.props.onGameChange} gameFile={this.props.gameFile} />
                     <div className="player-controls">
                         <div className="button-group">
-                            <button onClick={this.goToStart.bind(this) } className='material-icons'>skip_previous</button>
+                            <button onMouseDown={this.goToStart.bind(this) } className='material-icons' tabindex="-1">skip_previous</button>
                         </div>
                         <div className="button-group">
-                            <button onClick={this.toggle.bind(this) } className='material-icons'>{this.state.playing ? 'pause' : 'play_arrow'}</button>
+                            <button onMouseDown={this.toggle.bind(this) } className='material-icons' tabindex="-1">{this.state.playing ? 'pause' : 'play_arrow'}</button>
                         </div>
                         <div className="button-group">
-                            <button onClick={this.goToEnd.bind(this) } className='material-icons'>skip_next</button>
+                            <button onMouseDown={this.goToEnd.bind(this) } className='material-icons' tabindex="-1">skip_next</button>
                         </div>
                     </div>
                     <PlaybackSpeedControls onChange={this.onPlaybackSpeedChange.bind(this) } value={this.state.playbackSpeed}  />

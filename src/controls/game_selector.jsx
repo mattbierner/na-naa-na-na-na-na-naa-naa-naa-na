@@ -16,7 +16,7 @@ export default class GameSelector extends React.Component {
         return (
             <span className="selector-control">
                 Game:
-                <select style={{ zIndex: 999 }} className="game-selector" onChange={this.onChange.bind(this) } value={this.props.gameFile}>
+                <select style={{ zIndex: 999 }} className="game-selector" onChange={this.onChange.bind(this) } value={this.props.gameFile} tabindex="-1">
                     {options}
                 </select>
             </span>

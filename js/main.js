@@ -35925,7 +35925,10 @@
 	        };
 
 	        _this._onKeyDown = function (e) {
-	            if (e.keyCode === 32) _this.toggle();
+	            if (e.keyCode === 32) {
+	                e.preventDefault();
+	                _this.toggle();
+	            }
 	        };
 	        return _this;
 	    }
@@ -36012,7 +36015,7 @@
 	        }
 	    }, {
 	        key: 'goToStart',
-	        value: function goToStart() {
+	        value: function goToStart(e) {
 	            this.props.onPositionChange(0);
 	        }
 	    }, {
@@ -36038,7 +36041,7 @@
 	                            { className: 'button-group' },
 	                            _react2.default.createElement(
 	                                'button',
-	                                { onClick: this.goToStart.bind(this), className: 'material-icons' },
+	                                { onMouseDown: this.goToStart.bind(this), className: 'material-icons', tabindex: '-1' },
 	                                'skip_previous'
 	                            )
 	                        ),
@@ -36047,7 +36050,7 @@
 	                            { className: 'button-group' },
 	                            _react2.default.createElement(
 	                                'button',
-	                                { onClick: this.toggle.bind(this), className: 'material-icons' },
+	                                { onMouseDown: this.toggle.bind(this), className: 'material-icons', tabindex: '-1' },
 	                                this.state.playing ? 'pause' : 'play_arrow'
 	                            )
 	                        ),
@@ -36056,7 +36059,7 @@
 	                            { className: 'button-group' },
 	                            _react2.default.createElement(
 	                                'button',
-	                                { onClick: this.goToEnd.bind(this), className: 'material-icons' },
+	                                { onMouseDown: this.goToEnd.bind(this), className: 'material-icons', tabindex: '-1' },
 	                                'skip_next'
 	                            )
 	                        )
@@ -36139,7 +36142,7 @@
 	                'Game:',
 	                _react2.default.createElement(
 	                    'select',
-	                    { style: { zIndex: 999 }, className: 'game-selector', onChange: this.onChange.bind(this), value: this.props.gameFile },
+	                    { style: { zIndex: 999 }, className: 'game-selector', onChange: this.onChange.bind(this), value: this.props.gameFile, tabindex: '-1' },
 	                    options
 	                )
 	            );
@@ -36520,7 +36523,7 @@
 	                'Speed:',
 	                _react2.default.createElement(
 	                    'select',
-	                    { style: { zIndex: 999 }, className: 'speed-selector', onChange: this.onChange.bind(this), value: this.state.value },
+	                    { style: { zIndex: 999 }, className: 'speed-selector', onChange: this.onChange.bind(this), value: this.state.value, tabindex: '-1' },
 	                    _react2.default.createElement(
 	                        'option',
 	                        { value: '1' },

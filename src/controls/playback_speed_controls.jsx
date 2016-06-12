@@ -54,7 +54,7 @@ export default class PlaybackSpeedControls extends React.Component {
         return (
             <span className="selector-control">
                 Speed:
-                <select style={{ zIndex: 999 }} className="speed-selector" onChange={this.onChange.bind(this) } value={this.state.value}>
+                <select style={{ zIndex: 999 }} className="speed-selector" onChange={this.onChange.bind(this) } value={this.state.value} tabindex="-1">
                     <option value="1">1x</option>
                     <option value="2">2x</option>
                     <option value="4">4x</option>
