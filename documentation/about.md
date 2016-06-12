@@ -1,12 +1,12 @@
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/the king.jpg" />
-    <p><i>Na, Naa Na Na Na, Na Naa Naa Naa Na</i> is a tool for visualizing controller input while playing <i>Katamari Damacy</i>.</p>
+    <p><i>Na, Naa Na Na Na, Na Naa Naa Naa Na</i> visualizes controller for games of <i>Katamari Damacy</i>.</p>
 </div>
 
 
 ### What the Hell and I Looking At?
-The visualization uses Playstation 2 Joystick input to sketch out a 3D path, trying to approximate the movement of *Katamari Damacy*. Think etch-a-sketch, but on a sphere instead of a plane. 
+The visualization uses Playstation 2 Joystick input to sketch out a 3D path, trying to approximate the movement style of the titular Katamaris from *Katamari Damacy*. Think etch-a-sketch, but on a sphere instead of a plane. 
 
 Press both joysticks forward, and the drawing cursor moves forward on the sphere. Press both backwards, and the cursor moves backwards.
 
