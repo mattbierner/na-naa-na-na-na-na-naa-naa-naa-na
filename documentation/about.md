@@ -5,8 +5,8 @@
 </div>
 
 
-### What the Hell and I Looking At?
-The visualization uses Playstation 2 Joystick input to sketch out a 3D path, trying to approximate the movement style of the titular Katamaris from *Katamari Damacy*. Think etch-a-sketch, but on a sphere instead of a plane. 
+### What the Hell am I Looking At?
+The visualization uses Playstation 2 Joystick input to sketch out a 3D path, trying to approximate the movement style of the titular Katamaris from *Katamari Damacy*. Think etch-a-sketch, but on a sphere instead of a plane.
 
 Press both joysticks forward, and the drawing cursor moves forward on the sphere. Press both backwards, and the cursor moves backwards.
 
