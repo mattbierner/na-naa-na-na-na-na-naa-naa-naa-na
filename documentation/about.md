@@ -28,7 +28,7 @@ This visualization only considers input, not game context. The Katamaris in game
 ### Playback
 ![](https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/playback.gif)
 
-Use the controls at the bottom of the screen to control drawing playback. The timeline shows where in the current game the cursor currently is in the game. Skip to the end of the game to view the completly drawn path.
+Use the controls at the bottom of the screen to control drawing playback. Scrub through the timeline to go to see the visualization at different stages of completion. Skip to the end of the game to view the complete path.
 
 The playback speed control lets you speed up or slow down drawing speed. 1x is realtime, while 8x is 8 times faster than realtime.
 
