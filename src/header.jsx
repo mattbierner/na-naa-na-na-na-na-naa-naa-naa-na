@@ -13,9 +13,9 @@ export default class Header extends React.Component {
                     <div className="description">
                         <span className="blurb">Visualizing Katamari Damacy Gameplay Input</span>
                         <nav className="links">
-                            <a href="https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/">About</a>
+                            <a href="https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/blob/gh-pages/documentation/about.md">Help</a>
                             <a href="https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/">Source</a>
-                            <a href="https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/">Post</a>
+                            <a href="https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/">About</a>
                         </nav>
                     </div>
                 </div>

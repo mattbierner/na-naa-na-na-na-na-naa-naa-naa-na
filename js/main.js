@@ -35479,8 +35479,8 @@
 	                            { className: 'links' },
 	                            _react2.default.createElement(
 	                                'a',
-	                                { href: 'https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/' },
-	                                'About'
+	                                { href: 'https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/blob/gh-pages/documentation/about.md' },
+	                                'Help'
 	                            ),
 	                            _react2.default.createElement(
 	                                'a',
@@ -35490,7 +35490,7 @@
 	                            _react2.default.createElement(
 	                                'a',
 	                                { href: 'https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/' },
-	                                'Post'
+	                                'About'
 	                            )
 	                        )
 	                    )

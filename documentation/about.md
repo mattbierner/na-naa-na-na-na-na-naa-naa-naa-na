@@ -1,6 +1,6 @@
 
 <div align="center">
-    <img src="https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/the-king.jpg" />
+    <img src="https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/the king.jpg" />
     <p><i>Na, Naa Na Na Na, Na Naa Naa Naa Na</i> is a tool for visualizing controller input while playing <i>Katamari Damacy</i>.</p>
 </div>
 
