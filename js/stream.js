@@ -35615,7 +35615,7 @@
 	/**
 	 * How much each translation input action is scaled.
 	 */
-	var TRANSLATION_SCALE = 1 / 50;
+	var TRANSLATION_SCALE = 1 / 10;
 
 	/**
 	 * Is a joystick active?

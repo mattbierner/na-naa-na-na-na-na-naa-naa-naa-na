@@ -1,6 +1,5 @@
 "use strict";
 import THREE from 'three';
-const ResizeSensor = require('imports?this=>window!css-element-queries/src/ResizeSensor');
 
 import OrbitControls from './OrbitControls';
 import Shader from './shaders/default_solid';
@@ -62,9 +61,9 @@ export default class Viewer extends Base3dView {
     }
 
     /**
-     * 
+     * Draw a set of events
      */
-    draw(data) {
+    draw(data, scaling) {
         this.reset();
 
         const buffergeometry = new THREE.BufferGeometry();
@@ -91,7 +90,7 @@ export default class Viewer extends Base3dView {
         let i = 0;
 
         for (const e of data) {
-            const movement = katamariMovementForControls(quaternion, angle, e);
+            const movement = katamariMovementForControls(quaternion, angle, e, scaling);
             angle = movement.angle;
             quaternion = movement.quaternion;
 

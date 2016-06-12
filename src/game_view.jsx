@@ -33,13 +33,11 @@ export default class GameView extends React.Component {
     }
 
     componentWillReceiveProps(newProps) {
-        if (newProps.game && this.props.game !== newProps.game) {
-            this._3dview.draw(newProps.game.events);
+        if ((newProps.game && this.props.game !== newProps.game) || (this.props.translationScaling !== newProps.translationScaling)) {
+            this._3dview.draw(newProps.game.events, 1 / newProps.translationScaling);
         }
         
-        if (newProps.progress != this.props.progress && typeof newProps.progress !== 'undefined') {
-            this._3dview.setProgress(newProps.progress);
-        }
+        this._3dview.setProgress(newProps.progress);
 
         this.updateOptions(newProps);
     }

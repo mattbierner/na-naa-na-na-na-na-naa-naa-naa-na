@@ -8,7 +8,7 @@ const ROTATION_SCALE = 0.03;
 /**
  * How much each translation input action is scaled.
  */
-const TRANSLATION_SCALE = 1 / 50;
+const TRANSLATION_SCALE = 1 / 10;
 
 /**
  * Is a joystick active?

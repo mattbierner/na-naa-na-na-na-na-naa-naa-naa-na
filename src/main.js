@@ -17,6 +17,7 @@ class Main extends React.Component {
             game: null,
                 
             // options
+            translationScaling: 5,
             gameFile: options.games[0].file,
             edging: 5,
             opacity: 30,
@@ -41,6 +42,10 @@ class Main extends React.Component {
                 this.setState({ game, progress: 0 });
             })
             .catch(e => console.error(e));
+    }
+
+    onTranslationScalingChange(value) {
+        this.setState({ translationScaling: value });
     }
 
     onEdgingChange(value) {
@@ -68,6 +73,7 @@ class Main extends React.Component {
             <div className="main container">
                 <Header />
                 <MainOptionsPanel {...this.state}
+                    onTranslationScalingChange={this.onTranslationScalingChange.bind(this)}
                     onEdgingChange={this.onEdgingChange.bind(this)}
                     onOpacityChange={this.onOpacityChange.bind(this)}
                     onInnerRadiusChange={this.onInnerRadiusChange.bind(this)}

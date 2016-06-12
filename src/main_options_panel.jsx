@@ -12,6 +12,12 @@ export default class MainOptionsPanel extends React.Component {
     render() {
         return (
             <OptionsPanel>
+                <RangeInput label='Movement Damping'
+                    min="1"
+                    max="100"
+                    value={this.props.translationScaling}
+                    onChange={this.props.onTranslationScalingChange} />
+
                 <RangeInput label='Edge Thickness'
                     unit='%'
                     min="1"

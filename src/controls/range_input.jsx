@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 
 export default class RangeInput extends React.Component {
     onChange(e) {
-        this.props.onChange(e.target.value);
+        this.props.onChange(+e.target.value);
     }
 
     render() {

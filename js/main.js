@@ -103,6 +103,7 @@
 	            game: null,
 
 	            // options
+	            translationScaling: 5,
 	            gameFile: options.games[0].file,
 	            edging: 5,
 	            opacity: 30,
@@ -133,6 +134,11 @@
 	            }).catch(function (e) {
 	                return console.error(e);
 	            });
+	        }
+	    }, {
+	        key: 'onTranslationScalingChange',
+	        value: function onTranslationScalingChange(value) {
+	            this.setState({ translationScaling: value });
 	        }
 	    }, {
 	        key: 'onEdgingChange',
@@ -167,6 +173,7 @@
 	                { className: 'main container' },
 	                _react2.default.createElement(_header2.default, null),
 	                _react2.default.createElement(_main_options_panel2.default, _extends({}, this.state, {
+	                    onTranslationScalingChange: this.onTranslationScalingChange.bind(this),
 	                    onEdgingChange: this.onEdgingChange.bind(this),
 	                    onOpacityChange: this.onOpacityChange.bind(this),
 	                    onInnerRadiusChange: this.onInnerRadiusChange.bind(this),
@@ -35356,7 +35363,7 @@
 	/**
 	 * How much each translation input action is scaled.
 	 */
-	var TRANSLATION_SCALE = 1 / 50;
+	var TRANSLATION_SCALE = 1 / 10;
 
 	/**
 	 * Is a joystick active?
@@ -35557,6 +35564,11 @@
 	            return _react2.default.createElement(
 	                _options_panel2.default,
 	                null,
+	                _react2.default.createElement(_range_input2.default, { label: 'Movement Damping',
+	                    min: '1',
+	                    max: '100',
+	                    value: this.props.translationScaling,
+	                    onChange: this.props.onTranslationScalingChange }),
 	                _react2.default.createElement(_range_input2.default, { label: 'Edge Thickness',
 	                    unit: '%',
 	                    min: '1',
@@ -35739,7 +35751,7 @@
 	    _createClass(RangeInput, [{
 	        key: 'onChange',
 	        value: function onChange(e) {
-	            this.props.onChange(e.target.value);
+	            this.props.onChange(+e.target.value);
 	        }
 	    }, {
 	        key: 'render',
@@ -36697,13 +36709,11 @@
 	    }, {
 	        key: 'componentWillReceiveProps',
 	        value: function componentWillReceiveProps(newProps) {
-	            if (newProps.game && this.props.game !== newProps.game) {
-	                this._3dview.draw(newProps.game.events);
+	            if (newProps.game && this.props.game !== newProps.game || this.props.translationScaling !== newProps.translationScaling) {
+	                this._3dview.draw(newProps.game.events, 1 / newProps.translationScaling);
 	            }
 
-	            if (newProps.progress != this.props.progress && typeof newProps.progress !== 'undefined') {
-	                this._3dview.setProgress(newProps.progress);
-	            }
+	            this._3dview.setProgress(newProps.progress);
 
 	            this.updateOptions(newProps);
 	        }
@@ -36783,8 +36793,6 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var ResizeSensor = __webpack_require__(279);
-
 	var shaderMaterial = new _three2.default.ShaderMaterial(_default_solid2.default);
 	var pointerShader = new _three2.default.ShaderMaterial(_pointer2.default);
 	pointerShader.uniforms.objColor.value = new _three2.default.Vector4(0x87, 0xbf, 0x26, 1);
@@ -36848,12 +36856,12 @@
 	        }
 
 	        /**
-	         * 
+	         * Draw a set of events
 	         */
 
 	    }, {
 	        key: 'draw',
-	        value: function draw(data) {
+	        value: function draw(data, scaling) {
 	            this.reset();
 
 	            var buffergeometry = new _three2.default.BufferGeometry();
@@ -36887,7 +36895,7 @@
 	                for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
 	                    var e = _step.value;
 
-	                    var movement = (0, _katamari_input2.default)(quaternion, angle, e);
+	                    var movement = (0, _katamari_input2.default)(quaternion, angle, e, scaling);
 	                    angle = movement.angle;
 	                    quaternion = movement.quaternion;
 
