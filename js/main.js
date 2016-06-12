@@ -37046,8 +37046,8 @@
 	    fragmentShader: '\n        varying vec4 vColor;\n        \n        void main() {\n            gl_FragColor = vColor;\n        }\n    ',
 	    transparent: true,
 	    side: _three2.default.DoubleSide,
-	    depthTest: false,
-	    depthWrite: false
+	    depthTest: true,
+	    depthWrite: true
 	};
 
 /***/ },

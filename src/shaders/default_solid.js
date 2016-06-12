@@ -56,6 +56,6 @@ export default {
     `,
     transparent: true,
     side: THREE.DoubleSide,
-    depthTest: false,
-    depthWrite: false
+    depthTest: true,
+    depthWrite: true
 };
