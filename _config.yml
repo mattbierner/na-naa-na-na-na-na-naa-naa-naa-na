@@ -1,16 +1,15 @@
-title: "Na, Naa Na Na Na, Na Naa Naa Naa Na"
+title: "Na Naa, Na Na Na Na Naa Naa Naa Na"
 
 description: "Visualizing Katamari Damacy gameplay input."
-
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
 
 exclude: [
+    "documentation",
     "node_modules",
     "process_data",
     "server",
-    "src"
+    "src",
+    "webpack.config.js"
 ]

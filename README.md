@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/main2.png" />
+    <img src="https://raw.githubusercontent.com/mattbierner/na-naa-na-na-na-na-naa-naa-naa-na/gh-pages/documentation/images/main2.png" />
     <p>Visualizing Katamari Damacy gameplay input.</p>
 </div>
 
@@ -60,11 +60,11 @@ cd ps2_controller_collector
 python websocket_collector.py  --log
 ```
 
-Then navigate to http://mattbierner.github.io/na_naa-na-na-na_na-naa-naa-naa-na/stream
+Then navigate to http://mattbierner.github.io/na-naa-na-na-na-na-naa-naa-naa-na/stream
 
 Controller input should be picked up from the websocket and displayed in real time in the browser.
 
 
-[site]: http://mattbierner.github.io/na_naa-na-na-na_na-naa-naa-naa-na/
-[documentation]: https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/blob/gh-pages/documentation/about.md
+[site]: http://mattbierner.github.io/na-naa-na-na-na-na-naa-naa-naa-na/
+[documentation]: https://github.com/mattbierner/na-naa-na-na-na-na-naa-naa-naa-na/blob/gh-pages/documentation/about.md
 [collector]: https://github.com/mattbierner/ps2_controller_collector

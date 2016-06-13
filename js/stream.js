@@ -35732,18 +35732,18 @@
 	                            { className: 'links' },
 	                            _react2.default.createElement(
 	                                'a',
-	                                { href: 'https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/blob/gh-pages/documentation/about.md' },
+	                                { href: 'https://github.com/mattbierner/na_naa-na-na-na-na-naa-naa-naa-na/blob/gh-pages/documentation/about.md' },
 	                                'Help'
 	                            ),
 	                            _react2.default.createElement(
 	                                'a',
-	                                { href: 'https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/' },
+	                                { href: 'https://github.com/mattbierner/na-naa-na-na-na-na-naa-naa-naa-na/' },
 	                                'Source'
 	                            ),
 	                            _react2.default.createElement(
 	                                'a',
-	                                { href: 'https://github.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/' },
-	                                'About'
+	                                { href: 'https://github.com/mattbierner/na-naa-na-na-na-na-naa-naa-naa-na/' },
+	                                'Post'
 	                            )
 	                        )
 	                    )
