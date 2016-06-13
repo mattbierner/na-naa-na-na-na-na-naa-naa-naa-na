@@ -35106,6 +35106,16 @@
 	            this._camera.updateProjectionMatrix();
 	            this._renderer.setSize(width, height);
 	        }
+
+	        /**
+	         * Should the camera automatically rotate?
+	         */
+
+	    }, {
+	        key: 'setAutoRotate',
+	        value: function setAutoRotate(value) {
+	            this._controls.autoRotate = value;
+	        }
 	    }, {
 	        key: 'update',
 	        value: function update(delta) {
@@ -36689,7 +36699,9 @@
 
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(GameView).call(this, props));
 
-	        _this.state = {};
+	        _this.state = {
+	            autoRotate: true
+	        };
 	        return _this;
 	    }
 
@@ -36720,7 +36732,6 @@
 	            this._3dview.setEdging(props.edging);
 	            this._3dview.setOpacity(props.opacity);
 	            this._3dview.setInnerRadius(props.innerRadius);
-
 	            this._3dview.setColors(hexToVec4(props.startColor), hexToVec4(props.endColor));
 	        }
 	    }, {
@@ -36730,12 +36741,19 @@
 	            this._3dview.resetView();
 	        }
 	    }, {
+	        key: 'onAutoRotateChange',
+	        value: function onAutoRotateChange(value) {
+	            this._3dview.setAutoRotate(value);
+	            this.setState({ autoRotate: value });
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
 	                { className: 'game-view' },
-	                _react2.default.createElement(_view_controls2.default, { resetView: this.resetView.bind(this) }),
+	                _react2.default.createElement(_view_controls2.default, { resetView: this.resetView.bind(this), autoRotate: this.state.autoRotate,
+	                    onAutoRotateChange: this.onAutoRotateChange.bind(this) }),
 	                _react2.default.createElement('canvas', { className: 'glCanvas' })
 	            );
 	        }
@@ -36829,6 +36847,7 @@
 
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Viewer).call(this, canvas, container));
 
+	        _this._controls.autoRotate = true;
 	        _this._initPointer();
 	        return _this;
 	    }
@@ -37100,14 +37119,21 @@
 
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactDom = __webpack_require__(38);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var React = __webpack_require__(1);
-	var ReactDOM = __webpack_require__(38);
 
 	var ViewControlButton = function (_React$Component) {
 	    _inherits(ViewControlButton, _React$Component);
@@ -37134,7 +37160,7 @@
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            return React.createElement(
+	            return _react2.default.createElement(
 	                'button',
 	                {
 	                    onMouseDown: this._onMouseDown.bind(this),
@@ -37145,7 +37171,7 @@
 	    }]);
 
 	    return ViewControlButton;
-	}(React.Component);
+	}(_react2.default.Component);
 
 	/**
 	 * Controls for the match display.
@@ -37164,16 +37190,26 @@
 	    _createClass(ViewControls, [{
 	        key: 'render',
 	        value: function render() {
-	            return React.createElement(
+	            var _this3 = this;
+
+	            return _react2.default.createElement(
 	                'div',
 	                { id: 'view-controls' },
-	                React.createElement(ViewControlButton, { label: 'Reset View', onClick: this.props.resetView })
+	                _react2.default.createElement(ViewControlButton, { label: 'Reset View', onClick: this.props.resetView }),
+	                _react2.default.createElement(
+	                    'button',
+	                    {
+	                        onClick: function onClick() {
+	                            return _this3.props.onAutoRotateChange(!_this3.props.autoRotate);
+	                        } },
+	                    this.props.autoRotate ? 'Disable Rotation' : 'Enable Rotation'
+	                )
 	            );
 	        }
 	    }]);
 
 	    return ViewControls;
-	}(React.Component);
+	}(_react2.default.Component);
 
 	exports.default = ViewControls;
 	;

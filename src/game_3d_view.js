@@ -43,6 +43,7 @@ export default class Viewer extends Base3dView {
     constructor(canvas, container) {
         super(canvas, container);
 
+        this._controls.autoRotate = true;
         this._initPointer();
     }
 
@@ -108,7 +109,6 @@ export default class Viewer extends Base3dView {
             this._progress.push(e.progress);
             i += 2;
         }
-
 
         const mesh = new THREE.Mesh(buffergeometry, shaderMaterial);
         mesh.drawMode = THREE.TriangleStripDrawMode;

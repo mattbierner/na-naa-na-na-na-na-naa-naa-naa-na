@@ -15,7 +15,7 @@ class Main extends React.Component {
         this.state = {
             progress: 0,
             game: null,
-                
+
             // options
             translationScaling: 5,
             gameFile: options.games[0].file,

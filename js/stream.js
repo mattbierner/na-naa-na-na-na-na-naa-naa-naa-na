@@ -35355,6 +35355,16 @@
 	            this._camera.updateProjectionMatrix();
 	            this._renderer.setSize(width, height);
 	        }
+
+	        /**
+	         * Should the camera automatically rotate?
+	         */
+
+	    }, {
+	        key: 'setAutoRotate',
+	        value: function setAutoRotate(value) {
+	            this._controls.autoRotate = value;
+	        }
 	    }, {
 	        key: 'update',
 	        value: function update(delta) {

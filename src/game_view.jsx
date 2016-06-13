@@ -19,7 +19,9 @@ const hexToVec4 = hex => {
 export default class GameView extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            autoRotate: true
+        };
     }
 
     componentDidMount() {
@@ -46,7 +48,6 @@ export default class GameView extends React.Component {
         this._3dview.setEdging(props.edging);
         this._3dview.setOpacity(props.opacity);
         this._3dview.setInnerRadius(props.innerRadius);
- 
         this._3dview.setColors(hexToVec4(props.startColor), hexToVec4(props.endColor));
     }
 
@@ -56,10 +57,16 @@ export default class GameView extends React.Component {
         this._3dview.resetView();
     }
 
+    onAutoRotateChange(value) {
+        this._3dview.setAutoRotate(value);
+        this.setState({ autoRotate: value });
+    }
+
     render() {
         return (
             <div className="game-view">
-                <ViewControls resetView={this.resetView.bind(this)}/>
+                <ViewControls resetView={this.resetView.bind(this)} autoRotate={this.state.autoRotate}
+                    onAutoRotateChange={this.onAutoRotateChange.bind(this)}/>
                 <canvas className='glCanvas' />
             </div>
         );

@@ -80,6 +80,13 @@ export default class BaseViewer {
         this._renderer.setSize(width, height);
     }
 
+    /**
+     * Should the camera automatically rotate?
+     */
+    setAutoRotate(value) {
+        this._controls.autoRotate = value;
+    }
+
     update(delta) {
         this._controls.update();
 
