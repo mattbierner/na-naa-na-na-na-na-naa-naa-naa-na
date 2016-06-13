@@ -79,13 +79,10 @@
 	var StreamMain = function (_React$Component) {
 	    _inherits(StreamMain, _React$Component);
 
-	    function StreamMain(props) {
+	    function StreamMain() {
 	        _classCallCheck(this, StreamMain);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(StreamMain).call(this, props));
-
-	        _this.state = {};
-	        return _this;
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(StreamMain).apply(this, arguments));
 	    }
 
 	    _createClass(StreamMain, [{
@@ -98,7 +95,7 @@
 	                _react2.default.createElement(
 	                    'div',
 	                    { className: 'main-view' },
-	                    _react2.default.createElement(_stream_game_view2.default, this.state)
+	                    _react2.default.createElement(_stream_game_view2.default, null)
 	                )
 	            );
 	        }

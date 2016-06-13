@@ -8,17 +8,12 @@ import Header from './header';
  * Main view for a streaming input sessions.
  */
 class StreamMain extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
     render() {
         return (
             <div className="main container">
                 <Header />
                 <div className="main-view">
-                    <GameView {...this.state} />
+                    <GameView />
                 </div>
             </div>);
     }
