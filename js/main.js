@@ -36713,6 +36713,8 @@
 	            var element = _reactDom2.default.findDOMNode(this);
 	            var canvas = element.getElementsByClassName('glCanvas')[0];
 	            this._3dview = new _game_3d_view2.default(canvas, element);
+	            this._3dview.setAutoRotate(this.state.autoRotate);
+
 	            this.updateOptions(this.props);
 	        }
 	    }, {

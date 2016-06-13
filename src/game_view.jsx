@@ -31,6 +31,8 @@ export default class GameView extends React.Component {
         const element = ReactDOM.findDOMNode(this);
         const canvas = element.getElementsByClassName('glCanvas')[0];
         this._3dview = new Viewer(canvas, element);
+        this._3dview.setAutoRotate(this.state.autoRotate);
+
         this.updateOptions(this.props);
     }
 
