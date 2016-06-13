@@ -43,7 +43,6 @@ export default class Viewer extends Base3dView {
     constructor(canvas, container) {
         super(canvas, container);
 
-        this._controls.autoRotate = true;
         this._initPointer();
     }
 
@@ -112,7 +111,8 @@ export default class Viewer extends Base3dView {
 
         const mesh = new THREE.Mesh(buffergeometry, shaderMaterial);
         mesh.drawMode = THREE.TriangleStripDrawMode;
-
+        mesh.frustumCulled = false;
+        
         this._scene.add(mesh);
         this._line = mesh;
     }

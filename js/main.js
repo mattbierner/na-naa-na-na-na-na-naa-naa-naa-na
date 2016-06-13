@@ -36847,7 +36847,6 @@
 
 	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Viewer).call(this, canvas, container));
 
-	        _this._controls.autoRotate = true;
 	        _this._initPointer();
 	        return _this;
 	    }
@@ -36946,6 +36945,7 @@
 
 	            var mesh = new _three2.default.Mesh(buffergeometry, shaderMaterial);
 	            mesh.drawMode = _three2.default.TriangleStripDrawMode;
+	            mesh.frustumCulled = false;
 
 	            this._scene.add(mesh);
 	            this._line = mesh;
