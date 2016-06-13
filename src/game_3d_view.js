@@ -128,9 +128,9 @@ export default class Viewer extends Base3dView {
             return;
 
         const attr = this._line.geometry.attributes;
-        let index = closest(this._progress, progress) * 4 * 2;
+        const index = closest(this._progress, progress) * 4 * 2;
 
-        let quaternion = new THREE.Vector4(
+        const quaternion = new THREE.Vector4(
             attr.spherePosition.array[index], 
             attr.spherePosition.array[index + 1],
             attr.spherePosition.array[index + 2],

@@ -35003,15 +35003,10 @@
 
 	        _classCallCheck(this, BaseViewer);
 
-	        this.isMouseDown = false;
 	        this.container = container;
-
-	        this.mouse = null;
 	        this._toUpdate = [];
 
-	        this._raycaster = new _three2.default.Raycaster();
 	        this._clock = new _three2.default.Clock();
-
 	        this._scene = new _three2.default.Scene();
 
 	        this.initRenderer(canvas);
@@ -35037,10 +35032,9 @@
 	        value: function initRenderer(canvas) {
 	            this._renderer = new _three2.default.WebGLRenderer({
 	                canvas: canvas,
-	                alpha: true,
 	                antialias: true
 	            });
-	            this._renderer.setClearColor(0xffffff, 0);
+	            this._renderer.setClearColor(0xffffff);
 	            this._renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
 	        }
 

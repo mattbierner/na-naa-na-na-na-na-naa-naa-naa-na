@@ -7,15 +7,10 @@ const ResizeSensor = require('imports?this=>window!css-element-queries/src/Resiz
  */
 export default class BaseViewer {
     constructor(canvas, container) {
-        this.isMouseDown = false;
         this.container = container;
-
-        this.mouse = null;
         this._toUpdate = [];
 
-        this._raycaster = new THREE.Raycaster();
         this._clock = new THREE.Clock();
-
         this._scene = new THREE.Scene();
 
         this.initRenderer(canvas);
@@ -35,10 +30,9 @@ export default class BaseViewer {
     initRenderer(canvas) {
         this._renderer = new THREE.WebGLRenderer({
             canvas: canvas,
-            alpha: true,
             antialias: true
         });
-        this._renderer.setClearColor(0xffffff, 0);
+        this._renderer.setClearColor(0xffffff);
         this._renderer.setPixelRatio(window.devicePixelRatio ? window.devicePixelRatio : 1);
     }
 
