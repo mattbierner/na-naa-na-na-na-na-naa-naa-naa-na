@@ -25917,7 +25917,7 @@
 	                            ),
 	                            _react2.default.createElement(
 	                                'a',
-	                                { href: 'https://github.com/mattbierner/na-naa-na-na-na-na-naa-naa-naa-na/' },
+	                                { href: 'http://blog.mattbierner.com/na-naa-na-na-na-na-naa-naa-naa-na/' },
 	                                'Post'
 	                            )
 	                        )

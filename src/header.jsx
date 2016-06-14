@@ -15,7 +15,7 @@ export default class Header extends React.Component {
                         <nav className="links">
                             <a href="https://github.com/mattbierner/na-naa-na-na-na-na-naa-naa-naa-na/blob/gh-pages/documentation/about.md">Help</a>
                             <a href="https://github.com/mattbierner/na-naa-na-na-na-na-naa-naa-naa-na/">Source</a>
-                            <a href="https://github.com/mattbierner/na-naa-na-na-na-na-naa-naa-naa-na/">Post</a>
+                            <a href="http://blog.mattbierner.com/na-naa-na-na-na-na-naa-naa-naa-na/">Post</a>
                         </nav>
                     </div>
                 </div>
