@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import THREE from 'three';
 import processRow from './process/row';
 import Viewer from './stream_3d_view';
 
