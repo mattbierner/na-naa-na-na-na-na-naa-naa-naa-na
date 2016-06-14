@@ -1,7 +1,7 @@
 
 <div align="center">
     <img src="https://raw.githubusercontent.com/mattbierner/na_naa-na-na-na_na-naa-naa-naa-na/gh-pages/documentation/images/the king.jpg" />
-    <p><i>Na, Naa Na Na Na, Na Naa Naa Naa Na</i> visualizes controller for games of <i>Katamari Damacy</i>.</p>
+    <p><i>Na Naa, Na Na Na Na Naa Naa Naa Na</i> visualizes controller for games of <i>Katamari Damacy</i>.</p>
 </div>
 
 
